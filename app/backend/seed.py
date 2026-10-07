@@ -10,18 +10,19 @@ conn = sqlite3.connect(db_path)
 cursor = conn.cursor()
 
 cursor.execute("""
-    CREATE OR REPLACE TABLE user(
-    phone_no int NOT NULL
-    name TEXT NOT NULL
-    role TEXT NOT NULL
-    password TEXT NOT NULL  
-    )
+    CREATE TABLE user (
+        phone_no INTEGER PRIMARY KEY,
+        name TEXT NOT NULL,
+        role TEXT NOT NULL,
+        password TEXT NOT NULL  
+        )
 """)
-sapmle_data = [
-    (9999988888, "ABC", "Trader","xyz"),
-    (7892363478, "DEF", "Driver","abc"),
+
+sample_data = [
+    (9999988888, "Shyam", "Trader","xyz"),
+    (7892363478, "Hari", "Driver","abc"),
     ]
-cursor.executemany("INSERT INTO user(phone_no, name, role, password) VALUES (?,?,?,?)",)
+cursor.executemany("INSERT INTO user(phone_no, name, role, password) VALUES (?,?,?,?)",sample_data)
 
 conn.commit()
 conn.close()
