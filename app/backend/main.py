@@ -122,3 +122,20 @@ def create_trip(trip: CreateTrip):
     return JSONResponse( content = {"message": "successfully added the trip to queue"})
 
 
+@app.post("/create/trip")
+def create_trip(trip: CreateTrip):
+    conn = get_db()
+    cursor = conn.cursor()
+    try:
+        cursor.execute("""INSERT INTO trip (driver_phno, vehicle_no, weight, source, desti, available_from, 
+        depart_by, match_id) values (?,?,?,?,?,?,?,?)""", (trip.driver_phno, trip.vehicle_no, trip.weight, 
+        trip.source, trip.desti, trip.available_from.strftime("%Y-%m-%d %H:%M:%S") if trip.available_from else None,
+        trip.depart_by.strftime("%Y-%m-%d %H:%M:%S") if trip.depart_by else None, trip.match_id))
+        conn.commit()
+    except sqlite3.IntegrityError:
+        conn.close()
+        raise HTTPException(status=400, detail = "Unable to add the trip to queue")
+    conn.close()
+    return JSONResponse( content = {"message": "successfully added the trip to queue"})
+
+
