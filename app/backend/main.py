@@ -4,6 +4,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
+from datetime import datetime
 
 app= FastAPI()
 
@@ -29,6 +30,27 @@ class UserRegister(BaseModel):
 class LoginRequest(BaseModel):
     phone_no: int
     password: str
+
+class CreateLoad(BaseModel):
+    trader_phno: int
+    item: str
+    weight: int
+    source: str
+    desti: str
+    depart_by: datetime
+    arrive_by: datetime
+    match_id: str
+
+class CreateTrip(BaseModel):
+    driver_phno: int
+    vehicle_no: str
+    weight: int
+    source: str
+    desti: str
+    available_from: datetime
+    depart_by: datetime
+    match_id: str
+
 
 @app.get("/users/check-phone/{phone_no}")
 def check_phone(phone_no: int):
@@ -66,5 +88,37 @@ def register_user(user: UserRegister):
         raise HTTPException(status=400, detail = "This phone is already registered ")
     conn.close()
     return JSONResponse( content = {"message": "successfully registered", "role": user.role})
+
+@app.post("/create/load")
+def create_load(load: CreateLoad):
+    conn = get_db()
+    cursor = conn.cursor()
+    try:
+        cursor.execute("""INSERT INTO load (trader_phno, item, weight, source, desti, depart_by, 
+        arrive_by, match_id) values (?,?,?,?,?,?,?,?)""", (load.trader_phno, load.item, load.weight, 
+        load.source, load.desti, load.depart_by.strftime("%Y-%m-%d %H:%M:%S") if load.depart_by else None, 
+        load.arrive_by.strftime("%Y-%m-%d %H:%M:%S") if load.arrive_by else None, load.match_id))
+        conn.commit()
+    except sqlite3.IntegrityError:
+        conn.close()
+        raise HTTPException(status=400, detail = "Unable to add the load to queue")
+    conn.close()
+    return JSONResponse( content = {"message": "successfully added the load to queue"})
+
+@app.post("/create/trip")
+def create_trip(trip: CreateTrip):
+    conn = get_db()
+    cursor = conn.cursor()
+    try:
+        cursor.execute("""INSERT INTO trip (driver_phno, vehicle_no, weight, source, desti, available_from, 
+        depart_by, match_id) values (?,?,?,?,?,?,?,?)""", (trip.driver_phno, trip.vehicle_no, trip.weight, 
+        trip.source, trip.desti, trip.available_from.strftime("%Y-%m-%d %H:%M:%S") if trip.available_from else None,
+        trip.depart_by.strftime("%Y-%m-%d %H:%M:%S") if trip.depart_by else None, trip.match_id))
+        conn.commit()
+    except sqlite3.IntegrityError:
+        conn.close()
+        raise HTTPException(status=400, detail = "Unable to add the trip to queue")
+    conn.close()
+    return JSONResponse( content = {"message": "successfully added the trip to queue"})
 
 
