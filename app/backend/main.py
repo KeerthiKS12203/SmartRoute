@@ -15,7 +15,7 @@ app.add_middleware(
 )
 
 def get_db():
-    db_path=os.path.jsoin(os.path.dirname(os.path.abspath(__file__)), "data.db")
+    db_path=os.path.join(os.path.dirname(os.path.abspath(__file__)), "data.db")
     conn=sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     return conn
@@ -67,4 +67,4 @@ def register_user(user: UserRegister):
     conn.close()
     return JSONResponse( content = {"message": "successfully registered", "role": user.role})
 
-    
+
