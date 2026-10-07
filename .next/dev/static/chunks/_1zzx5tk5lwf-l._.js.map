@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///home/hawcc/SmartRoute/SmartRoute/app/page.tsx"],"sourcesContent":["\"use client\"\nimport {useEffect} from \"react\";\nimport { useRouter } from \"next/navigation\";\n\nexport default function Home() {\n    const router = useRouter();\n    useEffect(() => {\n        router.push(\"/login\");\n    }, [router]);\n    return null;\n}"],"names":["Home","router","push"],"mappings":";;;;AACA;AACA;;AAFA;;;AAIe,SAASA;;IACpB,MAAMC,SAAS,IAAA,kJAAS;IACxB,IAAA,0KAAS;0BAAC;YACNA,OAAOC,IAAI,CAAC;QAChB;yBAAG;QAACD;KAAO;IACX,OAAO;AACX;GANwBD;;QACL,kJAAS;;;KADJA"}},
+    {"offset": {"line": 40, "column": 0}, "map": {"version":3,"sources":["file:///home/hawcc/SmartRoute/SmartRoute/node_modules/next/navigation.js"],"sourcesContent":["module.exports = require('./dist/client/components/navigation')\n"],"names":["module","exports"],"mappings":"AAAAA,OAAOC,OAAO","ignoreList":[0]}}]
+}
