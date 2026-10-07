@@ -163,3 +163,26 @@ def match_load(trip_id: int):
         raise HTTPException(status_code=404, detail="No matching trip found")
 
     return [dict(row) for row in rows]
+
+@app.get("/users/history_load/{trader_phno}")
+def fetch_loads(trader_phno: int):
+    conn = get_db()
+    rows = conn.execute("SELECT * from load where trader_phno = ? and (match_id <> '' or match_id is not null)", (trader_phno,))
+    conn.close()
+
+    if not rows:
+        raise HTTPException(status_code=404, detail="No past records found for this phone number")
+
+    return [dict(row) for row in rows]
+
+@app.get("/users/history_trip/{driver_phno}")
+def fetch_loads(driver_phno: int):
+    conn = get_db()
+    rows = conn.execute("SELECT * from trip where driver_phno = ? and (match_id <> '' or match_id is not null)", (driver_phno,))
+    conn.close()
+
+    if not rows:
+        raise HTTPException(status_code=404, detail="No past records found for this phone number")
+
+    return [dict(row) for row in rows]
+
