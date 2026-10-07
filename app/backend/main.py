@@ -4,6 +4,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
+from datetime import datetime
 
 app= FastAPI()
 
@@ -31,7 +32,6 @@ class LoginRequest(BaseModel):
     password: str
 
 class CreateLoad(BaseModel):
-    load_id: int
     trader_phno: int
     item: str
     weight: int
@@ -39,11 +39,9 @@ class CreateLoad(BaseModel):
     desti: str
     depart_by: datetime
     arrive_by: datetime
-    timestamp: datetime
     match_id: str
 
 class CreateTrip(BaseModel):
-    trip_id: int
     driver_phno: int
     vehicle_no: str
     weight: int
@@ -51,7 +49,6 @@ class CreateTrip(BaseModel):
     desti: str
     available_from: datetime
     depart_by: datetime
-    timestamp: datetime
     match_id: str
 
 
@@ -97,10 +94,10 @@ def create_load(load: CreateLoad):
     conn = get_db()
     cursor = conn.cursor()
     try:
-        cursor.execute("""INSERT INTO load (load_id, trader_phno, item, weight, source, desti, depart_by, 
-        arrive_by, timestamp, match_id) values (?,?,?,?,?,?,?,?,?,?)""", (load.load_id, load.trader_phno, load.item, load.weight, 
+        cursor.execute("""INSERT INTO load (trader_phno, item, weight, source, desti, depart_by, 
+        arrive_by, match_id) values (?,?,?,?,?,?,?,?)""", (load.trader_phno, load.item, load.weight, 
         load.source, load.desti, load.depart_by.strftime("%Y-%m-%d %H:%M:%S") if load.depart_by else None, 
-        load.arrive_by.strftime("%Y-%m-%d %H:%M:%S") if load.arrive_by else None, load.timestamp, load.match_id))
+        load.arrive_by.strftime("%Y-%m-%d %H:%M:%S") if load.arrive_by else None, load.match_id))
         conn.commit()
     except sqlite3.IntegrityError:
         conn.close()
@@ -113,10 +110,10 @@ def create_trip(trip: CreateTrip):
     conn = get_db()
     cursor = conn.cursor()
     try:
-        cursor.execute("""INSERT INTO trip (trip_id, driver_phno, vehicle_no, weight, source, desti, available_from, 
-        depart_by, timestamp, match_id) values (?,?,?,?,?,?,?,?,?,?)""", (trip.trip_id, trip.driver_phno, trip.vehicle_no, trip.weight, 
+        cursor.execute("""INSERT INTO trip (driver_phno, vehicle_no, weight, source, desti, available_from, 
+        depart_by, match_id) values (?,?,?,?,?,?,?,?)""", (trip.driver_phno, trip.vehicle_no, trip.weight, 
         trip.source, trip.desti, trip.available_from.strftime("%Y-%m-%d %H:%M:%S") if trip.available_from else None,
-        trip.depart_by.strftime("%Y-%m-%d %H:%M:%S") if trip.depart_by else None, trip.timestamp, trip.match_id))
+        trip.depart_by.strftime("%Y-%m-%d %H:%M:%S") if trip.depart_by else None, trip.match_id))
         conn.commit()
     except sqlite3.IntegrityError:
         conn.close()
