@@ -95,9 +95,9 @@ def create_load(load: CreateLoad):
     cursor = conn.cursor()
     try:
         cursor.execute("""INSERT INTO load (trader_phno, item, weight, source, desti, depart_by, 
-        arrive_by, match_id) values (?,?,?,?,?,?,?,?)""", (load.trader_phno, load.item, load.weight, 
+        arrive_by) values (?,?,?,?,?,?,?)""", (load.trader_phno, load.item, load.weight, 
         load.source, load.desti, load.depart_by.strftime("%Y-%m-%d %H:%M:%S") if load.depart_by else None, 
-        load.arrive_by.strftime("%Y-%m-%d %H:%M:%S") if load.arrive_by else None, load.match_id))
+        load.arrive_by.strftime("%Y-%m-%d %H:%M:%S") if load.arrive_by else None))
         conn.commit()
     except sqlite3.IntegrityError:
         conn.close()
@@ -111,9 +111,9 @@ def create_trip(trip: CreateTrip):
     cursor = conn.cursor()
     try:
         cursor.execute("""INSERT INTO trip (driver_phno, vehicle_no, weight, source, desti, available_from, 
-        depart_by, match_id) values (?,?,?,?,?,?,?,?)""", (trip.driver_phno, trip.vehicle_no, trip.weight, 
+        depart_by) values (?,?,?,?,?,?,?)""", (trip.driver_phno, trip.vehicle_no, trip.weight, 
         trip.source, trip.desti, trip.available_from.strftime("%Y-%m-%d %H:%M:%S") if trip.available_from else None,
-        trip.depart_by.strftime("%Y-%m-%d %H:%M:%S") if trip.depart_by else None, trip.match_id))
+        trip.depart_by.strftime("%Y-%m-%d %H:%M:%S") if trip.depart_by else None))
         conn.commit()
     except sqlite3.IntegrityError:
         conn.close()
@@ -122,20 +122,44 @@ def create_trip(trip: CreateTrip):
     return JSONResponse( content = {"message": "successfully added the trip to queue"})
 
 
-@app.post("/create/trip")
-def create_trip(trip: CreateTrip):
+
+@app.get("/users/current_driver/{driver_phno}")
+def fetch_trips(phone_no: int):
     conn = get_db()
-    cursor = conn.cursor()
-    try:
-        cursor.execute("""INSERT INTO trip (driver_phno, vehicle_no, weight, source, desti, available_from, 
-        depart_by, match_id) values (?,?,?,?,?,?,?,?)""", (trip.driver_phno, trip.vehicle_no, trip.weight, 
-        trip.source, trip.desti, trip.available_from.strftime("%Y-%m-%d %H:%M:%S") if trip.available_from else None,
-        trip.depart_by.strftime("%Y-%m-%d %H:%M:%S") if trip.depart_by else None, trip.match_id))
-        conn.commit()
-    except sqlite3.IntegrityError:
-        conn.close()
-        raise HTTPException(status=400, detail = "Unable to add the trip to queue")
+    rows = conn.execute("SELECT * from trip where driver_phno = ? and (match_id = '' or match_id is null)", (driver_phno,))
     conn.close()
-    return JSONResponse( content = {"message": "successfully added the trip to queue"})
+
+    if not rows:
+        raise HTTPException(status_code=404, detail="No records found for this phone number")
+
+    return [dict(row) for row in rows]
 
 
+@app.get("/users/current_load/{trader_phno}")
+def fetch_loads(trader_phno: int):
+    conn = get_db()
+    rows = conn.execute("SELECT * from load where trader_phno = ? and (match_id = '' or match_id is null)", (driver_phno,))
+    conn.close()
+
+    if not rows:
+        raise HTTPException(status_code=404, detail="No records found for this phone number")
+
+    return [dict(row) for row in rows]
+
+@app.get("/users/match_load/{trip_id}")
+def match_load(trip_id: int):
+    conn = get_db()
+    rows = conn.execute("""SELECT * 
+                        from load l join trip t 
+                        on l.source = t.source 
+                        and l.desti = t.desti
+                        where datetime(l.depart_by) <= datetime(t.depart_by)
+                        and l.weight <= t.weight
+                        and (match_id = '' or match_id is null)
+                        """)
+    conn.close()
+
+    if not rows:
+        raise HTTPException(status_code=404, detail="No matching trip found")
+
+    return [dict(row) for row in rows]
