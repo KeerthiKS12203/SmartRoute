@@ -1,9 +1,11 @@
 'use client';
 
-import { useState, type ChangeEvent } from 'react';
-import { Package, MapPin, Calendar, Weight } from 'lucide-react';
+import { useState, useEffect, type ChangeEvent } from 'react';
+import { Package, MapPin, Calendar, RefreshCw, Weight } from 'lucide-react';
 
 type TabType = 'Create' | 'Current' | 'History';
+
+const url = "https://3000-kode-ws-c69bd7bb1.hebbale.academy"
 
 function CreateLoad(){
     const [language, setLanguage] = useState<"en"| "kn">("en");
@@ -165,45 +167,132 @@ interface ShipmentItem {
   weight: string;
 }
 
-// Mock Data
-const sampleItems: ShipmentItem[] = [
-  {
-    id: '1',
-    item: 'Industrial Engine Parts',
-    source: 'Chicago, IL',
-    destination: 'Austin, TX',
-    departBy: 'Oct 12, 2026',
-    weight: '1,250 lbs',
-  },
-  {
-    id: '2',
-    item: 'Medical Supplies (Boxes)',
-    source: 'Boston, MA',
-    destination: 'Miami, FL',
-    departBy: 'Oct 15, 2026',
-    weight: '340 lbs',
-  },
-];
+  // const handleFetchLoads = async (e: React.FormEvent, phno: Number) => {
+  //   const [error, setError] = useState("")
+  //   e.preventDefault();
+  //   setError("");
+  //   try {
+  //     // ✅ FIX: Full localhost URL with port 8000 and the complete API route
+  //     const res = await fetch(`${url}/users/users/current_load/${phno}`);
+      
+  //     const rawText = await res.text(); 
+      
+  //     if (rawText.includes("true")) {
+  //       return ()
+  //     } else {
+  //       localStorage.setItem("temp_register_phone", phone);
+  //       router.push("/register");
+  //     }
+  //   } catch (err) {
+  //     setError("Server error. Is your FastAPI engine active?");
+  //   }
+  // };
 
-function currentLoads() {
+// TypeScript interface matching your FastAPI schema mapping
+interface LoadItem {
+  load_id: number;
+  trader_phno: number;
+  item: string | null;
+  weight: number | null;
+  source: string;
+  desti: string;
+  depart_by: string | null;
+  arrive_by: string | null;
+  timestamp: string;
+  match_id: string | null;
+}
+
+function CurrentLoads() {
+  const [loads, setLoads] = useState<LoadItem[]>([]);
+  const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+
+  // Configuration base URL for your FastAPI server engine
+  const API_BASE_URL = "http://localhost:8000"; 
+
+  const handleFetchLoads = async () => {
+    setError("");
+    setLoading(true);
+
+    // Pull phone parameters out from browser local storage safely
+    const phno = localStorage.getItem("temp_register_phone");
+    
+    if (!phno) {
+      setError("No phone number found in storage. Please log in.");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const res = await fetch(`${API_BASE_URL}/users/current_load/${phno}`);
+      
+      if (!res.ok) {
+        if (res.status === 404) {
+          setLoads([]);
+          throw new Error("No active matching loads found.");
+        }
+        throw new Error("Failed to communicate with data engine.");
+      }
+      
+      const data: LoadItem[] = await res.json();
+      setLoads(data);
+    } catch (err: any) {
+      setError(err.message || "Server error. Is your FastAPI engine active?");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Run automatically when the dashboard viewport initialises
+  useEffect(() => {
+    handleFetchLoads();
+  }, []);
+
   return (
-    <div className="w-full py-4">
-      {/* 50% width on md screens, full width on mobile screens */}
+    <div className="w-full py-4 text-left">
+      {/* Action Header bar with Reload Status Trigger */}
+      <div className="flex items-center justify-between mb-4" style={{ display: 'flex', justifyItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
+        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Active Shipments Pipeline</h3>
+        <button 
+          onClick={handleFetchLoads}
+          disabled={loading}
+          className="flex items-center gap-1 text-xs text-blue-600 font-medium hover:underline border-none bg-transparent cursor-pointer disabled:opacity-50"
+          style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', color: '#2563eb', cursor: 'pointer', background: 'transparent', border: 'none' }}
+        >
+          <RefreshCw className={`w-3 h-3 ${loading ? 'animate-spin' : ''}`} />
+          {loading ? 'Updating...' : 'Refresh List'}
+        </button>
+      </div>
+
+      {/* Conditional Error notifications */}
+      {error && (
+        <div className="p-4 mb-4 text-sm text-amber-700 bg-amber-50 rounded-lg border border-amber-200" style={{ padding: '1rem', backgroundColor: '#fffbeb', border: '1px solid #fde68a', borderRadius: '0.5rem', color: '#b45309', marginBottom: '1rem' }}>
+          {error}
+        </div>
+      )}
+
+      {/* Empty State Handler fallback */}
+      {!loading && loads.length === 0 && !error && (
+        <div className="p-8 text-center text-sm text-gray-400 bg-white rounded-xl border border-dashed border-gray-200" style={{ padding: '2rem', textAlign: 'center', color: '#9ca3af', backgroundColor: '#ffffff', border: '1px dashed #e5e7eb', borderRadius: '0.75rem' }}>
+          No records are currently registered under this account profile.
+        </div>
+      )}
+
+      {/* Responsive Structural View layout grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full" style={{ display: 'grid', width: '100%', gap: '1.5rem' }}>
-        {sampleItems.map((data) => (
+        {loads.map((data) => (
           <div
-            key={data.id}
-            className="bg-white rounded-xl shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-200 text-left"
+            key={data.load_id}
+            className="bg-white rounded-xl shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-200"
             style={{
               backgroundColor: '#ffffff',
               borderRadius: '0.75rem',
               border: '1px solid #e5e7eb',
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-              padding: '1.5rem',
-              textAlign: 'left'
+              padding: '1.5rem'
             }}
           >
-            {/* Header: Load Item Name */}
+            {/* Header: Load Item Title */}
             <div className="flex items-start justify-between border-b border-gray-100 pb-4 mb-4" style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f3f4f6', paddingBottom: '1rem', marginBottom: '1rem' }}>
               <div className="flex items-center space-x-3" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                 <div className="p-2 bg-blue-50 text-blue-600 rounded-lg" style={{ backgroundColor: '#eff6ff', padding: '0.5rem', borderRadius: '0.5rem', color: '#2563eb' }}>
@@ -211,10 +300,10 @@ function currentLoads() {
                 </div>
                 <div>
                   <span className="text-xs font-semibold text-blue-600 uppercase tracking-wider" style={{ fontSize: '0.75rem', fontWeight: 600, color: '#2563eb', textTransform: 'uppercase' }}>
-                    Load Item
+                    Load ID #{data.load_id}
                   </span>
                   <h3 className="text-lg font-bold text-gray-900 leading-tight" style={{ fontSize: '1.125rem', fontWeight: 700, color: '#111827', margin: 0 }}>
-                    {data.load_item}
+                    {data.item || 'Unlabeled Freight'}
                   </h3>
                 </div>
               </div>
@@ -223,34 +312,36 @@ function currentLoads() {
               </span>
             </div>
 
-            {/* Body: From & To Routes */}
+            {/* Body: From (Source) & To (Desti) Metrics */}
             <div className="relative pl-6 space-y-4 my-4 ml-3" style={{ position: 'relative', paddingLeft: '1.5rem', marginLeft: '0.75rem', borderLeft: '2px dashed #e5e7eb' }}>
-              {/* From */}
+              {/* Source (from) */}
               <div className="relative" style={{ marginBottom: '1rem' }}>
                 <div className="absolute bg-white p-0.5 text-gray-400" style={{ position: 'absolute', left: '-31px', top: '2px', backgroundColor: '#ffffff', padding: '0.125rem' }}>
                   <MapPin className="w-4 h-4 text-gray-400" />
                 </div>
                 <p className="text-xs text-gray-500 font-medium uppercase" style={{ fontSize: '0.75rem', color: '#6b7280', margin: 0, textTransform: 'uppercase' }}>From</p>
-                <p className="text-sm font-semibold text-gray-800" style={{ fontSize: '0.875rem', fontWeight: 600, color: '#1f2937', margin: 0 }}>{data.from}</p>
+                <p className="text-sm font-semibold text-gray-800" style={{ fontSize: '0.875rem', fontWeight: 600, color: '#1f2937', margin: 0 }}>{data.source}</p>
               </div>
 
-              {/* To */}
+              {/* Destination (desti) */}
               <div className="relative">
-                <div className="absolute bg-white p-0.5 text-gray-600" style={{ position: 'absolute', left: '-31px', top: '2px', backgroundColor: '#ffffff', padding: '0.125rem' }}>
+                <div className="absolute bg-white p-0.5 text-blue-600" style={{ position: 'absolute', left: '-31px', top: '2px', backgroundColor: '#ffffff', padding: '0.125rem' }}>
                   <MapPin className="w-4 h-4 text-blue-600" style={{ color: '#2563eb' }} />
                 </div>
                 <p className="text-xs text-gray-500 font-medium uppercase" style={{ fontSize: '0.75rem', color: '#6b7280', margin: 0, textTransform: 'uppercase' }}>To</p>
-                <p className="text-sm font-semibold text-gray-800" style={{ fontSize: '0.875rem', fontWeight: 600, color: '#1f2937', margin: 0 }}>{data.to}</p>
+                <p className="text-sm font-semibold text-gray-800" style={{ fontSize: '0.875rem', fontWeight: 600, color: '#1f2937', margin: 0 }}>{data.desti}</p>
               </div>
             </div>
 
-            {/* Footer: Weight Field */}
+            {/* Footer: Mass Weight Attributes */}
             <div className="pt-4 border-t border-gray-100 text-sm" style={{ borderTop: '1px solid #f3f4f6', paddingTop: '1rem', fontSize: '0.875rem' }}>
               <div className="flex items-center space-x-2.5" style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}>
                 <Weight className="w-4 h-4 text-gray-400 shrink-0" style={{ color: '#9ca3af' }} />
                 <div>
-                  <p className="text-xs text-gray-500" style={{ fontSize: '0.75rem', color: '#6b7280', margin: 0 }}>Weight</p>
-                  <p className="font-medium text-gray-800" style={{ fontWeight: 500, color: '#1f2937', margin: 0 }}>{data.weight}</p>
+                  <p className="text-xs text-gray-500" style={{ fontSize: '0.75rem', color: '#6b7280', margin: 0 }}>Weight Metric</p>
+                  <p className="font-medium text-gray-800" style={{ fontWeight: 500, color: '#1f2937', margin: 0 }}>
+                    {data.weight ? `${data.weight.toLocaleString()} kg` : 'Weight Unspecified'}
+                  </p>
                 </div>
               </div>
             </div>
@@ -260,7 +351,7 @@ function currentLoads() {
       </div>
     </div>
   );
-};
+}
 
 function CreateTab() {
   return (
@@ -275,7 +366,7 @@ function CurrentTab() {
   return (
     <div className="p-6 bg-gray-50 border border-gray-100 rounded-xl space-y-3">
       <h2 className="text-xl font-semibold text-gray-800">📋 Technical Current</h2>
-      {currentLoads()}
+      {CurrentLoads()}
     </div>
   );
 }
