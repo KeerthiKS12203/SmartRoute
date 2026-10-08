@@ -167,26 +167,6 @@ interface ShipmentItem {
   weight: string;
 }
 
-  // const handleFetchLoads = async (e: React.FormEvent, phno: Number) => {
-  //   const [error, setError] = useState("")
-  //   e.preventDefault();
-  //   setError("");
-  //   try {
-  //     // ✅ FIX: Full localhost URL with port 8000 and the complete API route
-  //     const res = await fetch(`${url}/users/users/current_load/${phno}`);
-      
-  //     const rawText = await res.text(); 
-      
-  //     if (rawText.includes("true")) {
-  //       return ()
-  //     } else {
-  //       localStorage.setItem("temp_register_phone", phone);
-  //       router.push("/register");
-  //     }
-  //   } catch (err) {
-  //     setError("Server error. Is your FastAPI engine active?");
-  //   }
-  // };
 
 // TypeScript interface matching your FastAPI schema mapping
 interface LoadItem {
