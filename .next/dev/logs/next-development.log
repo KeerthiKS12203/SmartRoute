@@ -4,3 +4,7 @@
 {"timestamp":"00:00:18.885","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
 {"timestamp":"00:03:45.767","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
 {"timestamp":"00:07:17.701","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:09:03.398","source":"Browser","level":"LOG","message":"Sending load payload: {\"arrive_by\":\"2026-10-09T11:21:00.000Z\",\"depart_by\":\"2026-10-08T11:21:00.000Z\",\"desti\":\"Mangalore\",\"item\":\"Chilli\",\"source\":\"Amargol\",\"trader_phno\":9916120233,\"weight\":200}"}
+{"timestamp":"00:09:30.090","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:09:53.207","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:15:01.682","source":"Server","level":"LOG","message":"✓ Compiled in 1404ms"}

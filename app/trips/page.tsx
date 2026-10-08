@@ -70,6 +70,10 @@ interface SelectedLoad {
 
 type HistoryTrip = TripItem;
 
+/* -------------------------------------------------------------------------- */
+/* HELPERS                                                                    */
+/* -------------------------------------------------------------------------- */
+
 function formatDateTime(value: string | null) {
   if (!value) return 'N/A';
 
@@ -83,7 +87,9 @@ function formatDateTime(value: string | null) {
 }
 
 function formatWeight(value: number | null) {
-  return value == null ? 'N/A' : `${value.toLocaleString()} kg`;
+  return value == null
+    ? 'N/A'
+    : `${value.toLocaleString()} kg`;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -91,21 +97,28 @@ function formatWeight(value: number | null) {
 /* -------------------------------------------------------------------------- */
 
 function CreateTrip() {
-  const [language, setLanguage] = useState<'en' | 'kn'>('en');
+  const [language, setLanguage] =
+    useState<'en' | 'kn'>('en');
 
-  const [submitting, setSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
-  const [submitError, setSubmitError] = useState('');
+  const [submitting, setSubmitting] =
+    useState(false);
 
-  const [formData, setFormData] = useState<TripFormState>({
-    vehicleNumber: '',
-    weight: '',
-    source: '',
-    desti: '',
-    available_from: '',
-    depart_by: '',
-    price: '',
-  });
+  const [submitMessage, setSubmitMessage] =
+    useState('');
+
+  const [submitError, setSubmitError] =
+    useState('');
+
+  const [formData, setFormData] =
+    useState<TripFormState>({
+      vehicleNumber: '',
+      weight: '',
+      source: '',
+      desti: '',
+      available_from: '',
+      depart_by: '',
+      price: '',
+    });
 
   const text = {
     en: {
@@ -119,30 +132,34 @@ function CreateTrip() {
       departureBy: 'Departure By',
       price: 'Price',
       submit: 'Submit',
-      vehicleError: 'Enter appropriate vehicle number',
       vehiclePlaceholder: 'Enter Vehicle Number',
       weightPlaceholder: 'Enter weight',
       fromPlaceholder: 'Enter starting location',
       toPlaceholder: 'Enter destination',
       pricePlaceholder: 'Enter price',
     },
+
     kn: {
       title: 'ಹೊಸ ಪ್ರವಾಸ',
       vehicleNumber: 'ವಾಹನ ಸಂಖ್ಯೆ',
       weight: 'ತೂಕ',
-      weightNote: 'ತೂಕವನ್ನು ಕಿಲೋಗ್ರಾಂಗಳಲ್ಲಿ (ಕೆಜಿ) ನಮೂದಿಸಿ.',
+      weightNote:
+        'ತೂಕವನ್ನು ಕಿಲೋಗ್ರಾಂಗಳಲ್ಲಿ (ಕೆಜಿ) ನಮೂದಿಸಿ.',
       from: 'ಇಂದ',
       to: 'ಗೆ',
       availableFrom: 'ಲಭ್ಯವಿರುವ ಸಮಯ',
       departureBy: 'ನಿರ್ಗಮನದ ಸಮಯ',
       price: 'ಬೆಲೆ',
       submit: 'ಸಲ್ಲಿಸಿ',
-      vehicleError: 'ದಯವಿಟ್ಟು ನಿಖರವಾಗಿ ನಮೂದಿಸಿ.',
-      vehiclePlaceholder: 'ವಾಹನ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ',
+      vehiclePlaceholder:
+        'ವಾಹನ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ',
       weightPlaceholder: 'ತೂಕವನ್ನು ನಮೂದಿಸಿ',
-      fromPlaceholder: 'ಪ್ರಾರಂಭದ ಸ್ಥಳವನ್ನು ನಮೂದಿಸಿ',
-      toPlaceholder: 'ಗಮ್ಯಸ್ಥಾನವನ್ನು ನಮೂದಿಸಿ',
-      pricePlaceholder: 'ಬೆಲೆಯನ್ನು ನಮೂದಿಸಿ',
+      fromPlaceholder:
+        'ಪ್ರಾರಂಭದ ಸ್ಥಳವನ್ನು ನಮೂದಿಸಿ',
+      toPlaceholder:
+        'ಗಮ್ಯಸ್ಥಾನವನ್ನು ನಮೂದಿಸಿ',
+      pricePlaceholder:
+        'ಬೆಲೆಯನ್ನು ನಮೂದಿಸಿ',
     },
   };
 
@@ -158,17 +175,16 @@ function CreateTrip() {
     }));
   };
 
-  const handleVehicleChange = (value: string) => {
-    handleChange('vehicleNumber', value);
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (
+    e: React.FormEvent
+  ) => {
     e.preventDefault();
 
     setSubmitMessage('');
     setSubmitError('');
 
-    const phno = localStorage.getItem('user_phone');
+    const phno =
+      localStorage.getItem('user_phone');
 
     if (!phno) {
       setSubmitError(
@@ -177,9 +193,24 @@ function CreateTrip() {
       return;
     }
 
+    if (
+      !/^\d{10}$/.test(
+        formData.vehicleNumber
+      )
+    ) {
+      setSubmitError(
+        'Enter appropriate vehicle number.'
+      );
+      return;
+    }
 
-    if (!formData.weight || Number(formData.weight) <= 0) {
-      setSubmitError('Please enter a valid weight.');
+    if (
+      !formData.weight ||
+      Number(formData.weight) <= 0
+    ) {
+      setSubmitError(
+        'Please enter a valid weight.'
+      );
       return;
     }
 
@@ -218,16 +249,25 @@ function CreateTrip() {
     try {
       const payload = {
         driver_phno: Number(phno),
-        vehicle_no: formData.vehicleNumber,
+        vehicle_no:
+          formData.vehicleNumber,
         weight: Number(formData.weight),
-        source: formData.source.trim(),
-        desti: formData.desti.trim(),
+        source:
+          formData.source.trim(),
+        desti:
+          formData.desti.trim(),
 
         available_from:
-          formData.available_from.replace('T', ' ') + ':00',
+          formData.available_from.replace(
+            'T',
+            ' '
+          ) + ':00',
 
         depart_by:
-          formData.depart_by.replace('T', ' ') + ':00',
+          formData.depart_by.replace(
+            'T',
+            ' '
+          ) + ':00',
       };
 
       const response = await fetch(
@@ -235,15 +275,17 @@ function CreateTrip() {
         {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
+            'Content-Type':
+              'application/json',
           },
           body: JSON.stringify(payload),
         }
       );
 
-      const result = await response
-        .json()
-        .catch(() => null);
+      const result =
+        await response
+          .json()
+          .catch(() => null);
 
       if (!response.ok) {
         throw new Error(
@@ -268,7 +310,8 @@ function CreateTrip() {
       });
     } catch (error: any) {
       setSubmitError(
-        error.message || 'Unable to submit the trip.'
+        error.message ||
+          'Unable to submit the trip.'
       );
     } finally {
       setSubmitting(false);
@@ -281,7 +324,7 @@ function CreateTrip() {
         .driver-form-page {
           margin: 32px auto;
           padding: 32px;
-          background-color: #ffffff;
+          background: #ffffff;
           border-radius: 12px;
           box-shadow:
             0 4px 6px -1px rgba(0,0,0,0.1),
@@ -299,11 +342,11 @@ function CreateTrip() {
           border-radius: 6px;
           cursor: pointer;
           border: 1px solid #d1d5db;
-          background-color: #ffffff;
+          background: #ffffff;
         }
 
         .lang-btn.active {
-          background-color: #2563eb;
+          background: #2563eb;
           color: white;
           border-color: #2563eb;
         }
@@ -348,7 +391,7 @@ function CreateTrip() {
         .submit-btn {
           width: 100%;
           padding: 12px;
-          background-color: #2563eb;
+          background: #2563eb;
           color: white;
           border: none;
           font-size: 16px;
@@ -380,15 +423,19 @@ function CreateTrip() {
           style={{
             display: 'flex',
             justifyContent: 'flex-end',
-            marginBottom: '16px',
+            marginBottom: 16,
           }}
         >
           <button
             type="button"
             className={`lang-btn ${
-              language === 'en' ? 'active' : ''
+              language === 'en'
+                ? 'active'
+                : ''
             }`}
-            onClick={() => setLanguage('en')}
+            onClick={() =>
+              setLanguage('en')
+            }
           >
             English
           </button>
@@ -396,9 +443,13 @@ function CreateTrip() {
           <button
             type="button"
             className={`lang-btn ${
-              language === 'kn' ? 'active' : ''
+              language === 'kn'
+                ? 'active'
+                : ''
             }`}
-            onClick={() => setLanguage('kn')}
+            onClick={() =>
+              setLanguage('kn')
+            }
           >
             ಕನ್ನಡ
           </button>
@@ -406,9 +457,9 @@ function CreateTrip() {
 
         <h2
           style={{
-            fontSize: '22px',
+            fontSize: 22,
             fontWeight: 700,
-            marginBottom: '24px',
+            marginBottom: 24,
             color: '#111827',
           }}
         >
@@ -420,7 +471,7 @@ function CreateTrip() {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '20px',
+            gap: 20,
           }}
         >
           <div>
@@ -432,11 +483,18 @@ function CreateTrip() {
               className="form-input"
               type="text"
               required
-              value={formData.vehicleNumber}
-              onChange={(e) =>
-                handleVehicleChange(e.target.value)
+              value={
+                formData.vehicleNumber
               }
-              placeholder={t.vehiclePlaceholder}
+              onChange={(e) =>
+                handleChange(
+                  'vehicleNumber',
+                  e.target.value
+                )
+              }
+              placeholder={
+                t.vehiclePlaceholder
+              }
             />
           </div>
 
@@ -449,18 +507,23 @@ function CreateTrip() {
               className="form-input"
               type="number"
               min="1"
+              required
               value={formData.weight}
               onChange={(e) =>
-                handleChange('weight', e.target.value)
+                handleChange(
+                  'weight',
+                  e.target.value
+                )
               }
-              placeholder={t.weightPlaceholder}
-              required
+              placeholder={
+                t.weightPlaceholder
+              }
             />
 
             <small
               style={{
                 display: 'block',
-                marginTop: '6px',
+                marginTop: 6,
                 color: '#64748b',
               }}
             >
@@ -477,6 +540,7 @@ function CreateTrip() {
               <input
                 className="form-input"
                 type="text"
+                required
                 value={formData.source}
                 onChange={(e) =>
                   handleChange(
@@ -484,8 +548,9 @@ function CreateTrip() {
                     e.target.value
                   )
                 }
-                placeholder={t.fromPlaceholder}
-                required
+                placeholder={
+                  t.fromPlaceholder
+                }
               />
             </div>
 
@@ -497,6 +562,7 @@ function CreateTrip() {
               <input
                 className="form-input"
                 type="text"
+                required
                 value={formData.desti}
                 onChange={(e) =>
                   handleChange(
@@ -504,8 +570,9 @@ function CreateTrip() {
                     e.target.value
                   )
                 }
-                placeholder={t.toPlaceholder}
-                required
+                placeholder={
+                  t.toPlaceholder
+                }
               />
             </div>
           </div>
@@ -519,14 +586,16 @@ function CreateTrip() {
               <input
                 className="form-input"
                 type="datetime-local"
-                value={formData.available_from}
+                required
+                value={
+                  formData.available_from
+                }
                 onChange={(e) =>
                   handleChange(
                     'available_from',
                     e.target.value
                   )
                 }
-                required
               />
             </div>
 
@@ -538,14 +607,16 @@ function CreateTrip() {
               <input
                 className="form-input"
                 type="datetime-local"
-                value={formData.depart_by}
+                required
+                value={
+                  formData.depart_by
+                }
                 onChange={(e) =>
                   handleChange(
                     'depart_by',
                     e.target.value
                   )
                 }
-                required
               />
             </div>
           </div>
@@ -566,7 +637,9 @@ function CreateTrip() {
                   e.target.value
                 )
               }
-              placeholder={t.pricePlaceholder}
+              placeholder={
+                t.pricePlaceholder
+              }
             />
           </div>
 
@@ -576,7 +649,8 @@ function CreateTrip() {
                 padding: '12px 14px',
                 background: '#fef2f2',
                 color: '#991b1b',
-                border: '1px solid #fecaca',
+                border:
+                  '1px solid #fecaca',
                 borderRadius: 8,
                 fontSize: 13,
               }}
@@ -591,7 +665,8 @@ function CreateTrip() {
                 padding: '12px 14px',
                 background: '#f0fdf4',
                 color: '#166534',
-                border: '1px solid #bbf7d0',
+                border:
+                  '1px solid #bbf7d0',
                 borderRadius: 8,
                 fontSize: 13,
               }}
@@ -616,7 +691,7 @@ function CreateTrip() {
 }
 
 /* -------------------------------------------------------------------------- */
-/* TRIP SUMMARY                                                               */
+/* INFO BOX                                                                   */
 /* -------------------------------------------------------------------------- */
 
 function InfoBox({
@@ -665,6 +740,10 @@ function InfoBox({
   );
 }
 
+/* -------------------------------------------------------------------------- */
+/* TRIP SUMMARY                                                               */
+/* -------------------------------------------------------------------------- */
+
 function TripSummaryCard({
   trip,
 }: {
@@ -674,7 +753,8 @@ function TripSummaryCard({
     <div
       style={{
         background: '#ffffff',
-        border: '1px solid #dbeafe',
+        border:
+          '1px solid #dbeafe',
         borderRadius: 14,
         padding: 22,
         boxShadow:
@@ -685,7 +765,8 @@ function TripSummaryCard({
       <div
         style={{
           display: 'flex',
-          justifyContent: 'space-between',
+          justifyContent:
+            'space-between',
           alignItems: 'flex-start',
           gap: 12,
           marginBottom: 18,
@@ -715,7 +796,8 @@ function TripSummaryCard({
                 fontSize: 12,
                 fontWeight: 700,
                 color: '#2563eb',
-                textTransform: 'uppercase',
+                textTransform:
+                  'uppercase',
               }}
             >
               Trip #{trip.trip_id}
@@ -770,7 +852,9 @@ function TripSummaryCard({
         <InfoBox
           icon={<Weight size={17} />}
           label="Vehicle Capacity"
-          value={formatWeight(trip.weight)}
+          value={formatWeight(
+            trip.weight
+          )}
         />
 
         <InfoBox
@@ -812,7 +896,9 @@ function MatchLoadCard({
   priceRange?: PriceRange;
   price: string;
   onToggle: () => void;
-  onPriceChange: (value: string) => void;
+  onPriceChange: (
+    value: string
+  ) => void;
 }) {
   const cardBackgrounds = [
     '#eff6ff',
@@ -824,14 +910,17 @@ function MatchLoadCard({
   ];
 
   const colorIndex =
-    load.load_id % cardBackgrounds.length;
+    load.load_id %
+    cardBackgrounds.length;
 
   return (
     <div
       style={{
         background: disabled
           ? '#f3f4f6'
-          : cardBackgrounds[colorIndex],
+          : cardBackgrounds[
+              colorIndex
+            ],
         border: selected
           ? '2px solid #2563eb'
           : '1px solid #e5e7eb',
@@ -863,7 +952,8 @@ function MatchLoadCard({
           style={{
             display: 'flex',
             alignItems: 'flex-start',
-            justifyContent: 'space-between',
+            justifyContent:
+              'space-between',
             gap: 12,
           }}
         >
@@ -881,14 +971,16 @@ function MatchLoadCard({
                 borderRadius: 10,
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
+                justifyContent:
+                  'center',
                 background: selected
                   ? '#2563eb'
                   : '#ffffff',
                 color: selected
                   ? '#ffffff'
                   : '#2563eb',
-                border: '1px solid #dbeafe',
+                border:
+                  '1px solid #dbeafe',
               }}
             >
               {selected ? (
@@ -954,12 +1046,17 @@ function MatchLoadCard({
               '2px dashed #cbd5e1',
           }}
         >
-          <div style={{ marginBottom: 11 }}>
+          <div
+            style={{
+              marginBottom: 11,
+            }}
+          >
             <div
               style={{
                 fontSize: 11,
                 color: '#64748b',
-                textTransform: 'uppercase',
+                textTransform:
+                  'uppercase',
               }}
             >
               From
@@ -980,7 +1077,8 @@ function MatchLoadCard({
               style={{
                 fontSize: 11,
                 color: '#64748b',
-                textTransform: 'uppercase',
+                textTransform:
+                  'uppercase',
               }}
             >
               To
@@ -1085,8 +1183,12 @@ function MatchLoadCard({
 
             <input
               type="number"
-              min={priceRange?.price_from}
-              max={priceRange?.price_to}
+              min={
+                priceRange?.price_from
+              }
+              max={
+                priceRange?.price_to
+              }
               step="1"
               value={price}
               disabled={!priceRange}
@@ -1102,7 +1204,8 @@ function MatchLoadCard({
               }
               style={{
                 width: '100%',
-                boxSizing: 'border-box',
+                boxSizing:
+                  'border-box',
                 padding:
                   '10px 12px 10px 32px',
                 borderRadius: 9,
@@ -1123,7 +1226,8 @@ function MatchLoadCard({
               <div
                 style={{
                   display: 'flex',
-                  alignItems: 'center',
+                  alignItems:
+                    'center',
                   gap: 5,
                   marginTop: 7,
                   color: '#dc2626',
@@ -1131,6 +1235,7 @@ function MatchLoadCard({
                 }}
               >
                 <AlertCircle size={14} />
+
                 Enter a price between ₹
                 {priceRange.price_from} and ₹
                 {priceRange.price_to}.
@@ -1154,10 +1259,14 @@ function CurrentTrips() {
     useState<MatchLoad[]>([]);
 
   const [selectedLoads, setSelectedLoads] =
-    useState<Record<number, SelectedLoad>>({});
+    useState<
+      Record<number, SelectedLoad>
+    >({});
 
   const [priceRanges, setPriceRanges] =
-    useState<Record<number, PriceRange>>({});
+    useState<
+      Record<number, PriceRange>
+    >({});
 
   const [loadingTrip, setLoadingTrip] =
     useState(false);
@@ -1174,36 +1283,39 @@ function CurrentTrips() {
   const [success, setSuccess] =
     useState('');
 
-  const fetchCurrentTrip = async () => {
-    setLoadingTrip(true);
-    setError('');
-    setSuccess('');
+  /* ---------------------------------------------------------------------- */
+  /* FETCH CURRENT DRIVER TRIP                                             */
+  /* ---------------------------------------------------------------------- */
 
+  const fetchCurrentTrip = async () => {
     const phno =
       localStorage.getItem('user_phone');
 
     if (!phno) {
-      setError(
-        'No phone number found in storage. Please log in.'
-      );
-      setLoadingTrip(false);
+      setTrip(null);
       return;
     }
+
+    setLoadingTrip(true);
 
     try {
       const response = await fetch(
         `${API_BASE_URL}/users/current_trip/${phno}`
       );
 
-      if (!response.ok) {
-        if (response.status === 404) {
-          setTrip(null);
-          setLoads([]);
-          throw new Error(
-            'No current trip found for this phone number.'
-          );
-        }
+      if (response.status === 404) {
+        /*
+         * 404 simply means this driver currently
+         * has no active trip.
+         *
+         * This should NOT prevent the matching-load
+         * API from being called.
+         */
+        setTrip(null);
+        return;
+      }
 
+      if (!response.ok) {
         throw new Error(
           'Failed to fetch current trip.'
         );
@@ -1212,13 +1324,15 @@ function CurrentTrips() {
       const data =
         await response.json();
 
-      const currentTrip: TripItem | null =
+      const currentTrip =
         Array.isArray(data)
           ? data[0] ?? null
           : data;
 
       setTrip(currentTrip);
     } catch (error: any) {
+      setTrip(null);
+
       setError(
         error.message ||
           'Unable to fetch current trip.'
@@ -1228,79 +1342,126 @@ function CurrentTrips() {
     }
   };
 
-  const fetchMatchableLoads = async () => {
-    setLoadingLoads(true);
-    setError('');
+  /* ---------------------------------------------------------------------- */
+  /* FETCH AVAILABLE MATCHING LOADS                                        */
+  /* ---------------------------------------------------------------------- */
 
-    const phno =
-      localStorage.getItem('user_phone');
+  const fetchMatchableLoads =
+    async () => {
+      const phno =
+        localStorage.getItem(
+          'user_phone'
+        );
 
-    if (!phno) {
-      setError(
-        'No phone number found in storage. Please log in.'
-      );
-      setLoadingLoads(false);
-      return;
-    }
+      if (!phno) {
+        setLoads([]);
+        return;
+      }
 
-    try {
-      const response = await fetch(
-        `${API_BASE_URL}/users/match_load/${phno}`
-      );
+      setLoadingLoads(true);
 
-      if (!response.ok) {
+      try {
+        /*
+         * IMPORTANT:
+         * This API is independent from
+         * /users/current_trip/{phno}.
+         */
+        const response = await fetch(
+          `${API_BASE_URL}/users/match_load/${phno}`
+        );
+
         if (response.status === 404) {
           setLoads([]);
+          return;
+        }
+
+        if (!response.ok) {
           throw new Error(
-            'No matching loads found for the current trip.'
+            'Failed to fetch available matching loads.'
           );
         }
 
-        throw new Error(
-          'Failed to fetch matching loads.'
+        const data =
+          await response.json();
+
+        /*
+         * Supports both:
+         *
+         * [
+         *   {...},
+         *   {...}
+         * ]
+         *
+         * and
+         *
+         * {
+         *   loads: [...]
+         * }
+         */
+        const availableLoads =
+          Array.isArray(data)
+            ? data
+            : Array.isArray(data?.loads)
+              ? data.loads
+              : [];
+
+        setLoads(
+          availableLoads
         );
+      } catch (error: any) {
+        setLoads([]);
+
+        setError(
+          error.message ||
+            'Unable to fetch available matching loads.'
+        );
+      } finally {
+        setLoadingLoads(false);
       }
+    };
 
-      const data: MatchLoad[] =
-        await response.json();
-
-      setLoads(data);
-      setSelectedLoads({});
-      setPriceRanges({});
-    } catch (error: any) {
-      setError(
-        error.message ||
-          'Unable to fetch matching loads.'
-      );
-      setLoads([]);
-    } finally {
-      setLoadingLoads(false);
-    }
-  };
+  /* ---------------------------------------------------------------------- */
+  /* REFRESH                                                               */
+  /* ---------------------------------------------------------------------- */
 
   const refreshAll = async () => {
     setError('');
     setSuccess('');
 
-    await fetchCurrentTrip();
-    await fetchMatchableLoads();
+    /*
+     * Fetch both APIs independently.
+     *
+     * A 404 from current_trip should not
+     * stop match_load from executing.
+     */
+    await Promise.all([
+      fetchCurrentTrip(),
+      fetchMatchableLoads(),
+    ]);
   };
 
   useEffect(() => {
     refreshAll();
   }, []);
 
+  /* ---------------------------------------------------------------------- */
+  /* SELECTED WEIGHT                                                       */
+  /* ---------------------------------------------------------------------- */
+
   const selectedWeight = useMemo(() => {
     return Object.keys(
       selectedLoads
     ).reduce((sum, id) => {
-      const load = loads.find(
-        (item) =>
-          item.load_id === Number(id)
-      );
+      const load =
+        loads.find(
+          (item) =>
+            item.load_id ===
+            Number(id)
+        );
 
       return (
-        sum + (load?.load_weight ?? 0)
+        sum +
+        (load?.load_weight ?? 0)
       );
     }, 0);
   }, [selectedLoads, loads]);
@@ -1308,10 +1469,16 @@ function CurrentTrips() {
   const tripCapacity =
     trip?.weight ?? 0;
 
-  const remainingCapacity = Math.max(
-    tripCapacity - selectedWeight,
-    0
-  );
+  const remainingCapacity =
+    Math.max(
+      tripCapacity -
+        selectedWeight,
+      0
+    );
+
+  /* ---------------------------------------------------------------------- */
+  /* PRICE VALIDATION                                                       */
+  /* ---------------------------------------------------------------------- */
 
   const isPriceValid = (
     loadId: number
@@ -1341,27 +1508,68 @@ function CurrentTrips() {
   };
 
   const allSelectedPricesValid =
-    Object.keys(selectedLoads).every(
-      (id) =>
-        isPriceValid(Number(id))
+    Object.keys(
+      selectedLoads
+    ).every((id) =>
+      isPriceValid(
+        Number(id)
+      )
     );
+
+  /* ---------------------------------------------------------------------- */
+  /* TOGGLE LOAD                                                           */
+  /* ---------------------------------------------------------------------- */
 
   const toggleLoad = async (
     load: MatchLoad
   ) => {
+    /*
+     * Remove selected load.
+     */
     if (
-      selectedLoads[load.load_id]
+      selectedLoads[
+        load.load_id
+      ]
     ) {
-      setSelectedLoads((prev) => {
-        const next = {
-          ...prev,
-        };
+      setSelectedLoads(
+        (prev) => {
+          const next = {
+            ...prev,
+          };
 
-        delete next[load.load_id];
+          delete next[
+            load.load_id
+          ];
 
-        return next;
-      });
+          return next;
+        }
+      );
 
+      setPriceRanges(
+        (prev) => {
+          const next = {
+            ...prev,
+          };
+
+          delete next[
+            load.load_id
+          ];
+
+          return next;
+        }
+      );
+
+      return;
+    }
+
+    /*
+     * A current trip is required to
+     * enforce vehicle capacity.
+     */
+    if (!trip) {
+      setError(
+        'Please create a current trip before selecting loads.'
+      );
       return;
     }
 
@@ -1373,24 +1581,33 @@ function CurrentTrips() {
         loadWeight >
       tripCapacity
     ) {
+      setError(
+        'This load exceeds the remaining vehicle capacity.'
+      );
       return;
     }
 
-    setSelectedLoads((prev) => ({
-      ...prev,
-      [load.load_id]: {
-        load_id: load.load_id,
-        price: '',
-      },
-    }));
+    setError('');
+
+    setSelectedLoads(
+      (prev) => ({
+        ...prev,
+        [load.load_id]: {
+          load_id:
+            load.load_id,
+          price: '',
+        },
+      })
+    );
 
     try {
-      const response = await fetch(
-        `${API_BASE_URL}/prices/${loadWeight}`,
-        {
-          method: 'POST',
-        }
-      );
+      const response =
+        await fetch(
+          `${API_BASE_URL}/prices/${loadWeight}`,
+          {
+            method: 'POST',
+          }
+        );
 
       if (!response.ok) {
         throw new Error(
@@ -1401,58 +1618,90 @@ function CurrentTrips() {
       const range: PriceRange =
         await response.json();
 
-      setPriceRanges((prev) => ({
-        ...prev,
-        [load.load_id]: range,
-      }));
+      setPriceRanges(
+        (prev) => ({
+          ...prev,
+          [load.load_id]:
+            range,
+        })
+      );
     } catch (error: any) {
       setError(
         error.message ||
           'Unable to fetch price range.'
       );
 
-      setSelectedLoads((prev) => {
-        const next = {
-          ...prev,
-        };
+      setSelectedLoads(
+        (prev) => {
+          const next = {
+            ...prev,
+          };
 
-        delete next[load.load_id];
+          delete next[
+            load.load_id
+          ];
 
-        return next;
-      });
+          return next;
+        }
+      );
     }
   };
+
+  /* ---------------------------------------------------------------------- */
+  /* PRICE CHANGE                                                           */
+  /* ---------------------------------------------------------------------- */
 
   const handlePriceChange = (
     loadId: number,
     value: string
   ) => {
-    setSelectedLoads((prev) => ({
-      ...prev,
-      [loadId]: {
-        ...prev[loadId],
-        price: value,
-      },
-    }));
+    setSelectedLoads(
+      (prev) => ({
+        ...prev,
+        [loadId]: {
+          ...prev[loadId],
+          price: value,
+        },
+      })
+    );
   };
+
+  /* ---------------------------------------------------------------------- */
+  /* DISABLED LOAD                                                          */
+  /* ---------------------------------------------------------------------- */
 
   const isLoadDisabled = (
     load: MatchLoad
   ) => {
     if (
-      selectedLoads[load.load_id]
+      selectedLoads[
+        load.load_id
+      ]
     ) {
       return false;
+    }
+
+    /*
+     * If no current trip exists,
+     * don't allow selecting.
+     */
+    if (!trip) {
+      return true;
     }
 
     const weight =
       load.load_weight ?? 0;
 
     return (
-      selectedWeight + weight >
+      selectedWeight +
+        weight >
       tripCapacity
     );
   };
+
+  /* ---------------------------------------------------------------------- */
+  /* SUBMIT MATCH                                                           */
+  /* ---------------------------------------------------------------------- */
 
   const submitMatches = async () => {
     setError('');
@@ -1460,13 +1709,15 @@ function CurrentTrips() {
 
     if (!trip) {
       setError(
-        'No current trip available.'
+        'No current trip available. Create a trip first.'
       );
       return;
     }
 
     const selected =
-      Object.values(selectedLoads);
+      Object.values(
+        selectedLoads
+      );
 
     if (selected.length === 0) {
       setError(
@@ -1480,14 +1731,16 @@ function CurrentTrips() {
       tripCapacity
     ) {
       setError(
-        'Selected load weight exceeds the vehicle capacity.'
+        'Selected load weight exceeds vehicle capacity.'
       );
       return;
     }
 
-    if (!allSelectedPricesValid) {
+    if (
+      !allSelectedPricesValid
+    ) {
       setError(
-        'Enter a valid price for every selected load before submitting.'
+        'Enter a valid price for every selected load.'
       );
       return;
     }
@@ -1496,33 +1749,42 @@ function CurrentTrips() {
 
     try {
       const payload = {
-        trip_id: trip.trip_id,
+        trip_id:
+          trip.trip_id,
+
         loads: selected.map(
           (load) => ({
-            load_id: load.load_id,
-            price: Number(load.price),
+            load_id:
+              load.load_id,
+            price:
+              Number(
+                load.price
+              ),
           })
         ),
       };
 
-      const response = await fetch(
-        `${API_BASE_URL}/users/match`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type':
-              'application/json',
-          },
-          body: JSON.stringify(
-            payload
-          ),
-        }
-      );
+      const response =
+        await fetch(
+          `${API_BASE_URL}/users/match`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type':
+                'application/json',
+            },
+            body: JSON.stringify(
+              payload
+            ),
+          }
+        );
 
       const result =
         await response
           .json()
-          .catch(() => null);
+          .catch(
+            () => null
+          );
 
       if (!response.ok) {
         throw new Error(
@@ -1550,7 +1812,12 @@ function CurrentTrips() {
   };
 
   const isLoading =
-    loadingTrip || loadingLoads;
+    loadingTrip ||
+    loadingLoads;
+
+  /* ---------------------------------------------------------------------- */
+  /* CURRENT TRIP UI                                                        */
+  /* ---------------------------------------------------------------------- */
 
   return (
     <div
@@ -1580,30 +1847,31 @@ function CurrentTrips() {
             📋 Current Trip
           </h2>
 
-          {trip && (
-            <p
-              style={{
-                margin:
-                  '4px 0 0',
-                color: '#64748b',
-                fontSize: 13,
-              }}
-            >
-              Select one or more loads
-              to fill this vehicle.
-            </p>
-          )}
+          <p
+            style={{
+              margin:
+                '4px 0 0',
+              color: '#64748b',
+              fontSize: 13,
+            }}
+          >
+            Available loads that
+            can be selected for
+            your trip.
+          </p>
         </div>
 
         <button
           type="button"
           onClick={refreshAll}
           disabled={
-            isLoading || submitting
+            isLoading ||
+            submitting
           }
           style={{
             display: 'flex',
-            alignItems: 'center',
+            alignItems:
+              'center',
             gap: 5,
             border: 0,
             background:
@@ -1635,9 +1903,11 @@ function CurrentTrips() {
       {error && (
         <div
           style={{
-            padding: '12px 15px',
+            padding:
+              '12px 15px',
             marginBottom: 16,
-            background: '#fef2f2',
+            background:
+              '#fef2f2',
             color: '#991b1b',
             border:
               '1px solid #fecaca',
@@ -1652,9 +1922,11 @@ function CurrentTrips() {
       {success && (
         <div
           style={{
-            padding: '12px 15px',
+            padding:
+              '12px 15px',
             marginBottom: 16,
-            background: '#f0fdf4',
+            background:
+              '#f0fdf4',
             color: '#166534',
             border:
               '1px solid #bbf7d0',
@@ -1666,276 +1938,314 @@ function CurrentTrips() {
         </div>
       )}
 
-      {loadingTrip && !trip ? (
+      {/* CURRENT TRIP */}
+
+      {loadingTrip ? (
         <div
           style={{
-            padding: 35,
-            textAlign: 'center',
+            padding: 25,
+            marginBottom: 20,
+            textAlign:
+              'center',
             color: '#64748b',
-            background: '#ffffff',
+            background:
+              '#ffffff',
             border:
               '1px dashed #cbd5e1',
             borderRadius: 12,
           }}
         >
-          Loading current trip...
+          Loading current
+          trip...
         </div>
       ) : trip ? (
+        <TripSummaryCard
+          trip={trip}
+        />
+      ) : (
+        <div
+          style={{
+            padding: 20,
+            marginBottom: 20,
+            background:
+              '#fffbeb',
+            border:
+              '1px solid #fde68a',
+            borderRadius: 12,
+            color: '#92400e',
+            fontSize: 13,
+          }}
+        >
+          You do not have a
+          current trip yet.
+          Create a trip first
+          to select loads.
+        </div>
+      )}
+
+      {/* AVAILABLE LOADS */}
+
+      <div
+        style={{
+          display: 'flex',
+          justifyContent:
+            'space-between',
+          alignItems: 'center',
+          gap: 12,
+          flexWrap: 'wrap',
+          marginBottom: 14,
+        }}
+      >
+        <div>
+          <h3
+            style={{
+              margin: 0,
+              fontSize: 17,
+              fontWeight: 700,
+              color: '#1f2937',
+            }}
+          >
+            Available Matching
+            Loads
+          </h3>
+
+          <p
+            style={{
+              margin:
+                '4px 0 0',
+              fontSize: 12,
+              color: '#64748b',
+            }}
+          >
+            Select one or more
+            loads that fit your
+            vehicle capacity.
+          </p>
+        </div>
+
+        {trip && (
+          <div
+            style={{
+              background:
+                remainingCapacity ===
+                0
+                  ? '#dcfce7'
+                  : '#eff6ff',
+              color:
+                remainingCapacity ===
+                0
+                  ? '#166534'
+                  : '#1d4ed8',
+              padding:
+                '8px 12px',
+              borderRadius: 9,
+              fontSize: 13,
+              fontWeight: 700,
+            }}
+          >
+            {selectedWeight.toLocaleString()}{' '}
+            /{' '}
+            {tripCapacity.toLocaleString()}{' '}
+            kg used
+            {' · '}
+            {remainingCapacity.toLocaleString()}{' '}
+            kg remaining
+          </div>
+        )}
+      </div>
+
+      {loadingLoads ? (
+        <div
+          style={{
+            padding: 30,
+            textAlign:
+              'center',
+            color: '#64748b',
+            background:
+              '#ffffff',
+            border:
+              '1px dashed #cbd5e1',
+            borderRadius: 12,
+          }}
+        >
+          Loading available
+          loads...
+        </div>
+      ) : loads.length === 0 ? (
+        <div
+          style={{
+            padding: 30,
+            textAlign:
+              'center',
+            color: '#94a3b8',
+            background:
+              '#ffffff',
+            border:
+              '1px dashed #cbd5e1',
+            borderRadius: 12,
+          }}
+        >
+          No matching loads
+          are currently
+          available.
+        </div>
+      ) : (
         <>
-          <TripSummaryCard
-            trip={trip}
-          />
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns:
+                'repeat(auto-fit, minmax(290px, 1fr))',
+              gap: 16,
+            }}
+          >
+            {loads.map(
+              (load) => (
+                <MatchLoadCard
+                  key={
+                    load.load_id
+                  }
+                  load={load}
+                  selected={Boolean(
+                    selectedLoads[
+                      load.load_id
+                    ]
+                  )}
+                  disabled={isLoadDisabled(
+                    load
+                  )}
+                  priceRange={
+                    priceRanges[
+                      load.load_id
+                    ]
+                  }
+                  price={
+                    selectedLoads[
+                      load.load_id
+                    ]?.price ??
+                    ''
+                  }
+                  onToggle={() =>
+                    toggleLoad(
+                      load
+                    )
+                  }
+                  onPriceChange={(
+                    value
+                  ) =>
+                    handlePriceChange(
+                      load.load_id,
+                      value
+                    )
+                  }
+                />
+              )
+            )}
+          </div>
+
+          {/* SELECTED LOADS */}
 
           <div
             style={{
+              marginTop: 20,
+              padding: 16,
+              background:
+                '#ffffff',
+              border:
+                '1px solid #e5e7eb',
+              borderRadius: 12,
               display: 'flex',
               justifyContent:
                 'space-between',
               alignItems: 'center',
-              gap: 12,
+              gap: 15,
               flexWrap: 'wrap',
-              marginBottom: 14,
             }}
           >
             <div>
-              <h3
+              <div
                 style={{
-                  margin: 0,
-                  fontSize: 17,
+                  fontSize: 12,
+                  color: '#64748b',
+                  marginBottom: 3,
+                }}
+              >
+                Selected loads
+              </div>
+
+              <div
+                style={{
+                  fontSize: 15,
                   fontWeight: 700,
                   color: '#1f2937',
                 }}
               >
-                Matchable Loads
-              </h3>
-
-              <p
-                style={{
-                  margin:
-                    '4px 0 0',
-                  fontSize: 12,
-                  color: '#64748b',
-                }}
-              >
-                Loads matching this
-                trip's route and timing.
-              </p>
+                {
+                  Object.keys(
+                    selectedLoads
+                  ).length
+                }{' '}
+                load(s) ·{' '}
+                {selectedWeight.toLocaleString()}{' '}
+                kg
+              </div>
             </div>
 
-            <div
+            <button
+              type="button"
+              onClick={
+                submitMatches
+              }
+              disabled={
+                submitting ||
+                !trip ||
+                Object.keys(
+                  selectedLoads
+                ).length ===
+                  0 ||
+                !allSelectedPricesValid ||
+                selectedWeight >
+                  tripCapacity
+              }
               style={{
-                background:
-                  remainingCapacity === 0
-                    ? '#dcfce7'
-                    : '#eff6ff',
-                color:
-                  remainingCapacity === 0
-                    ? '#166534'
-                    : '#1d4ed8',
-                padding:
-                  '8px 12px',
+                border: 0,
                 borderRadius: 9,
-                fontSize: 13,
+                padding:
+                  '11px 20px',
+                background:
+                  submitting ||
+                  !trip ||
+                  Object.keys(
+                    selectedLoads
+                  ).length ===
+                    0 ||
+                  !allSelectedPricesValid ||
+                  selectedWeight >
+                    tripCapacity
+                    ? '#94a3b8'
+                    : '#2563eb',
+                color: '#ffffff',
                 fontWeight: 700,
+                cursor:
+                  submitting ||
+                  !trip ||
+                  Object.keys(
+                    selectedLoads
+                  ).length ===
+                    0 ||
+                  !allSelectedPricesValid ||
+                  selectedWeight >
+                    tripCapacity
+                    ? 'not-allowed'
+                    : 'pointer',
               }}
             >
-              {selectedWeight.toLocaleString()} /{' '}
-              {tripCapacity.toLocaleString()} kg used
-              {' · '}
-              {remainingCapacity.toLocaleString()} kg remaining
-            </div>
+              {submitting
+                ? 'Matching...'
+                : 'Confirm Selected Loads'}
+            </button>
           </div>
-
-          {loadingLoads ? (
-            <div
-              style={{
-                padding: 30,
-                textAlign: 'center',
-                color: '#64748b',
-                background: '#ffffff',
-                border:
-                  '1px dashed #cbd5e1',
-                borderRadius: 12,
-              }}
-            >
-              Loading matchable loads...
-            </div>
-          ) : loads.length === 0 ? (
-            <div
-              style={{
-                padding: 30,
-                textAlign: 'center',
-                color: '#94a3b8',
-                background: '#ffffff',
-                border:
-                  '1px dashed #cbd5e1',
-                borderRadius: 12,
-              }}
-            >
-              No matchable loads are
-              currently available.
-            </div>
-          ) : (
-            <>
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns:
-                    'repeat(auto-fit, minmax(290px, 1fr))',
-                  gap: 16,
-                }}
-              >
-                {loads.map((load) => (
-                  <MatchLoadCard
-                    key={
-                      load.load_id
-                    }
-                    load={load}
-                    selected={Boolean(
-                      selectedLoads[
-                        load.load_id
-                      ]
-                    )}
-                    disabled={isLoadDisabled(
-                      load
-                    )}
-                    priceRange={
-                      priceRanges[
-                        load.load_id
-                      ]
-                    }
-                    price={
-                      selectedLoads[
-                        load.load_id
-                      ]?.price ?? ''
-                    }
-                    onToggle={() =>
-                      toggleLoad(
-                        load
-                      )
-                    }
-                    onPriceChange={(
-                      value
-                    ) =>
-                      handlePriceChange(
-                        load.load_id,
-                        value
-                      )
-                    }
-                  />
-                ))}
-              </div>
-
-              <div
-                style={{
-                  marginTop: 20,
-                  padding: 16,
-                  background: '#ffffff',
-                  border:
-                    '1px solid #e5e7eb',
-                  borderRadius: 12,
-                  display: 'flex',
-                  justifyContent:
-                    'space-between',
-                  alignItems: 'center',
-                  gap: 15,
-                  flexWrap: 'wrap',
-                }}
-              >
-                <div>
-                  <div
-                    style={{
-                      fontSize: 12,
-                      color: '#64748b',
-                      marginBottom: 3,
-                    }}
-                  >
-                    Selected loads
-                  </div>
-
-                  <div
-                    style={{
-                      fontSize: 15,
-                      fontWeight: 700,
-                      color: '#1f2937',
-                    }}
-                  >
-                    {
-                      Object.keys(
-                        selectedLoads
-                      ).length
-                    }{' '}
-                    load(s) ·{' '}
-                    {selectedWeight.toLocaleString()}{' '}
-                    kg
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={
-                    submitMatches
-                  }
-                  disabled={
-                    submitting ||
-                    Object.keys(
-                      selectedLoads
-                    ).length === 0 ||
-                    !allSelectedPricesValid ||
-                    selectedWeight >
-                      tripCapacity
-                  }
-                  style={{
-                    border: 0,
-                    borderRadius: 9,
-                    padding:
-                      '11px 20px',
-                    background:
-                      submitting ||
-                      Object.keys(
-                        selectedLoads
-                      ).length === 0 ||
-                      !allSelectedPricesValid ||
-                      selectedWeight >
-                        tripCapacity
-                        ? '#94a3b8'
-                        : '#2563eb',
-                    color: '#ffffff',
-                    fontWeight: 700,
-                    cursor:
-                      submitting ||
-                      Object.keys(
-                        selectedLoads
-                      ).length === 0 ||
-                      !allSelectedPricesValid ||
-                      selectedWeight >
-                        tripCapacity
-                        ? 'not-allowed'
-                        : 'pointer',
-                  }}
-                >
-                  {submitting
-                    ? 'Matching...'
-                    : 'Confirm Selected Loads'}
-                </button>
-              </div>
-            </>
-          )}
         </>
-      ) : (
-        <div
-          style={{
-            padding: 35,
-            textAlign: 'center',
-            color: '#94a3b8',
-            background: '#ffffff',
-            border:
-              '1px dashed #cbd5e1',
-            borderRadius: 12,
-          }}
-        >
-          No current trip found.
-        </div>
       )}
     </div>
   );
@@ -1965,7 +2275,8 @@ function HistoryTripCard({
       <div
         style={{
           display: 'flex',
-          alignItems: 'flex-start',
+          alignItems:
+            'flex-start',
           justifyContent:
             'space-between',
           gap: 10,
@@ -1978,13 +2289,15 @@ function HistoryTripCard({
         <div
           style={{
             display: 'flex',
-            alignItems: 'center',
+            alignItems:
+              'center',
             gap: 10,
           }}
         >
           <div
             style={{
-              background: '#f3f4f6',
+              background:
+                '#f3f4f6',
               color: '#6b7280',
               padding: 9,
               borderRadius: 9,
@@ -2003,7 +2316,8 @@ function HistoryTripCard({
                   'uppercase',
               }}
             >
-              Trip #{trip.trip_id}
+              Trip #
+              {trip.trip_id}
             </div>
 
             <div
@@ -2021,9 +2335,11 @@ function HistoryTripCard({
 
         <span
           style={{
-            background: '#f3f4f6',
+            background:
+              '#f3f4f6',
             color: '#374151',
-            padding: '5px 9px',
+            padding:
+              '5px 9px',
             borderRadius: 999,
             fontSize: 11,
             fontWeight: 600,
@@ -2042,19 +2358,25 @@ function HistoryTripCard({
         }}
       >
         <InfoBox
-          icon={<MapPin size={15} />}
+          icon={
+            <MapPin size={15} />
+          }
           label="From"
           value={trip.source}
         />
 
         <InfoBox
-          icon={<MapPin size={15} />}
+          icon={
+            <MapPin size={15} />
+          }
           label="To"
           value={trip.desti}
         />
 
         <InfoBox
-          icon={<Weight size={15} />}
+          icon={
+            <Weight size={15} />
+          }
           label="Capacity"
           value={formatWeight(
             trip.weight
@@ -2062,7 +2384,9 @@ function HistoryTripCard({
         />
 
         <InfoBox
-          icon={<Calendar size={15} />}
+          icon={
+            <Calendar size={15} />
+          }
           label="Departure"
           value={formatDateTime(
             trip.depart_by
@@ -2070,7 +2394,9 @@ function HistoryTripCard({
         />
 
         <InfoBox
-          icon={<Calendar size={15} />}
+          icon={
+            <Calendar size={15} />
+          }
           label="Available From"
           value={formatDateTime(
             trip.available_from
@@ -2085,7 +2411,8 @@ function HistoryTripCard({
           borderTop:
             '1px solid #f1f5f9',
           display: 'flex',
-          alignItems: 'center',
+          alignItems:
+            'center',
           gap: 6,
           color: '#15803d',
           fontSize: 12,
@@ -2093,8 +2420,10 @@ function HistoryTripCard({
         }}
       >
         <CheckCircle size={14} />
+
         Match ID:{' '}
-        {trip.match_id || 'Matched'}
+        {trip.match_id ||
+          'Matched'}
       </div>
     </div>
   );
@@ -2110,64 +2439,74 @@ function HistoryTabContent() {
   const [error, setError] =
     useState('');
 
-  const fetchHistory = async () => {
-    setLoading(true);
-    setError('');
+  const fetchHistory =
+    async () => {
+      setLoading(true);
+      setError('');
 
-    const phno =
-      localStorage.getItem('user_phone');
+      const phno =
+        localStorage.getItem(
+          'user_phone'
+        );
 
-    if (!phno) {
-      setError(
-        'No phone number found in storage. Please log in.'
-      );
-      setLoading(false);
-      return;
-    }
+      if (!phno) {
+        setError(
+          'No phone number found. Please log in.'
+        );
+        setLoading(false);
+        return;
+      }
 
-    try {
-      const response = await fetch(
-        `${API_BASE_URL}/users/history_trip/${phno}`
-      );
+      try {
+        const response =
+          await fetch(
+            `${API_BASE_URL}/users/history_trip/${phno}`
+          );
 
-      if (!response.ok) {
         if (response.status === 404) {
           setHistoryTrips([]);
+          return;
+        }
 
+        if (!response.ok) {
           throw new Error(
-            'No past trip records found for this phone number.'
+            'Failed to fetch trip history.'
           );
         }
 
-        throw new Error(
-          'Failed to fetch trip history.'
+        const data =
+          await response.json();
+
+        setHistoryTrips(
+          Array.isArray(data)
+            ? data
+            : []
         );
+      } catch (error: any) {
+        setError(
+          error.message ||
+            'Unable to fetch trip history.'
+        );
+      } finally {
+        setLoading(false);
       }
-
-      const data: HistoryTrip[] =
-        await response.json();
-
-      setHistoryTrips(data);
-    } catch (error: any) {
-      setError(
-        error.message ||
-          'Unable to fetch trip history.'
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
+    };
 
   useEffect(() => {
     fetchHistory();
   }, []);
 
   return (
-    <div style={{ textAlign: 'left' }}>
+    <div
+      style={{
+        textAlign: 'left',
+      }}
+    >
       <div
         style={{
           display: 'flex',
-          alignItems: 'center',
+          alignItems:
+            'center',
           justifyContent:
             'space-between',
           marginBottom: 16,
@@ -2190,7 +2529,8 @@ function HistoryTabContent() {
           disabled={loading}
           style={{
             display: 'flex',
-            alignItems: 'center',
+            alignItems:
+              'center',
             gap: 5,
             color: '#4b5563',
             background:
@@ -2223,7 +2563,8 @@ function HistoryTabContent() {
           style={{
             padding: 14,
             marginBottom: 16,
-            background: '#fffbeb',
+            background:
+              '#fffbeb',
             border:
               '1px solid #fde68a',
             borderRadius: 9,
@@ -2235,35 +2576,35 @@ function HistoryTabContent() {
         </div>
       )}
 
-      {!loading &&
-        historyTrips.length === 0 &&
-        !error && (
-          <div
-            style={{
-              padding: 35,
-              textAlign: 'center',
-              color: '#9ca3af',
-              background: '#ffffff',
-              border:
-                '1px dashed #e5e7eb',
-              borderRadius: 12,
-            }}
-          >
-            No past trip records
-            found.
-          </div>
-        )}
-
-      {loading &&
-      historyTrips.length === 0 ? (
+      {loading ? (
         <div
           style={{
             padding: 35,
-            textAlign: 'center',
+            textAlign:
+              'center',
             color: '#64748b',
           }}
         >
-          Loading trip history...
+          Loading trip
+          history...
+        </div>
+      ) : historyTrips.length ===
+        0 ? (
+        <div
+          style={{
+            padding: 35,
+            textAlign:
+              'center',
+            color: '#9ca3af',
+            background:
+              '#ffffff',
+            border:
+              '1px dashed #e5e7eb',
+            borderRadius: 12,
+          }}
+        >
+          No past trip
+          records found.
         </div>
       ) : (
         <div
@@ -2277,7 +2618,9 @@ function HistoryTabContent() {
           {historyTrips.map(
             (trip) => (
               <HistoryTripCard
-                key={trip.trip_id}
+                key={
+                  trip.trip_id
+                }
                 trip={trip}
               />
             )
@@ -2294,7 +2637,7 @@ function HistoryTabContent() {
 
 function CreateTab() {
   return (
-    <div className="p-6 bg-gray-50 border border-gray-100 rounded-xl space-y-3">
+    <div className="p-6 bg-gray-50 border border-gray-100 rounded-xl">
       <CreateTrip />
     </div>
   );
@@ -2302,7 +2645,7 @@ function CreateTab() {
 
 function CurrentTab() {
   return (
-    <div className="p-6 bg-gray-50 border border-gray-100 rounded-xl space-y-3">
+    <div className="p-6 bg-gray-50 border border-gray-100 rounded-xl">
       <CurrentTrips />
     </div>
   );
@@ -2310,7 +2653,7 @@ function CurrentTab() {
 
 function HistoryTab() {
   return (
-    <div className="p-6 bg-gray-50 border border-gray-100 rounded-xl space-y-3">
+    <div className="p-6 bg-gray-50 border border-gray-100 rounded-xl">
       <HistoryTabContent />
     </div>
   );
@@ -2343,7 +2686,7 @@ export default function TripPage() {
   return (
     <div className="max-w-4xl mx-auto p-6">
       <h1 className="text-2xl font-bold mb-6 text-gray-900">
-        -----------------------------------------------------------------------------------------------------------------------------------
+        Trips
       </h1>
 
       <div
@@ -2377,7 +2720,7 @@ export default function TripPage() {
         ))}
       </div>
 
-      <div className="mt-4 animate-fade-in">
+      <div className="mt-4">
         {renderTabContent()}
       </div>
     </div>
