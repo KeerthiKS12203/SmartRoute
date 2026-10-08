@@ -127,7 +127,7 @@ def create_trip(trip: CreateTrip):
 @app.get("/users/current_driver/{driver_phno}")
 def fetch_trips(driver_phno: int):
     conn = get_db()
-    rows = conn.execute("SELECT * from trip where driver_phno = ? and (match_id = '' or match_id is null)", (driver_phno,))
+    rows = conn.execute("SELECT * from trip where driver_phno = ? and (match_id = '' or match_id is null)", (driver_phno,)).fetchall()
     conn.close()
 
     if not rows:
@@ -139,7 +139,7 @@ def fetch_trips(driver_phno: int):
 @app.get("/users/current_load/{trader_phno}")
 def fetch_loads(trader_phno: int):
     conn = get_db()
-    rows = conn.execute("SELECT * from load where trader_phno = ? and (match_id = '' or match_id is null)", (trader_phno,))
+    rows = conn.execute("SELECT * from load where trader_phno = ? and (match_id = '' or match_id is null)", (trader_phno,)).fetchall()
     conn.close()
 
     if not rows:
@@ -158,7 +158,7 @@ def match_load(trip_id: int):
                         and datetime(t.available_from) <= datetime(l.depart_by)
                         and l.weight <= t.weight
                         and (match_id = '' or match_id is null)
-                        """)
+                        """).fetchall()
     conn.close()
 
     if not rows:
@@ -169,7 +169,7 @@ def match_load(trip_id: int):
 @app.get("/users/history_load/{trader_phno}")
 def fetch_loads(trader_phno: int):
     conn = get_db()
-    rows = conn.execute("SELECT * from load where trader_phno = ? and (match_id <> '' or match_id is not null)", (trader_phno,))
+    rows = conn.execute("SELECT * from load where trader_phno = ? and (match_id <> '' or match_id is not null)", (trader_phno,)).fetchall()
     conn.close()
 
     if not rows:
@@ -180,7 +180,7 @@ def fetch_loads(trader_phno: int):
 @app.get("/users/history_trip/{driver_phno}")
 def fetch_trips(driver_phno: int):
     conn = get_db()
-    rows = conn.execute("SELECT * from trip where driver_phno = ? and (match_id <> '' or match_id is not null)", (driver_phno,))
+    rows = conn.execute("SELECT * from trip where driver_phno = ? and (match_id <> '' or match_id is not null)", (driver_phno,)).fetchall()
     conn.close()
 
     if not rows:
