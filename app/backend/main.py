@@ -50,7 +50,7 @@ class CreateTrip(BaseModel):
     depart_by: datetime
 
 class MatchTrip(BaseModel):
-    trip_id: int
+    driver_phno: int
 
 
 @app.get("/users/check-phone/{phone_no}")
@@ -147,18 +147,36 @@ def fetch_loads(trader_phno: int):
 
     return [dict(row) for row in rows]
 
-@app.get("/users/match_load/{trip_id}")
-def match_load(trip_id: int):
+@app.get("/users/match_load/{driver_phno}")
+def match_load(driver_phno: int):
     conn = get_db()
-    rows = conn.execute("""SELECT * 
-                        from load l join trip t 
-                        on l.source = t.source 
-                        and l.desti = t.desti
-                        where datetime(l.depart_by) >= datetime(t.depart_by)
-                        and datetime(t.available_from) <= datetime(l.depart_by)
-                        and l.weight <= t.weight
-                        and (match_id = '' or match_id is null)
-                        """).fetchall()
+    rows = conn.execute("""SELECT l.load_id,
+                l.source AS load_source,
+                l.desti AS load_desti,
+                l.depart_by AS load_depart_by,
+                l.weight AS load_weight,
+                l.match_id AS load_match_id,
+
+                t.trip_id,
+                t.source AS trip_source,
+                t.desti AS trip_desti,
+                t.depart_by AS trip_depart_by,
+                t.available_from AS trip_available_from,
+                t.weight AS trip_weight,
+                t.driver_phno AS driver_phno,
+                t.match_id AS trip_match_id
+                from load l join trip t 
+                on l.source = t.source 
+                and l.desti = t.desti
+                where datetime(l.depart_by) >= datetime(t.depart_by)
+                and datetime(t.available_from) <= datetime(l.depart_by)
+                and l.weight <= t.weight
+                and (t.match_id = '' or t.match_id is null)
+                and (l.match_id = '' or l.match_id is null)
+                and l.source = t.source
+                and l.desti = t.desti
+                and driver_phno = ?
+                        """,  (driver_phno,)).fetchall()
     conn.close()
 
     if not rows:
@@ -188,10 +206,10 @@ def fetch_trips(driver_phno: int):
 
     return [dict(row) for row in rows]
 
-@app.post("/users/match/{trip_id}")
+@app.post("/users/match")
 def match_trip(mat: MatchTrip):
     conn = get_db()
-    rows = conn.execute("SELECT trip_id, load_id, weight, price  from match where trip_id = ?", (mat.trip_id,)).fetchall()
+    rows = conn.execute("""SELECT trip_id, load_id, weight, price  from "match" where driver_phno = ?""", (mat.driver_phno,)).fetchall()
     conn.close()
 
     if not rows:
