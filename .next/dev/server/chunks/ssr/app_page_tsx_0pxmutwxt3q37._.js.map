@@ -2,5 +2,5 @@
   "version": 3,
   "sources": [],
   "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///home/hawcc/SmartRoute/app/page.tsx"],"sourcesContent":["\"use client\"\nimport {useEffect} from \"react\";\nimport { useRouter } from \"next/navigation\";\n\nexport default function Home() {\n    const router = useRouter();\n    useEffect(() => {\n        router.push(\"/login\");\n    }, [router]);\n    return null;\n}"],"names":["Home","router","push"],"mappings":";;;;AACA;AACA;AAFA;;;AAIe,SAASA;IACpB,MAAMC,SAAS,IAAA,+IAAS;IACxB,IAAA,kNAAS,EAAC;QACNA,OAAOC,IAAI,CAAC;IAChB,GAAG;QAACD;KAAO;IACX,OAAO;AACX"}}]
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///workspace/SmartRoute/app/page.tsx"],"sourcesContent":["\"use client\"\nimport {useEffect} from \"react\";\nimport { useRouter } from \"next/navigation\";\n\nexport default function Home() {\n    const router = useRouter();\n    useEffect(() => {\n        router.push(\"/login\");\n    }, [router]);\n    return null;\n}"],"names":["Home","router","push"],"mappings":";;;;AACA;AACA;AAFA;;;AAIe,SAASA;IACpB,MAAMC,SAAS,IAAA,+IAAS;IACxB,IAAA,kNAAS,EAAC;QACNA,OAAOC,IAAI,CAAC;IAChB,GAAG;QAACD;KAAO;IACX,OAAO;AACX"}}]
 }

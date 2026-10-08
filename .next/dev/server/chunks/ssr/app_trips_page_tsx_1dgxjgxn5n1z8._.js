@@ -1,0 +1,2380 @@
+module.exports = [
+"[project]/app/trips/page.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>TripPage
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$package$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Package$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/package.mjs [app-ssr] (ecmascript) <export default as Package>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/map-pin.mjs [app-ssr] (ecmascript) <export default as MapPin>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/calendar.mjs [app-ssr] (ecmascript) <export default as Calendar>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$refresh$2d$cw$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__RefreshCw$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/refresh-cw.mjs [app-ssr] (ecmascript) <export default as RefreshCw>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$rotate$2d$cw$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__RotateCw$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/rotate-cw.mjs [app-ssr] (ecmascript) <export default as RotateCw>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$weight$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Weight$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/weight.mjs [app-ssr] (ecmascript) <export default as Weight>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2d$big$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/circle-check-big.mjs [app-ssr] (ecmascript) <export default as CheckCircle>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$truck$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Truck$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/truck.mjs [app-ssr] (ecmascript) <export default as Truck>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$indian$2d$rupee$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__IndianRupee$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/indian-rupee.mjs [app-ssr] (ecmascript) <export default as IndianRupee>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$alert$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__AlertCircle$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/circle-alert.mjs [app-ssr] (ecmascript) <export default as AlertCircle>");
+'use client';
+;
+;
+;
+const API_BASE_URL = 'https://8000-kode-ws-c69bd7bb1.hebbale.academy';
+function formatDateTime(value) {
+    if (!value) return 'N/A';
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) {
+        return value;
+    }
+    return date.toLocaleString();
+}
+function formatWeight(value) {
+    return value == null ? 'N/A' : `${value.toLocaleString()} kg`;
+}
+/* -------------------------------------------------------------------------- */ /* CREATE TRIP                                                                */ /* -------------------------------------------------------------------------- */ function CreateTrip() {
+    const [language, setLanguage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('en');
+    const [submitting, setSubmitting] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [submitMessage, setSubmitMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
+    const [submitError, setSubmitError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
+    const [formData, setFormData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({
+        vehicleNumber: '',
+        weight: '',
+        source: '',
+        desti: '',
+        available_from: '',
+        depart_by: '',
+        price: ''
+    });
+    const text = {
+        en: {
+            title: 'Add New Trip',
+            vehicleNumber: 'Vehicle Number',
+            weight: 'Weight',
+            weightNote: 'Enter weight in kg',
+            from: 'From',
+            to: 'To',
+            availableFrom: 'Available From',
+            departureBy: 'Departure By',
+            price: 'Price',
+            submit: 'Submit',
+            vehicleError: 'Enter appropriate vehicle number',
+            vehiclePlaceholder: 'Enter Vehicle Number',
+            weightPlaceholder: 'Enter weight',
+            fromPlaceholder: 'Enter starting location',
+            toPlaceholder: 'Enter destination',
+            pricePlaceholder: 'Enter price'
+        },
+        kn: {
+            title: 'ಹೊಸ ಪ್ರವಾಸ',
+            vehicleNumber: 'ವಾಹನ ಸಂಖ್ಯೆ',
+            weight: 'ತೂಕ',
+            weightNote: 'ತೂಕವನ್ನು ಕಿಲೋಗ್ರಾಂಗಳಲ್ಲಿ (ಕೆಜಿ) ನಮೂದಿಸಿ.',
+            from: 'ಇಂದ',
+            to: 'ಗೆ',
+            availableFrom: 'ಲಭ್ಯವಿರುವ ಸಮಯ',
+            departureBy: 'ನಿರ್ಗಮನದ ಸಮಯ',
+            price: 'ಬೆಲೆ',
+            submit: 'ಸಲ್ಲಿಸಿ',
+            vehicleError: 'ದಯವಿಟ್ಟು ನಿಖರವಾಗಿ ನಮೂದಿಸಿ.',
+            vehiclePlaceholder: 'ವಾಹನ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ',
+            weightPlaceholder: 'ತೂಕವನ್ನು ನಮೂದಿಸಿ',
+            fromPlaceholder: 'ಪ್ರಾರಂಭದ ಸ್ಥಳವನ್ನು ನಮೂದಿಸಿ',
+            toPlaceholder: 'ಗಮ್ಯಸ್ಥಾನವನ್ನು ನಮೂದಿಸಿ',
+            pricePlaceholder: 'ಬೆಲೆಯನ್ನು ನಮೂದಿಸಿ'
+        }
+    };
+    const t = text[language];
+    const handleChange = (name, value)=>{
+        setFormData((prev)=>({
+                ...prev,
+                [name]: value
+            }));
+    };
+    const handleVehicleChange = (value)=>{
+        handleChange('vehicleNumber', value);
+    };
+    const handleSubmit = async (e)=>{
+        e.preventDefault();
+        setSubmitMessage('');
+        setSubmitError('');
+        const phno = localStorage.getItem('user_phone');
+        if (!phno) {
+            setSubmitError('No phone number found. Please log in again.');
+            return;
+        }
+        if (!/^\d{10}$/.test(formData.vehicleNumber)) {
+            setSubmitError(t.vehicleError);
+            return;
+        }
+        if (!formData.weight || Number(formData.weight) <= 0) {
+            setSubmitError('Please enter a valid weight.');
+            return;
+        }
+        if (!formData.source.trim() || !formData.desti.trim()) {
+            setSubmitError('Please enter both source and destination.');
+            return;
+        }
+        if (!formData.available_from || !formData.depart_by) {
+            setSubmitError('Please select both date and time fields.');
+            return;
+        }
+        if (new Date(formData.depart_by) < new Date(formData.available_from)) {
+            setSubmitError('Departure time cannot be before available-from time.');
+            return;
+        }
+        setSubmitting(true);
+        try {
+            const payload = {
+                driver_phno: Number(phno),
+                vehicle_no: formData.vehicleNumber,
+                weight: Number(formData.weight),
+                source: formData.source.trim(),
+                desti: formData.desti.trim(),
+                available_from: formData.available_from.replace('T', ' ') + ':00',
+                depart_by: formData.depart_by.replace('T', ' ') + ':00'
+            };
+            const response = await fetch(`${API_BASE_URL}/create/trip`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+            const result = await response.json().catch(()=>null);
+            if (!response.ok) {
+                throw new Error(result?.detail || 'Unable to add the trip to queue.');
+            }
+            setSubmitMessage(result?.message || 'Trip successfully added to the queue.');
+            setFormData({
+                vehicleNumber: '',
+                weight: '',
+                source: '',
+                desti: '',
+                available_from: '',
+                depart_by: '',
+                price: ''
+            });
+        } catch (error) {
+            setSubmitError(error.message || 'Unable to submit the trip.');
+        } finally{
+            setSubmitting(false);
+        }
+    };
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("style", {
+                children: `
+        .driver-form-page {
+          margin: 32px auto;
+          padding: 32px;
+          background-color: #ffffff;
+          border-radius: 12px;
+          box-shadow:
+            0 4px 6px -1px rgba(0,0,0,0.1),
+            0 2px 4px -1px rgba(0,0,0,0.06);
+          border: 1px solid #e5e7eb;
+          text-align: left;
+          max-width: 600px;
+        }
+
+        .lang-btn {
+          padding: 6px 16px;
+          margin-right: 8px;
+          font-size: 14px;
+          font-weight: 500;
+          border-radius: 6px;
+          cursor: pointer;
+          border: 1px solid #d1d5db;
+          background-color: #ffffff;
+        }
+
+        .lang-btn.active {
+          background-color: #2563eb;
+          color: white;
+          border-color: #2563eb;
+        }
+
+        .form-label {
+          display: block;
+          font-size: 14px;
+          font-weight: 600;
+          color: #374151;
+          margin-bottom: 6px;
+        }
+
+        .form-input {
+          width: 100%;
+          box-sizing: border-box;
+          padding: 10px 14px;
+          font-size: 15px;
+          border-radius: 8px;
+          border: 1px solid #d1d5db;
+          outline: none;
+        }
+
+        .form-input:focus {
+          border-color: #2563eb;
+          box-shadow:
+            0 0 0 3px rgba(37,99,235,0.1);
+        }
+
+        .driver-field-pair {
+          display: grid;
+          grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+          gap: 16px;
+        }
+
+        .driver-field-pair > div {
+          display: flex;
+          flex-direction: column;
+          min-width: 0;
+        }
+
+        .submit-btn {
+          width: 100%;
+          padding: 12px;
+          background-color: #2563eb;
+          color: white;
+          border: none;
+          font-size: 16px;
+          font-weight: 600;
+          border-radius: 8px;
+          cursor: pointer;
+        }
+
+        .submit-btn:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+
+        @media (max-width: 640px) {
+          .driver-form-page {
+            margin: 16px;
+            padding: 20px;
+          }
+
+          .driver-field-pair {
+            grid-template-columns: 1fr;
+            gap: 14px;
+          }
+        }
+      `
+            }, void 0, false, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 284,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "driver-form-page",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            display: 'flex',
+                            justifyContent: 'flex-end',
+                            marginBottom: '16px'
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                type: "button",
+                                className: `lang-btn ${language === 'en' ? 'active' : ''}`,
+                                onClick: ()=>setLanguage('en'),
+                                children: "English"
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 390,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                type: "button",
+                                className: `lang-btn ${language === 'kn' ? 'active' : ''}`,
+                                onClick: ()=>setLanguage('kn'),
+                                children: "ಕನ್ನಡ"
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 400,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 383,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                        style: {
+                            fontSize: '22px',
+                            fontWeight: 700,
+                            marginBottom: '24px',
+                            color: '#111827'
+                        },
+                        children: t.title
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 411,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
+                        onSubmit: handleSubmit,
+                        style: {
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '20px'
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "form-label",
+                                        children: t.vehicleNumber
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 431,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        className: "form-input",
+                                        type: "text",
+                                        required: true,
+                                        value: formData.vehicleNumber,
+                                        onChange: (e)=>handleVehicleChange(e.target.value),
+                                        placeholder: t.vehiclePlaceholder
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 435,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 430,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "form-label",
+                                        children: t.weight
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 448,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        className: "form-input",
+                                        type: "number",
+                                        min: "1",
+                                        value: formData.weight,
+                                        onChange: (e)=>handleChange('weight', e.target.value),
+                                        placeholder: t.weightPlaceholder,
+                                        required: true
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 452,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("small", {
+                                        style: {
+                                            display: 'block',
+                                            marginTop: '6px',
+                                            color: '#64748b'
+                                        },
+                                        children: t.weightNote
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 464,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 447,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "driver-field-pair",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                className: "form-label",
+                                                children: t.from
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/trips/page.tsx",
+                                                lineNumber: 477,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                className: "form-input",
+                                                type: "text",
+                                                value: formData.source,
+                                                onChange: (e)=>handleChange('source', e.target.value),
+                                                placeholder: t.fromPlaceholder,
+                                                required: true
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/trips/page.tsx",
+                                                lineNumber: 481,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 476,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                className: "form-label",
+                                                children: t.to
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/trips/page.tsx",
+                                                lineNumber: 497,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                className: "form-input",
+                                                type: "text",
+                                                value: formData.desti,
+                                                onChange: (e)=>handleChange('desti', e.target.value),
+                                                placeholder: t.toPlaceholder,
+                                                required: true
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/trips/page.tsx",
+                                                lineNumber: 501,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 496,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 475,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "driver-field-pair",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                className: "form-label",
+                                                children: t.availableFrom
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/trips/page.tsx",
+                                                lineNumber: 519,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                className: "form-input",
+                                                type: "datetime-local",
+                                                value: formData.available_from,
+                                                onChange: (e)=>handleChange('available_from', e.target.value),
+                                                required: true
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/trips/page.tsx",
+                                                lineNumber: 523,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 518,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                className: "form-label",
+                                                children: t.departureBy
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/trips/page.tsx",
+                                                lineNumber: 538,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                className: "form-input",
+                                                type: "datetime-local",
+                                                value: formData.depart_by,
+                                                onChange: (e)=>handleChange('depart_by', e.target.value),
+                                                required: true
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/trips/page.tsx",
+                                                lineNumber: 542,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 537,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 517,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "form-label",
+                                        children: t.price
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 558,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        className: "form-input",
+                                        type: "number",
+                                        min: "0",
+                                        value: formData.price,
+                                        onChange: (e)=>handleChange('price', e.target.value),
+                                        placeholder: t.pricePlaceholder
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 562,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 557,
+                                columnNumber: 11
+                            }, this),
+                            submitError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    padding: '12px 14px',
+                                    background: '#fef2f2',
+                                    color: '#991b1b',
+                                    border: '1px solid #fecaca',
+                                    borderRadius: 8,
+                                    fontSize: 13
+                                },
+                                children: submitError
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 578,
+                                columnNumber: 13
+                            }, this),
+                            submitMessage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    padding: '12px 14px',
+                                    background: '#f0fdf4',
+                                    color: '#166534',
+                                    border: '1px solid #bbf7d0',
+                                    borderRadius: 8,
+                                    fontSize: 13
+                                },
+                                children: submitMessage
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 593,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                className: "submit-btn",
+                                type: "submit",
+                                disabled: submitting,
+                                children: submitting ? 'Submitting...' : t.submit
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 607,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 422,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 382,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/trips/page.tsx",
+        lineNumber: 283,
+        columnNumber: 5
+    }, this);
+}
+/* -------------------------------------------------------------------------- */ /* TRIP SUMMARY                                                               */ /* -------------------------------------------------------------------------- */ function InfoBox({ icon, label, value }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        style: {
+            background: '#f8fafc',
+            borderRadius: 10,
+            padding: 13,
+            border: '1px solid #e5e7eb'
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 7,
+                    color: '#64748b',
+                    fontSize: 12,
+                    marginBottom: 5
+                },
+                children: [
+                    icon,
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        children: label
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 655,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 644,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    fontWeight: 600,
+                    color: '#1f2937',
+                    fontSize: 14,
+                    wordBreak: 'break-word'
+                },
+                children: value
+            }, void 0, false, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 658,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/trips/page.tsx",
+        lineNumber: 636,
+        columnNumber: 5
+    }, this);
+}
+function TripSummaryCard({ trip }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        style: {
+            background: '#ffffff',
+            border: '1px solid #dbeafe',
+            borderRadius: 14,
+            padding: 22,
+            boxShadow: '0 4px 12px rgba(15,23,42,0.06)',
+            marginBottom: 24
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'flex-start',
+                    gap: 12,
+                    marginBottom: 18
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 12
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    background: '#eff6ff',
+                                    color: '#2563eb',
+                                    padding: 10,
+                                    borderRadius: 10
+                                },
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$truck$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Truck$3e$__["Truck"], {
+                                    size: 22
+                                }, void 0, false, {
+                                    fileName: "[project]/app/trips/page.tsx",
+                                    lineNumber: 713,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 705,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            fontSize: 12,
+                                            fontWeight: 700,
+                                            color: '#2563eb',
+                                            textTransform: 'uppercase'
+                                        },
+                                        children: [
+                                            "Trip #",
+                                            trip.trip_id
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 717,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                        style: {
+                                            margin: '3px 0 0',
+                                            fontSize: 20,
+                                            color: '#111827'
+                                        },
+                                        children: "Current Trip"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 728,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 716,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 698,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        style: {
+                            background: '#dcfce7',
+                            color: '#166534',
+                            borderRadius: 999,
+                            padding: '5px 10px',
+                            fontSize: 12,
+                            fontWeight: 600
+                        },
+                        children: "Active"
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 740,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 689,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+                    gap: 16
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoBox, {
+                        icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
+                            size: 17
+                        }, void 0, false, {
+                            fileName: "[project]/app/trips/page.tsx",
+                            lineNumber: 763,
+                            columnNumber: 17
+                        }, this),
+                        label: "From",
+                        value: trip.source
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 762,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoBox, {
+                        icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
+                            size: 17
+                        }, void 0, false, {
+                            fileName: "[project]/app/trips/page.tsx",
+                            lineNumber: 769,
+                            columnNumber: 17
+                        }, this),
+                        label: "To",
+                        value: trip.desti
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 768,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoBox, {
+                        icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$weight$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Weight$3e$__["Weight"], {
+                            size: 17
+                        }, void 0, false, {
+                            fileName: "[project]/app/trips/page.tsx",
+                            lineNumber: 775,
+                            columnNumber: 17
+                        }, this),
+                        label: "Vehicle Capacity",
+                        value: formatWeight(trip.weight)
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 774,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoBox, {
+                        icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
+                            size: 17
+                        }, void 0, false, {
+                            fileName: "[project]/app/trips/page.tsx",
+                            lineNumber: 781,
+                            columnNumber: 17
+                        }, this),
+                        label: "Available From",
+                        value: formatDateTime(trip.available_from)
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 780,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoBox, {
+                        icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
+                            size: 17
+                        }, void 0, false, {
+                            fileName: "[project]/app/trips/page.tsx",
+                            lineNumber: 789,
+                            columnNumber: 17
+                        }, this),
+                        label: "Departure By",
+                        value: formatDateTime(trip.depart_by)
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 788,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 754,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/trips/page.tsx",
+        lineNumber: 678,
+        columnNumber: 5
+    }, this);
+}
+/* -------------------------------------------------------------------------- */ /* MATCH LOAD CARD                                                            */ /* -------------------------------------------------------------------------- */ function MatchLoadCard({ load, selected, disabled, priceRange, price, onToggle, onPriceChange }) {
+    const cardBackgrounds = [
+        '#eff6ff',
+        '#f0fdf4',
+        '#fff7ed',
+        '#fdf4ff',
+        '#ecfeff',
+        '#fefce8'
+    ];
+    const colorIndex = load.load_id % cardBackgrounds.length;
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        style: {
+            background: disabled ? '#f3f4f6' : cardBackgrounds[colorIndex],
+            border: selected ? '2px solid #2563eb' : '1px solid #e5e7eb',
+            borderRadius: 14,
+            padding: 18,
+            opacity: disabled ? 0.55 : 1,
+            transition: 'all 0.2s ease',
+            boxShadow: selected ? '0 0 0 3px rgba(37,99,235,0.10)' : '0 2px 8px rgba(15,23,42,0.04)'
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                type: "button",
+                disabled: disabled,
+                onClick: onToggle,
+                style: {
+                    width: '100%',
+                    border: 0,
+                    background: 'transparent',
+                    padding: 0,
+                    textAlign: 'left',
+                    cursor: disabled ? 'not-allowed' : 'pointer'
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            display: 'flex',
+                            alignItems: 'flex-start',
+                            justifyContent: 'space-between',
+                            gap: 12
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    display: 'flex',
+                                    gap: 10,
+                                    alignItems: 'center'
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            width: 38,
+                                            height: 38,
+                                            borderRadius: 10,
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            background: selected ? '#2563eb' : '#ffffff',
+                                            color: selected ? '#ffffff' : '#2563eb',
+                                            border: '1px solid #dbeafe'
+                                        },
+                                        children: selected ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2d$big$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle$3e$__["CheckCircle"], {
+                                            size: 20
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/trips/page.tsx",
+                                            lineNumber: 899,
+                                            columnNumber: 17
+                                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$package$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Package$3e$__["Package"], {
+                                            size: 20
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/trips/page.tsx",
+                                            lineNumber: 901,
+                                            columnNumber: 17
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 881,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                style: {
+                                                    color: '#2563eb',
+                                                    fontWeight: 700,
+                                                    fontSize: 12
+                                                },
+                                                children: [
+                                                    "LOAD #",
+                                                    load.load_id
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/trips/page.tsx",
+                                                lineNumber: 906,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                style: {
+                                                    color: '#111827',
+                                                    fontSize: 16,
+                                                    fontWeight: 700,
+                                                    marginTop: 2
+                                                },
+                                                children: [
+                                                    load.load_weight?.toLocaleString() ?? 'N/A',
+                                                    ' ',
+                                                    "kg"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/trips/page.tsx",
+                                                lineNumber: 916,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 905,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 874,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                style: {
+                                    fontSize: 11,
+                                    fontWeight: 700,
+                                    color: disabled ? '#6b7280' : '#166534',
+                                    background: disabled ? '#e5e7eb' : '#dcfce7',
+                                    borderRadius: 999,
+                                    padding: '5px 8px'
+                                },
+                                children: disabled ? 'Capacity Exceeded' : selected ? 'Selected' : 'Select'
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 931,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 866,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            marginTop: 16,
+                            paddingLeft: 10,
+                            borderLeft: '2px dashed #cbd5e1'
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    marginBottom: 11
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            fontSize: 11,
+                                            color: '#64748b',
+                                            textTransform: 'uppercase'
+                                        },
+                                        children: "From"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 962,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            fontWeight: 600,
+                                            color: '#1f2937'
+                                        },
+                                        children: load.load_source
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 972,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 961,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            fontSize: 11,
+                                            color: '#64748b',
+                                            textTransform: 'uppercase'
+                                        },
+                                        children: "To"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 983,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            fontWeight: 600,
+                                            color: '#1f2937'
+                                        },
+                                        children: load.load_desti
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 993,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 982,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 953,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            marginTop: 14,
+                            paddingTop: 12,
+                            borderTop: '1px solid rgba(148,163,184,0.25)',
+                            fontSize: 12,
+                            color: '#475569'
+                        },
+                        children: [
+                            "Departure:",
+                            ' ',
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                children: formatDateTime(load.load_depart_by)
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 1015,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 1004,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 851,
+                columnNumber: 7
+            }, this),
+            selected && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                onClick: (e)=>e.stopPropagation(),
+                style: {
+                    marginTop: 15,
+                    paddingTop: 14,
+                    borderTop: '1px solid rgba(37,99,235,0.18)'
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            gap: 10,
+                            marginBottom: 8,
+                            fontSize: 12
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                style: {
+                                    fontWeight: 700,
+                                    color: '#334155'
+                                },
+                                children: "Acceptable Price"
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 1045,
+                                columnNumber: 13
+                            }, this),
+                            priceRange ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                style: {
+                                    color: '#166534',
+                                    fontWeight: 700
+                                },
+                                children: [
+                                    "₹",
+                                    priceRange.price_from,
+                                    " - ₹",
+                                    priceRange.price_to
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 1055,
+                                columnNumber: 15
+                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                style: {
+                                    color: '#b45309'
+                                },
+                                children: "Loading range..."
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 1065,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 1035,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'relative'
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$indian$2d$rupee$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__IndianRupee$3e$__["IndianRupee"], {
+                                size: 16,
+                                style: {
+                                    position: 'absolute',
+                                    left: 11,
+                                    top: 12,
+                                    color: '#64748b'
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 1080,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                type: "number",
+                                min: priceRange?.price_from,
+                                max: priceRange?.price_to,
+                                step: "1",
+                                value: price,
+                                disabled: !priceRange,
+                                onChange: (e)=>onPriceChange(e.target.value),
+                                placeholder: priceRange ? `Enter ₹${priceRange.price_from} - ₹${priceRange.price_to}` : 'Loading price...',
+                                style: {
+                                    width: '100%',
+                                    boxSizing: 'border-box',
+                                    padding: '10px 12px 10px 32px',
+                                    borderRadius: 9,
+                                    border: '1px solid #cbd5e1',
+                                    background: '#ffffff',
+                                    fontSize: 14
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 1090,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 1075,
+                        columnNumber: 11
+                    }, this),
+                    priceRange && price !== '' && (Number(price) < priceRange.price_from || Number(price) > priceRange.price_to) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 5,
+                            marginTop: 7,
+                            color: '#dc2626',
+                            fontSize: 12
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$alert$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__AlertCircle$3e$__["AlertCircle"], {
+                                size: 14
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 1137,
+                                columnNumber: 17
+                            }, this),
+                            "Enter a price between ₹",
+                            priceRange.price_from,
+                            " and ₹",
+                            priceRange.price_to,
+                            "."
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 1127,
+                        columnNumber: 15
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 1024,
+                columnNumber: 9
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/trips/page.tsx",
+        lineNumber: 834,
+        columnNumber: 5
+    }, this);
+}
+/* -------------------------------------------------------------------------- */ /* CURRENT TRIPS                                                              */ /* -------------------------------------------------------------------------- */ function CurrentTrips() {
+    const [trip, setTrip] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [loads, setLoads] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [selectedLoads, setSelectedLoads] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({});
+    const [priceRanges, setPriceRanges] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({});
+    const [loadingTrip, setLoadingTrip] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [loadingLoads, setLoadingLoads] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [submitting, setSubmitting] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
+    const [success, setSuccess] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
+    const fetchCurrentTrip = async ()=>{
+        setLoadingTrip(true);
+        setError('');
+        setSuccess('');
+        const phno = localStorage.getItem('user_phone');
+        if (!phno) {
+            setError('No phone number found in storage. Please log in.');
+            setLoadingTrip(false);
+            return;
+        }
+        try {
+            const response = await fetch(`${API_BASE_URL}/users/current_trip/${phno}`);
+            if (!response.ok) {
+                if (response.status === 404) {
+                    setTrip(null);
+                    setLoads([]);
+                    throw new Error('No current trip found for this phone number.');
+                }
+                throw new Error('Failed to fetch current trip.');
+            }
+            const data = await response.json();
+            const currentTrip = Array.isArray(data) ? data[0] ?? null : data;
+            setTrip(currentTrip);
+        } catch (error) {
+            setError(error.message || 'Unable to fetch current trip.');
+        } finally{
+            setLoadingTrip(false);
+        }
+    };
+    const fetchMatchableLoads = async ()=>{
+        setLoadingLoads(true);
+        setError('');
+        const phno = localStorage.getItem('user_phone');
+        if (!phno) {
+            setError('No phone number found in storage. Please log in.');
+            setLoadingLoads(false);
+            return;
+        }
+        try {
+            const response = await fetch(`${API_BASE_URL}/users/match_load/${phno}`);
+            if (!response.ok) {
+                if (response.status === 404) {
+                    setLoads([]);
+                    throw new Error('No matching loads found for the current trip.');
+                }
+                throw new Error('Failed to fetch matching loads.');
+            }
+            const data = await response.json();
+            setLoads(data);
+            setSelectedLoads({});
+            setPriceRanges({});
+        } catch (error) {
+            setError(error.message || 'Unable to fetch matching loads.');
+            setLoads([]);
+        } finally{
+            setLoadingLoads(false);
+        }
+    };
+    const refreshAll = async ()=>{
+        setError('');
+        setSuccess('');
+        await fetchCurrentTrip();
+        await fetchMatchableLoads();
+    };
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        refreshAll();
+    }, []);
+    const selectedWeight = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>{
+        return Object.keys(selectedLoads).reduce((sum, id)=>{
+            const load = loads.find((item)=>item.load_id === Number(id));
+            return sum + (load?.load_weight ?? 0);
+        }, 0);
+    }, [
+        selectedLoads,
+        loads
+    ]);
+    const tripCapacity = trip?.weight ?? 0;
+    const remainingCapacity = Math.max(tripCapacity - selectedWeight, 0);
+    const isPriceValid = (loadId)=>{
+        const selected = selectedLoads[loadId];
+        const range = priceRanges[loadId];
+        if (!selected || !range || selected.price === '') {
+            return false;
+        }
+        const value = Number(selected.price);
+        return Number.isFinite(value) && value >= range.price_from && value <= range.price_to;
+    };
+    const allSelectedPricesValid = Object.keys(selectedLoads).every((id)=>isPriceValid(Number(id)));
+    const toggleLoad = async (load)=>{
+        if (selectedLoads[load.load_id]) {
+            setSelectedLoads((prev)=>{
+                const next = {
+                    ...prev
+                };
+                delete next[load.load_id];
+                return next;
+            });
+            return;
+        }
+        const loadWeight = load.load_weight ?? 0;
+        if (selectedWeight + loadWeight > tripCapacity) {
+            return;
+        }
+        setSelectedLoads((prev)=>({
+                ...prev,
+                [load.load_id]: {
+                    load_id: load.load_id,
+                    price: ''
+                }
+            }));
+        try {
+            const response = await fetch(`${API_BASE_URL}/prices/${loadWeight}`, {
+                method: 'POST'
+            });
+            if (!response.ok) {
+                throw new Error(`Could not get price range for load #${load.load_id}.`);
+            }
+            const range = await response.json();
+            setPriceRanges((prev)=>({
+                    ...prev,
+                    [load.load_id]: range
+                }));
+        } catch (error) {
+            setError(error.message || 'Unable to fetch price range.');
+            setSelectedLoads((prev)=>{
+                const next = {
+                    ...prev
+                };
+                delete next[load.load_id];
+                return next;
+            });
+        }
+    };
+    const handlePriceChange = (loadId, value)=>{
+        setSelectedLoads((prev)=>({
+                ...prev,
+                [loadId]: {
+                    ...prev[loadId],
+                    price: value
+                }
+            }));
+    };
+    const isLoadDisabled = (load)=>{
+        if (selectedLoads[load.load_id]) {
+            return false;
+        }
+        const weight = load.load_weight ?? 0;
+        return selectedWeight + weight > tripCapacity;
+    };
+    const submitMatches = async ()=>{
+        setError('');
+        setSuccess('');
+        if (!trip) {
+            setError('No current trip available.');
+            return;
+        }
+        const selected = Object.values(selectedLoads);
+        if (selected.length === 0) {
+            setError('Select at least one load.');
+            return;
+        }
+        if (selectedWeight > tripCapacity) {
+            setError('Selected load weight exceeds the vehicle capacity.');
+            return;
+        }
+        if (!allSelectedPricesValid) {
+            setError('Enter a valid price for every selected load before submitting.');
+            return;
+        }
+        setSubmitting(true);
+        try {
+            const payload = {
+                trip_id: trip.trip_id,
+                loads: selected.map((load)=>({
+                        load_id: load.load_id,
+                        price: Number(load.price)
+                    }))
+            };
+            const response = await fetch(`${API_BASE_URL}/users/match`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+            const result = await response.json().catch(()=>null);
+            if (!response.ok) {
+                throw new Error(result?.detail || 'Unable to create the trip-load match.');
+            }
+            setSuccess('Selected loads have been matched to the trip successfully.');
+            setSelectedLoads({});
+            setPriceRanges({});
+            await refreshAll();
+        } catch (error) {
+            setError(error.message || 'Unable to submit selected loads.');
+        } finally{
+            setSubmitting(false);
+        }
+    };
+    const isLoading = loadingTrip || loadingLoads;
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        style: {
+            width: '100%',
+            textAlign: 'left'
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: 16
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                style: {
+                                    fontSize: 20,
+                                    fontWeight: 700,
+                                    color: '#1f2937',
+                                    margin: 0
+                                },
+                                children: "📋 Current Trip"
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 1576,
+                                columnNumber: 11
+                            }, this),
+                            trip && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                style: {
+                                    margin: '4px 0 0',
+                                    color: '#64748b',
+                                    fontSize: 13
+                                },
+                                children: "Select one or more loads to fill this vehicle."
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 1588,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 1575,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        type: "button",
+                        onClick: refreshAll,
+                        disabled: isLoading || submitting,
+                        style: {
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 5,
+                            border: 0,
+                            background: 'transparent',
+                            color: '#2563eb',
+                            fontSize: 12,
+                            fontWeight: 600,
+                            cursor: isLoading ? 'not-allowed' : 'pointer'
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$refresh$2d$cw$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__RefreshCw$3e$__["RefreshCw"], {
+                                size: 14,
+                                className: isLoading ? 'animate-spin' : ''
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 1624,
+                                columnNumber: 11
+                            }, this),
+                            isLoading ? 'Updating...' : 'Refresh'
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 1602,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 1566,
+                columnNumber: 7
+            }, this),
+            error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    padding: '12px 15px',
+                    marginBottom: 16,
+                    background: '#fef2f2',
+                    color: '#991b1b',
+                    border: '1px solid #fecaca',
+                    borderRadius: 9,
+                    fontSize: 13
+                },
+                children: error
+            }, void 0, false, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 1640,
+                columnNumber: 9
+            }, this),
+            success && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    padding: '12px 15px',
+                    marginBottom: 16,
+                    background: '#f0fdf4',
+                    color: '#166534',
+                    border: '1px solid #bbf7d0',
+                    borderRadius: 9,
+                    fontSize: 13
+                },
+                children: success
+            }, void 0, false, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 1657,
+                columnNumber: 9
+            }, this),
+            loadingTrip && !trip ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    padding: 35,
+                    textAlign: 'center',
+                    color: '#64748b',
+                    background: '#ffffff',
+                    border: '1px dashed #cbd5e1',
+                    borderRadius: 12
+                },
+                children: "Loading current trip..."
+            }, void 0, false, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 1674,
+                columnNumber: 9
+            }, this) : trip ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(TripSummaryCard, {
+                        trip: trip
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 1689,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            gap: 12,
+                            flexWrap: 'wrap',
+                            marginBottom: 14
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                        style: {
+                                            margin: 0,
+                                            fontSize: 17,
+                                            fontWeight: 700,
+                                            color: '#1f2937'
+                                        },
+                                        children: "Matchable Loads"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 1705,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        style: {
+                                            margin: '4px 0 0',
+                                            fontSize: 12,
+                                            color: '#64748b'
+                                        },
+                                        children: "Loads matching this trip's route and timing."
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 1716,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 1704,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    background: remainingCapacity === 0 ? '#dcfce7' : '#eff6ff',
+                                    color: remainingCapacity === 0 ? '#166534' : '#1d4ed8',
+                                    padding: '8px 12px',
+                                    borderRadius: 9,
+                                    fontSize: 13,
+                                    fontWeight: 700
+                                },
+                                children: [
+                                    selectedWeight.toLocaleString(),
+                                    " /",
+                                    ' ',
+                                    tripCapacity.toLocaleString(),
+                                    " kg used",
+                                    ' · ',
+                                    remainingCapacity.toLocaleString(),
+                                    " kg remaining"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 1729,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 1693,
+                        columnNumber: 11
+                    }, this),
+                    loadingLoads ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            padding: 30,
+                            textAlign: 'center',
+                            color: '#64748b',
+                            background: '#ffffff',
+                            border: '1px dashed #cbd5e1',
+                            borderRadius: 12
+                        },
+                        children: "Loading matchable loads..."
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 1754,
+                        columnNumber: 13
+                    }, this) : loads.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            padding: 30,
+                            textAlign: 'center',
+                            color: '#94a3b8',
+                            background: '#ffffff',
+                            border: '1px dashed #cbd5e1',
+                            borderRadius: 12
+                        },
+                        children: "No matchable loads are currently available."
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 1768,
+                        columnNumber: 13
+                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    display: 'grid',
+                                    gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
+                                    gap: 16
+                                },
+                                children: loads.map((load)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(MatchLoadCard, {
+                                        load: load,
+                                        selected: Boolean(selectedLoads[load.load_id]),
+                                        disabled: isLoadDisabled(load),
+                                        priceRange: priceRanges[load.load_id],
+                                        price: selectedLoads[load.load_id]?.price ?? '',
+                                        onToggle: ()=>toggleLoad(load),
+                                        onPriceChange: (value)=>handlePriceChange(load.load_id, value)
+                                    }, load.load_id, false, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 1793,
+                                        columnNumber: 19
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 1784,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    marginTop: 20,
+                                    padding: 16,
+                                    background: '#ffffff',
+                                    border: '1px solid #e5e7eb',
+                                    borderRadius: 12,
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    gap: 15,
+                                    flexWrap: 'wrap'
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                style: {
+                                                    fontSize: 12,
+                                                    color: '#64748b',
+                                                    marginBottom: 3
+                                                },
+                                                children: "Selected loads"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/trips/page.tsx",
+                                                lineNumber: 1850,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                style: {
+                                                    fontSize: 15,
+                                                    fontWeight: 700,
+                                                    color: '#1f2937'
+                                                },
+                                                children: [
+                                                    Object.keys(selectedLoads).length,
+                                                    ' ',
+                                                    "load(s) ·",
+                                                    ' ',
+                                                    selectedWeight.toLocaleString(),
+                                                    ' ',
+                                                    "kg"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/trips/page.tsx",
+                                                lineNumber: 1860,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 1849,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        type: "button",
+                                        onClick: submitMatches,
+                                        disabled: submitting || Object.keys(selectedLoads).length === 0 || !allSelectedPricesValid || selectedWeight > tripCapacity,
+                                        style: {
+                                            border: 0,
+                                            borderRadius: 9,
+                                            padding: '11px 20px',
+                                            background: submitting || Object.keys(selectedLoads).length === 0 || !allSelectedPricesValid || selectedWeight > tripCapacity ? '#94a3b8' : '#2563eb',
+                                            color: '#ffffff',
+                                            fontWeight: 700,
+                                            cursor: submitting || Object.keys(selectedLoads).length === 0 || !allSelectedPricesValid || selectedWeight > tripCapacity ? 'not-allowed' : 'pointer'
+                                        },
+                                        children: submitting ? 'Matching...' : 'Confirm Selected Loads'
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 1878,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 1833,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 1783,
+                        columnNumber: 13
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 1688,
+                columnNumber: 9
+            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    padding: 35,
+                    textAlign: 'center',
+                    color: '#94a3b8',
+                    background: '#ffffff',
+                    border: '1px dashed #cbd5e1',
+                    borderRadius: 12
+                },
+                children: "No current trip found."
+            }, void 0, false, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 1930,
+                columnNumber: 9
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/trips/page.tsx",
+        lineNumber: 1560,
+        columnNumber: 5
+    }, this);
+}
+/* -------------------------------------------------------------------------- */ /* HISTORY                                                                    */ /* -------------------------------------------------------------------------- */ function HistoryTripCard({ trip }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        style: {
+            background: '#ffffff',
+            border: '1px solid #e5e7eb',
+            borderRadius: 14,
+            padding: 20,
+            boxShadow: '0 3px 10px rgba(15,23,42,0.05)'
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    justifyContent: 'space-between',
+                    gap: 10,
+                    paddingBottom: 13,
+                    marginBottom: 14,
+                    borderBottom: '1px solid #f1f5f9'
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 10
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    background: '#f3f4f6',
+                                    color: '#6b7280',
+                                    padding: 9,
+                                    borderRadius: 9
+                                },
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$truck$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Truck$3e$__["Truck"], {
+                                    size: 20
+                                }, void 0, false, {
+                                    fileName: "[project]/app/trips/page.tsx",
+                                    lineNumber: 1997,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 1989,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            fontSize: 11,
+                                            fontWeight: 700,
+                                            color: '#6b7280',
+                                            textTransform: 'uppercase'
+                                        },
+                                        children: [
+                                            "Trip #",
+                                            trip.trip_id
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 2001,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            fontSize: 16,
+                                            fontWeight: 700,
+                                            color: '#374151'
+                                        },
+                                        children: [
+                                            trip.source,
+                                            " →",
+                                            ' ',
+                                            trip.desti
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/trips/page.tsx",
+                                        lineNumber: 2013,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 2000,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 1982,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        style: {
+                            background: '#f3f4f6',
+                            color: '#374151',
+                            padding: '5px 9px',
+                            borderRadius: 999,
+                            fontSize: 11,
+                            fontWeight: 600
+                        },
+                        children: "Matched"
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 2026,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 1969,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+                    gap: 10
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoBox, {
+                        icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
+                            size: 15
+                        }, void 0, false, {
+                            fileName: "[project]/app/trips/page.tsx",
+                            lineNumber: 2049,
+                            columnNumber: 17
+                        }, this),
+                        label: "From",
+                        value: trip.source
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 2048,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoBox, {
+                        icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
+                            size: 15
+                        }, void 0, false, {
+                            fileName: "[project]/app/trips/page.tsx",
+                            lineNumber: 2055,
+                            columnNumber: 17
+                        }, this),
+                        label: "To",
+                        value: trip.desti
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 2054,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoBox, {
+                        icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$weight$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Weight$3e$__["Weight"], {
+                            size: 15
+                        }, void 0, false, {
+                            fileName: "[project]/app/trips/page.tsx",
+                            lineNumber: 2061,
+                            columnNumber: 17
+                        }, this),
+                        label: "Capacity",
+                        value: formatWeight(trip.weight)
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 2060,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoBox, {
+                        icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
+                            size: 15
+                        }, void 0, false, {
+                            fileName: "[project]/app/trips/page.tsx",
+                            lineNumber: 2069,
+                            columnNumber: 17
+                        }, this),
+                        label: "Departure",
+                        value: formatDateTime(trip.depart_by)
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 2068,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoBox, {
+                        icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
+                            size: 15
+                        }, void 0, false, {
+                            fileName: "[project]/app/trips/page.tsx",
+                            lineNumber: 2077,
+                            columnNumber: 17
+                        }, this),
+                        label: "Available From",
+                        value: formatDateTime(trip.available_from)
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 2076,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 2040,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    marginTop: 14,
+                    paddingTop: 12,
+                    borderTop: '1px solid #f1f5f9',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 6,
+                    color: '#15803d',
+                    fontSize: 12,
+                    fontWeight: 600
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2d$big$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle$3e$__["CheckCircle"], {
+                        size: 14
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 2099,
+                        columnNumber: 9
+                    }, this),
+                    "Match ID:",
+                    ' ',
+                    trip.match_id || 'Matched'
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 2085,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/trips/page.tsx",
+        lineNumber: 1958,
+        columnNumber: 5
+    }, this);
+}
+function HistoryTabContent() {
+    const [historyTrips, setHistoryTrips] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
+    const fetchHistory = async ()=>{
+        setLoading(true);
+        setError('');
+        const phno = localStorage.getItem('user_phone');
+        if (!phno) {
+            setError('No phone number found in storage. Please log in.');
+            setLoading(false);
+            return;
+        }
+        try {
+            const response = await fetch(`${API_BASE_URL}/users/history_trip/${phno}`);
+            if (!response.ok) {
+                if (response.status === 404) {
+                    setHistoryTrips([]);
+                    throw new Error('No past trip records found for this phone number.');
+                }
+                throw new Error('Failed to fetch trip history.');
+            }
+            const data = await response.json();
+            setHistoryTrips(data);
+        } catch (error) {
+            setError(error.message || 'Unable to fetch trip history.');
+        } finally{
+            setLoading(false);
+        }
+    };
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        fetchHistory();
+    }, []);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        style: {
+            textAlign: 'left'
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    marginBottom: 16
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                        style: {
+                            fontSize: 20,
+                            fontWeight: 700,
+                            color: '#1f2937',
+                            margin: 0
+                        },
+                        children: "⚙️ Trip History"
+                    }, void 0, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 2180,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        type: "button",
+                        onClick: fetchHistory,
+                        disabled: loading,
+                        style: {
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 5,
+                            color: '#4b5563',
+                            background: 'transparent',
+                            border: 0,
+                            cursor: loading ? 'not-allowed' : 'pointer',
+                            fontSize: 12,
+                            fontWeight: 600
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$rotate$2d$cw$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__RotateCw$3e$__["RotateCw"], {
+                                size: 14,
+                                className: loading ? 'animate-spin' : ''
+                            }, void 0, false, {
+                                fileName: "[project]/app/trips/page.tsx",
+                                lineNumber: 2210,
+                                columnNumber: 11
+                            }, this),
+                            loading ? 'Updating...' : 'Refresh History'
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 2191,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 2171,
+                columnNumber: 7
+            }, this),
+            error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    padding: 14,
+                    marginBottom: 16,
+                    background: '#fffbeb',
+                    border: '1px solid #fde68a',
+                    borderRadius: 9,
+                    color: '#b45309',
+                    fontSize: 13
+                },
+                children: error
+            }, void 0, false, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 2226,
+                columnNumber: 9
+            }, this),
+            !loading && historyTrips.length === 0 && !error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    padding: 35,
+                    textAlign: 'center',
+                    color: '#9ca3af',
+                    background: '#ffffff',
+                    border: '1px dashed #e5e7eb',
+                    borderRadius: 12
+                },
+                children: "No past trip records found."
+            }, void 0, false, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 2245,
+                columnNumber: 11
+            }, this),
+            loading && historyTrips.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    padding: 35,
+                    textAlign: 'center',
+                    color: '#64748b'
+                },
+                children: "Loading trip history..."
+            }, void 0, false, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 2263,
+                columnNumber: 9
+            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                    gap: 18
+                },
+                children: historyTrips.map((trip)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(HistoryTripCard, {
+                        trip: trip
+                    }, trip.trip_id, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 2283,
+                        columnNumber: 15
+                    }, this))
+            }, void 0, false, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 2273,
+                columnNumber: 9
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/trips/page.tsx",
+        lineNumber: 2170,
+        columnNumber: 5
+    }, this);
+}
+/* -------------------------------------------------------------------------- */ /* TABS                                                                       */ /* -------------------------------------------------------------------------- */ function CreateTab() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "p-6 bg-gray-50 border border-gray-100 rounded-xl space-y-3",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CreateTrip, {}, void 0, false, {
+            fileName: "[project]/app/trips/page.tsx",
+            lineNumber: 2302,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/app/trips/page.tsx",
+        lineNumber: 2301,
+        columnNumber: 5
+    }, this);
+}
+function CurrentTab() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "p-6 bg-gray-50 border border-gray-100 rounded-xl space-y-3",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CurrentTrips, {}, void 0, false, {
+            fileName: "[project]/app/trips/page.tsx",
+            lineNumber: 2310,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/app/trips/page.tsx",
+        lineNumber: 2309,
+        columnNumber: 5
+    }, this);
+}
+function HistoryTab() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "p-6 bg-gray-50 border border-gray-100 rounded-xl space-y-3",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(HistoryTabContent, {}, void 0, false, {
+            fileName: "[project]/app/trips/page.tsx",
+            lineNumber: 2318,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/app/trips/page.tsx",
+        lineNumber: 2317,
+        columnNumber: 5
+    }, this);
+}
+function TripPage() {
+    const [activeTab, setActiveTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('Current');
+    const renderTabContent = ()=>{
+        switch(activeTab){
+            case 'Create':
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CreateTab, {}, void 0, false, {
+                    fileName: "[project]/app/trips/page.tsx",
+                    lineNumber: 2334,
+                    columnNumber: 16
+                }, this);
+            case 'Current':
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CurrentTab, {}, void 0, false, {
+                    fileName: "[project]/app/trips/page.tsx",
+                    lineNumber: 2337,
+                    columnNumber: 16
+                }, this);
+            case 'History':
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(HistoryTab, {}, void 0, false, {
+                    fileName: "[project]/app/trips/page.tsx",
+                    lineNumber: 2340,
+                    columnNumber: 16
+                }, this);
+            default:
+                return null;
+        }
+    };
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "max-w-4xl mx-auto p-6",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                className: "text-2xl font-bold mb-6 text-gray-900",
+                children: "-----------------------------------------------------------------------------------------------------------------------------------"
+            }, void 0, false, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 2349,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex border-b border-gray-200 mb-6",
+                role: "tablist",
+                children: [
+                    'Create',
+                    'Current',
+                    'History'
+                ].map((tab)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        role: "tab",
+                        "aria-selected": activeTab === tab,
+                        className: `py-2 px-4 font-medium capitalize border-b-2 transition-all -mb-[2px] ${activeTab === tab ? 'border-blue-600 text-blue-600 font-semibold' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}`,
+                        onClick: ()=>setActiveTab(tab),
+                        children: tab
+                    }, tab, false, {
+                        fileName: "[project]/app/trips/page.tsx",
+                        lineNumber: 2364,
+                        columnNumber: 11
+                    }, this))
+            }, void 0, false, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 2353,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "mt-4 animate-fade-in",
+                children: renderTabContent()
+            }, void 0, false, {
+                fileName: "[project]/app/trips/page.tsx",
+                lineNumber: 2384,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/trips/page.tsx",
+        lineNumber: 2348,
+        columnNumber: 5
+    }, this);
+}
+}),
+];
+
+//# sourceMappingURL=app_trips_page_tsx_1dgxjgxn5n1z8._.js.map
