@@ -52,7 +52,7 @@ class CreateTrip(BaseModel):
 class MatchTrip(BaseModel):
     trip_id: int
     load_id: int
-    price: float
+    price: int
 
 
 
@@ -226,7 +226,7 @@ def match_trip(mat: MatchTrip):
 
 
 @app.post("/prices/{weight}")
-def get_price(weight: INTEGER):
+def get_price(weight: int):
     conn = get_db()
     rows = conn.execute("""SELECT price_from, price_to from "prices" where weight_from <= ? and weigth_to >= ? ORDER BY price_timestamp desc""", (weight, weight)).fetchone()
     conn.close()

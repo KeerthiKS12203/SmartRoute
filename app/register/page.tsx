@@ -9,6 +9,7 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
+  const url="https://8000-kode-ws-c69bd7bb1.hebbale.academy"
 
   useEffect(() => {
     const savedPhone = localStorage.getItem("temp_register_phone") || "";
@@ -19,7 +20,7 @@ export default function Register() {
     e.preventDefault();
     setError("");
     try {
-      const res = await fetch("http://localhost:8000/users/register", {
+      const res = await fetch(`${url}/users/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone_no: Number(phone), name, role, password }),
@@ -34,8 +35,8 @@ export default function Register() {
       const data = await res.json();
       localStorage.removeItem("temp_register_phone");
 
-      if (data.role === "farmer") router.push("/farmer_home");
-      else router.push("/driver_home");
+      if (data.role === "trader") router.push("/loads");
+      else router.push("/trips");
     } catch (err) {
       setError("Failed to register profile database entry.");
     }

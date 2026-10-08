@@ -8,13 +8,13 @@ export default function PhoneLogin() {
   const [step, setStep] = useState(1); // 1 = Phone Check, 2 = Password Entry
   const [error, setError] = useState("");
   const router = useRouter();
-
+  const url="https://8000-kode-ws-c69bd7bb1.hebbale.academy"
   const handleCheckPhone = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     try {
       // ✅ FIX: Full localhost URL with port 8000 and the complete API route
-      const res = await fetch(`http://localhost:8000/users/check-phone/${phone}`);
+      const res = await fetch(`${url}/users/check-phone/${phone}`);
       
       const rawText = await res.text(); 
       
@@ -34,7 +34,7 @@ export default function PhoneLogin() {
     setError("");
     try {
       // ✅ FIX: Aligned perfectly to use localhost on port 8000
-      const res = await fetch("http://localhost:8000/users/login", {
+      const res = await fetch(`${url}/users/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone_no: Number(phone), password }),
@@ -47,7 +47,7 @@ export default function PhoneLogin() {
       }
 
       const data = await res.json();
-      if (data.role === "farmer") router.push("/farmer_home");
+      if (data.role === "trader") router.push("/loads");
       else if (data.role === "driver") router.push("/driver_home");
       else setError(`Unknown role context: ${data.role}`);
     } catch (err) {
