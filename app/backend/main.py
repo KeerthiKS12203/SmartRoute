@@ -50,7 +50,10 @@ class CreateTrip(BaseModel):
     depart_by: datetime
 
 class MatchTrip(BaseModel):
-    driver_phno: int
+    trip_id: int
+    load_id: int
+    price: float
+
 
 
 @app.get("/users/check-phone/{phone_no}")
@@ -209,10 +212,11 @@ def fetch_trips(driver_phno: int):
 @app.post("/users/match")
 def match_trip(mat: MatchTrip):
     conn = get_db()
-    rows = conn.execute("""SELECT trip_id, load_id, weight, price  from "match" where driver_phno = ?""", (mat.driver_phno,)).fetchall()
+    rows = conn.execute("""INSERT INTO match (trip_id, load_id, price) values (?,?,?)""")
     conn.close()
 
     if not rows:
         raise HTTPException(status=404, detail = "NO match found")
 
     return [dict(row) for row in rows]
+
