@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, type ChangeEvent } from 'react';
-import { Package, MapPin, Calendar, RefreshCw, Weight } from 'lucide-react';
+import { Package, MapPin, Calendar, RefreshCw, RotateCw, Weight } from 'lucide-react';
 
 type TabType = 'Create' | 'Current' | 'History';
 
@@ -350,11 +350,173 @@ function CurrentTab() {
   );
 }
 
-function HistoryTab() {
+
+// TypeScript interface matching your FastAPI schema mapping
+interface HistoryLoadItem {
+  load_id: number;
+  trader_phno: number;
+  item: string | null;
+  weight: number | null;
+  source: string;
+  desti: string;
+  depart_by: string | null;
+  arrive_by: string | null;
+  timestamp: string;
+  match_id: string | null;
+}
+
+export function HistoryTab() {
+  const [historyLoads, setHistoryLoads] = useState<HistoryLoadItem[]>([]);
+  const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+
+  // Configuration base URL for your FastAPI server engine
+
+  const handleFetchHistory = async () => {
+    setError("");
+    setLoading(true);
+
+    // Pull phone parameters out from browser local storage safely
+    const phno = localStorage.getItem("temp_register_phone");
+    
+    if (!phno) {
+      setError("No phone number found in storage. Please log in.");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const res = await fetch(`${API_BASE_URL}/users/history_load/${phno}`);
+      
+      if (!res.ok) {
+        if (res.status === 404) {
+          setHistoryLoads([]);
+          throw new Error("No past records found for this phone number.");
+        }
+        throw new Error("Failed to communicate with data engine.");
+      }
+      
+      const data: HistoryLoadItem[] = await res.json();
+      setHistoryLoads(data);
+    } catch (err: any) {
+      setError(err.message || "Server error. Is your FastAPI engine active?");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Run automatically when the history view initialises
+  useEffect(() => {
+    handleFetchHistory();
+  }, []);
+
   return (
-    <div className="p-6 bg-gray-50 border border-gray-100 rounded-xl space-y-3">
-      <h2 className="text-xl font-semibold text-gray-800">⚙️ Load History</h2>
-      <p className="text-gray-600">Manage your preferences, configure layout thresholds, or toggle options here.</p>
+    <div className="p-6 bg-gray-50 border border-gray-200 rounded-xl" style={{ backgroundColor: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: '0.75rem', padding: '1.5rem', textAlign: 'left' }}>
+      
+      {/* Header bar with Reload Status Trigger */}
+      <div className="flex items-center justify-between mb-4" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
+        <h2 className="text-xl font-semibold text-gray-800" style={{ fontSize: '1.25rem', fontWeight: 600, color: '#1f2937', margin: 0 }}>⚙️ Load History</h2>
+        <button 
+          onClick={handleFetchHistory}
+          disabled={loading}
+          className="flex items-center gap-1 text-xs text-gray-600 font-medium hover:underline border-none bg-transparent cursor-pointer disabled:opacity-50"
+          style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', color: '#4b5563', cursor: 'pointer', background: 'transparent', border: 'none' }}
+        >
+          <RotateCw className={`w-3 h-3 ${loading ? 'animate-spin' : ''}`} />
+          {loading ? 'Updating...' : 'Refresh History'}
+        </button>
+      </div>
+
+      {/* Conditional Error notifications */}
+      {error && (
+        <div className="p-4 mb-4 text-sm text-amber-700 bg-amber-50 rounded-lg border border-amber-200" style={{ padding: '1rem', backgroundColor: '#fffbeb', border: '1px solid #fde68a', borderRadius: '0.5rem', color: '#b45309', marginBottom: '1rem' }}>
+          {error}
+        </div>
+      )}
+
+      {/* Empty State Handler fallback */}
+      {!loading && historyLoads.length === 0 && !error && (
+        <div className="p-8 text-center text-sm text-gray-400 bg-white rounded-xl border border-dashed border-gray-200" style={{ padding: '2rem', textAlign: 'center', color: '#9ca3af', backgroundColor: '#ffffff', border: '1px dashed #e5e7eb', borderRadius: '0.75rem' }}>
+          No archived or completed shipments found under this profile.
+        </div>
+      )}
+
+      {/* Responsive Structural View layout grid: full screen on mobile, half screen on larger viewports */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full" style={{ display: 'grid', width: '100%', gap: '1.5rem', gridTemplateColumns: historyLoads.length > 0 ? 'repeat(auto-fit, minmax(300px, 1fr))' : '1fr' }}>
+        {historyLoads.map((data) => (
+          <div
+            key={data.load_id}
+            className="bg-white rounded-xl shadow-md border border-gray-200 p-6 opacity-90 transition-shadow duration-200"
+            style={{
+              backgroundColor: '#ffffff',
+              borderRadius: '0.75rem',
+              border: '1px solid #e5e7eb',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+              padding: '1.5rem'
+            }}
+          >
+            {/* Header: Load Item Title */}
+            <div className="flex items-start justify-between border-b border-gray-100 pb-4 mb-4" style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f3f4f6', paddingBottom: '1rem', marginBottom: '1rem' }}>
+              <div className="flex items-center space-x-3" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <div className="p-2 bg-gray-50 text-gray-500 rounded-lg" style={{ backgroundColor: '#f3f4f6', padding: '0.5rem', borderRadius: '0.5rem', color: '#6b7280' }}>
+                  <Package className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider" style={{ fontSize: '0.75rem', fontWeight: 600, color: '#6b7280', textTransform: 'uppercase' }}>
+                    Load ID #{data.load_id}
+                  </span>
+                  <h3 className="text-lg font-bold text-gray-700 leading-tight" style={{ fontSize: '1.125rem', fontWeight: 700, color: '#374151', margin: 0 }}>
+                    {data.item || 'Unlabeled Freight'}
+                  </h3>
+                </div>
+              </div>
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800" style={{ backgroundColor: '#f3f4f6', color: '#1f2937', padding: '0.125rem 0.625rem', borderRadius: '9999px', fontSize: '0.75rem', fontWeight: 500 }}>
+                Matched
+              </span>
+            </div>
+
+            {/* Body: From (Source) & To (Desti) Metrics */}
+            <div className="relative pl-6 space-y-4 my-4 ml-3" style={{ position: 'relative', paddingLeft: '1.5rem', marginLeft: '0.75rem', borderLeft: '2px dashed #d1d5db' }}>
+              {/* Source (from) */}
+              <div className="relative" style={{ marginBottom: '1rem' }}>
+                <div className="absolute bg-white p-0.5 text-gray-400" style={{ position: 'absolute', left: '-31px', top: '2px', backgroundColor: '#ffffff', padding: '0.125rem' }}>
+                  <MapPin className="w-4 h-4 text-gray-400" />
+                </div>
+                <p className="text-xs text-gray-400 font-medium uppercase" style={{ fontSize: '0.75rem', color: '#9ca3af', margin: 0, textTransform: 'uppercase' }}>From</p>
+                <p className="text-sm font-semibold text-gray-600" style={{ fontSize: '0.875rem', fontWeight: 600, color: '#4b5563', margin: 0 }}>{data.source}</p>
+              </div>
+
+              {/* Destination (desti) */}
+              <div className="relative">
+                <div className="absolute bg-white p-0.5 text-gray-400" style={{ position: 'absolute', left: '-31px', top: '2px', backgroundColor: '#ffffff', padding: '0.125rem' }}>
+                  <MapPin className="w-4 h-4 text-gray-400" />
+                </div>
+                <p className="text-xs text-gray-500 font-medium uppercase" style={{ fontSize: '0.75rem', color: '#6b7280', margin: 0, textTransform: 'uppercase' }}>To</p>
+                <p className="text-sm font-semibold text-gray-600" style={{ fontSize: '0.875rem', fontWeight: 600, color: '#4b5563', margin: 0 }}>{data.desti}</p>
+              </div>
+            </div>
+
+            {/* Footer: Mass Weight Attributes & Match System Assignment Data */}
+            <div className="flex items-center justify-between pt-4 border-t border-gray-100 text-sm" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #f3f4f6', paddingTop: '1rem', fontSize: '0.875rem' }}>
+              <div className="flex items-center space-x-2.5" style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}>
+                <Weight className="w-4 h-4 text-gray-400 shrink-0" style={{ color: '#9ca3af' }} />
+                <div>
+                  <p className="text-xs text-gray-400" style={{ fontSize: '0.75rem', color: '#9ca3af', margin: 0 }}>Weight Metric</p>
+                  <p className="font-medium text-gray-600" style={{ fontWeight: 500, color: '#4b5563', margin: 0 }}>
+                    {data.weight ? `${data.weight.toLocaleString()} kg` : 'N/A'}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center text-xs text-green-700 font-medium" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.75rem', color: '#15803d', fontWeight: 500 }}>
+                <CheckCircle className="w-3.5 h-3.5 text-green-600" style={{ color: '#16a34a' }} />
+                <span>ID: {data.match_id || 'Archived'}</span>
+              </div>
+            </div>
+
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
