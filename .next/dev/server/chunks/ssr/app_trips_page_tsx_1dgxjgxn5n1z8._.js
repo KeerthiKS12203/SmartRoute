@@ -105,10 +105,6 @@ function formatWeight(value) {
             setSubmitError('No phone number found. Please log in again.');
             return;
         }
-        if (!/^\d{10}$/.test(formData.vehicleNumber)) {
-            setSubmitError(t.vehicleError);
-            return;
-        }
         if (!formData.weight || Number(formData.weight) <= 0) {
             setSubmitError('Please enter a valid weight.');
             return;
@@ -265,7 +261,7 @@ function formatWeight(value) {
       `
             }, void 0, false, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 284,
+                lineNumber: 280,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -285,7 +281,7 @@ function formatWeight(value) {
                                 children: "English"
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 390,
+                                lineNumber: 386,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -295,13 +291,13 @@ function formatWeight(value) {
                                 children: "ಕನ್ನಡ"
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 400,
+                                lineNumber: 396,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 383,
+                        lineNumber: 379,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -314,7 +310,7 @@ function formatWeight(value) {
                         children: t.title
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 411,
+                        lineNumber: 407,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -332,7 +328,7 @@ function formatWeight(value) {
                                         children: t.vehicleNumber
                                     }, void 0, false, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 431,
+                                        lineNumber: 427,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -344,13 +340,13 @@ function formatWeight(value) {
                                         placeholder: t.vehiclePlaceholder
                                     }, void 0, false, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 435,
+                                        lineNumber: 431,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 430,
+                                lineNumber: 426,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -360,7 +356,7 @@ function formatWeight(value) {
                                         children: t.weight
                                     }, void 0, false, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 448,
+                                        lineNumber: 444,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -373,7 +369,7 @@ function formatWeight(value) {
                                         required: true
                                     }, void 0, false, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 452,
+                                        lineNumber: 448,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("small", {
@@ -385,13 +381,13 @@ function formatWeight(value) {
                                         children: t.weightNote
                                     }, void 0, false, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 464,
+                                        lineNumber: 460,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 447,
+                                lineNumber: 443,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -404,7 +400,7 @@ function formatWeight(value) {
                                                 children: t.from
                                             }, void 0, false, {
                                                 fileName: "[project]/app/trips/page.tsx",
-                                                lineNumber: 477,
+                                                lineNumber: 473,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -416,13 +412,13 @@ function formatWeight(value) {
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/app/trips/page.tsx",
-                                                lineNumber: 481,
+                                                lineNumber: 477,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 476,
+                                        lineNumber: 472,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -432,7 +428,7 @@ function formatWeight(value) {
                                                 children: t.to
                                             }, void 0, false, {
                                                 fileName: "[project]/app/trips/page.tsx",
-                                                lineNumber: 497,
+                                                lineNumber: 493,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -444,19 +440,19 @@ function formatWeight(value) {
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/app/trips/page.tsx",
-                                                lineNumber: 501,
+                                                lineNumber: 497,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 496,
+                                        lineNumber: 492,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 475,
+                                lineNumber: 471,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -469,7 +465,7 @@ function formatWeight(value) {
                                                 children: t.availableFrom
                                             }, void 0, false, {
                                                 fileName: "[project]/app/trips/page.tsx",
-                                                lineNumber: 519,
+                                                lineNumber: 515,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -480,13 +476,13 @@ function formatWeight(value) {
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/app/trips/page.tsx",
-                                                lineNumber: 523,
+                                                lineNumber: 519,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 518,
+                                        lineNumber: 514,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -496,7 +492,7 @@ function formatWeight(value) {
                                                 children: t.departureBy
                                             }, void 0, false, {
                                                 fileName: "[project]/app/trips/page.tsx",
-                                                lineNumber: 538,
+                                                lineNumber: 534,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -507,19 +503,19 @@ function formatWeight(value) {
                                                 required: true
                                             }, void 0, false, {
                                                 fileName: "[project]/app/trips/page.tsx",
-                                                lineNumber: 542,
+                                                lineNumber: 538,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 537,
+                                        lineNumber: 533,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 517,
+                                lineNumber: 513,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -529,7 +525,7 @@ function formatWeight(value) {
                                         children: t.price
                                     }, void 0, false, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 558,
+                                        lineNumber: 554,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -541,13 +537,13 @@ function formatWeight(value) {
                                         placeholder: t.pricePlaceholder
                                     }, void 0, false, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 562,
+                                        lineNumber: 558,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 557,
+                                lineNumber: 553,
                                 columnNumber: 11
                             }, this),
                             submitError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -562,7 +558,7 @@ function formatWeight(value) {
                                 children: submitError
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 578,
+                                lineNumber: 574,
                                 columnNumber: 13
                             }, this),
                             submitMessage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -577,7 +573,7 @@ function formatWeight(value) {
                                 children: submitMessage
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 593,
+                                lineNumber: 589,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -587,25 +583,25 @@ function formatWeight(value) {
                                 children: submitting ? 'Submitting...' : t.submit
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 607,
+                                lineNumber: 603,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 422,
+                        lineNumber: 418,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 382,
+                lineNumber: 378,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/trips/page.tsx",
-        lineNumber: 283,
+        lineNumber: 279,
         columnNumber: 5
     }, this);
 }
@@ -633,13 +629,13 @@ function formatWeight(value) {
                         children: label
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 655,
+                        lineNumber: 651,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 644,
+                lineNumber: 640,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -652,13 +648,13 @@ function formatWeight(value) {
                 children: value
             }, void 0, false, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 658,
+                lineNumber: 654,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/trips/page.tsx",
-        lineNumber: 636,
+        lineNumber: 632,
         columnNumber: 5
     }, this);
 }
@@ -700,12 +696,12 @@ function TripSummaryCard({ trip }) {
                                     size: 22
                                 }, void 0, false, {
                                     fileName: "[project]/app/trips/page.tsx",
-                                    lineNumber: 713,
+                                    lineNumber: 709,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 705,
+                                lineNumber: 701,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -723,7 +719,7 @@ function TripSummaryCard({ trip }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 717,
+                                        lineNumber: 713,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -735,19 +731,19 @@ function TripSummaryCard({ trip }) {
                                         children: "Current Trip"
                                     }, void 0, false, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 728,
+                                        lineNumber: 724,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 716,
+                                lineNumber: 712,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 698,
+                        lineNumber: 694,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -762,13 +758,13 @@ function TripSummaryCard({ trip }) {
                         children: "Active"
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 740,
+                        lineNumber: 736,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 689,
+                lineNumber: 685,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -783,14 +779,14 @@ function TripSummaryCard({ trip }) {
                             size: 17
                         }, void 0, false, {
                             fileName: "[project]/app/trips/page.tsx",
-                            lineNumber: 763,
+                            lineNumber: 759,
                             columnNumber: 17
                         }, this),
                         label: "From",
                         value: trip.source
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 762,
+                        lineNumber: 758,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoBox, {
@@ -798,14 +794,14 @@ function TripSummaryCard({ trip }) {
                             size: 17
                         }, void 0, false, {
                             fileName: "[project]/app/trips/page.tsx",
-                            lineNumber: 769,
+                            lineNumber: 765,
                             columnNumber: 17
                         }, this),
                         label: "To",
                         value: trip.desti
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 768,
+                        lineNumber: 764,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoBox, {
@@ -813,14 +809,14 @@ function TripSummaryCard({ trip }) {
                             size: 17
                         }, void 0, false, {
                             fileName: "[project]/app/trips/page.tsx",
-                            lineNumber: 775,
+                            lineNumber: 771,
                             columnNumber: 17
                         }, this),
                         label: "Vehicle Capacity",
                         value: formatWeight(trip.weight)
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 774,
+                        lineNumber: 770,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoBox, {
@@ -828,14 +824,14 @@ function TripSummaryCard({ trip }) {
                             size: 17
                         }, void 0, false, {
                             fileName: "[project]/app/trips/page.tsx",
-                            lineNumber: 781,
+                            lineNumber: 777,
                             columnNumber: 17
                         }, this),
                         label: "Available From",
                         value: formatDateTime(trip.available_from)
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 780,
+                        lineNumber: 776,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoBox, {
@@ -843,26 +839,26 @@ function TripSummaryCard({ trip }) {
                             size: 17
                         }, void 0, false, {
                             fileName: "[project]/app/trips/page.tsx",
-                            lineNumber: 789,
+                            lineNumber: 785,
                             columnNumber: 17
                         }, this),
                         label: "Departure By",
                         value: formatDateTime(trip.depart_by)
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 788,
+                        lineNumber: 784,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 754,
+                lineNumber: 750,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/trips/page.tsx",
-        lineNumber: 678,
+        lineNumber: 674,
         columnNumber: 5
     }, this);
 }
@@ -931,18 +927,18 @@ function TripSummaryCard({ trip }) {
                                             size: 20
                                         }, void 0, false, {
                                             fileName: "[project]/app/trips/page.tsx",
-                                            lineNumber: 899,
+                                            lineNumber: 895,
                                             columnNumber: 17
                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$package$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Package$3e$__["Package"], {
                                             size: 20
                                         }, void 0, false, {
                                             fileName: "[project]/app/trips/page.tsx",
-                                            lineNumber: 901,
+                                            lineNumber: 897,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 881,
+                                        lineNumber: 877,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -959,7 +955,7 @@ function TripSummaryCard({ trip }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/trips/page.tsx",
-                                                lineNumber: 906,
+                                                lineNumber: 902,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -976,19 +972,19 @@ function TripSummaryCard({ trip }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/trips/page.tsx",
-                                                lineNumber: 916,
+                                                lineNumber: 912,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 905,
+                                        lineNumber: 901,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 874,
+                                lineNumber: 870,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1003,13 +999,13 @@ function TripSummaryCard({ trip }) {
                                 children: disabled ? 'Capacity Exceeded' : selected ? 'Selected' : 'Select'
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 931,
+                                lineNumber: 927,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 866,
+                        lineNumber: 862,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1033,7 +1029,7 @@ function TripSummaryCard({ trip }) {
                                         children: "From"
                                     }, void 0, false, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 962,
+                                        lineNumber: 958,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1044,13 +1040,13 @@ function TripSummaryCard({ trip }) {
                                         children: load.load_source
                                     }, void 0, false, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 972,
+                                        lineNumber: 968,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 961,
+                                lineNumber: 957,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1064,7 +1060,7 @@ function TripSummaryCard({ trip }) {
                                         children: "To"
                                     }, void 0, false, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 983,
+                                        lineNumber: 979,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1075,19 +1071,19 @@ function TripSummaryCard({ trip }) {
                                         children: load.load_desti
                                     }, void 0, false, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 993,
+                                        lineNumber: 989,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 982,
+                                lineNumber: 978,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 953,
+                        lineNumber: 949,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1105,19 +1101,19 @@ function TripSummaryCard({ trip }) {
                                 children: formatDateTime(load.load_depart_by)
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 1015,
+                                lineNumber: 1011,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 1004,
+                        lineNumber: 1000,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 851,
+                lineNumber: 847,
                 columnNumber: 7
             }, this),
             selected && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1145,7 +1141,7 @@ function TripSummaryCard({ trip }) {
                                 children: "Acceptable Price"
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 1045,
+                                lineNumber: 1041,
                                 columnNumber: 13
                             }, this),
                             priceRange ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1161,7 +1157,7 @@ function TripSummaryCard({ trip }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 1055,
+                                lineNumber: 1051,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 style: {
@@ -1170,13 +1166,13 @@ function TripSummaryCard({ trip }) {
                                 children: "Loading range..."
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 1065,
+                                lineNumber: 1061,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 1035,
+                        lineNumber: 1031,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1194,7 +1190,7 @@ function TripSummaryCard({ trip }) {
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 1080,
+                                lineNumber: 1076,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1217,13 +1213,13 @@ function TripSummaryCard({ trip }) {
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 1090,
+                                lineNumber: 1086,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 1075,
+                        lineNumber: 1071,
                         columnNumber: 11
                     }, this),
                     priceRange && price !== '' && (Number(price) < priceRange.price_from || Number(price) > priceRange.price_to) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1240,7 +1236,7 @@ function TripSummaryCard({ trip }) {
                                 size: 14
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 1137,
+                                lineNumber: 1133,
                                 columnNumber: 17
                             }, this),
                             "Enter a price between ₹",
@@ -1251,19 +1247,19 @@ function TripSummaryCard({ trip }) {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 1127,
+                        lineNumber: 1123,
                         columnNumber: 15
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 1024,
+                lineNumber: 1020,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/trips/page.tsx",
-        lineNumber: 834,
+        lineNumber: 830,
         columnNumber: 5
     }, this);
 }
@@ -1503,7 +1499,7 @@ function TripSummaryCard({ trip }) {
                                 children: "📋 Current Trip"
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 1576,
+                                lineNumber: 1572,
                                 columnNumber: 11
                             }, this),
                             trip && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1515,13 +1511,13 @@ function TripSummaryCard({ trip }) {
                                 children: "Select one or more loads to fill this vehicle."
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 1588,
+                                lineNumber: 1584,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 1575,
+                        lineNumber: 1571,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1545,20 +1541,20 @@ function TripSummaryCard({ trip }) {
                                 className: isLoading ? 'animate-spin' : ''
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 1624,
+                                lineNumber: 1620,
                                 columnNumber: 11
                             }, this),
                             isLoading ? 'Updating...' : 'Refresh'
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 1602,
+                        lineNumber: 1598,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 1566,
+                lineNumber: 1562,
                 columnNumber: 7
             }, this),
             error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1574,7 +1570,7 @@ function TripSummaryCard({ trip }) {
                 children: error
             }, void 0, false, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 1640,
+                lineNumber: 1636,
                 columnNumber: 9
             }, this),
             success && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1590,7 +1586,7 @@ function TripSummaryCard({ trip }) {
                 children: success
             }, void 0, false, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 1657,
+                lineNumber: 1653,
                 columnNumber: 9
             }, this),
             loadingTrip && !trip ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1605,7 +1601,7 @@ function TripSummaryCard({ trip }) {
                 children: "Loading current trip..."
             }, void 0, false, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 1674,
+                lineNumber: 1670,
                 columnNumber: 9
             }, this) : trip ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                 children: [
@@ -1613,7 +1609,7 @@ function TripSummaryCard({ trip }) {
                         trip: trip
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 1689,
+                        lineNumber: 1685,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1638,7 +1634,7 @@ function TripSummaryCard({ trip }) {
                                         children: "Matchable Loads"
                                     }, void 0, false, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 1705,
+                                        lineNumber: 1701,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1650,13 +1646,13 @@ function TripSummaryCard({ trip }) {
                                         children: "Loads matching this trip's route and timing."
                                     }, void 0, false, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 1716,
+                                        lineNumber: 1712,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 1704,
+                                lineNumber: 1700,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1680,13 +1676,13 @@ function TripSummaryCard({ trip }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 1729,
+                                lineNumber: 1725,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 1693,
+                        lineNumber: 1689,
                         columnNumber: 11
                     }, this),
                     loadingLoads ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1701,7 +1697,7 @@ function TripSummaryCard({ trip }) {
                         children: "Loading matchable loads..."
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 1754,
+                        lineNumber: 1750,
                         columnNumber: 13
                     }, this) : loads.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         style: {
@@ -1715,7 +1711,7 @@ function TripSummaryCard({ trip }) {
                         children: "No matchable loads are currently available."
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 1768,
+                        lineNumber: 1764,
                         columnNumber: 13
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                         children: [
@@ -1735,12 +1731,12 @@ function TripSummaryCard({ trip }) {
                                         onPriceChange: (value)=>handlePriceChange(load.load_id, value)
                                     }, load.load_id, false, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 1793,
+                                        lineNumber: 1789,
                                         columnNumber: 19
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 1784,
+                                lineNumber: 1780,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1768,7 +1764,7 @@ function TripSummaryCard({ trip }) {
                                                 children: "Selected loads"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/trips/page.tsx",
-                                                lineNumber: 1850,
+                                                lineNumber: 1846,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1788,13 +1784,13 @@ function TripSummaryCard({ trip }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/trips/page.tsx",
-                                                lineNumber: 1860,
+                                                lineNumber: 1856,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 1849,
+                                        lineNumber: 1845,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1813,25 +1809,25 @@ function TripSummaryCard({ trip }) {
                                         children: submitting ? 'Matching...' : 'Confirm Selected Loads'
                                     }, void 0, false, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 1878,
+                                        lineNumber: 1874,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 1833,
+                                lineNumber: 1829,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 1783,
+                        lineNumber: 1779,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 1688,
+                lineNumber: 1684,
                 columnNumber: 9
             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 style: {
@@ -1845,13 +1841,13 @@ function TripSummaryCard({ trip }) {
                 children: "No current trip found."
             }, void 0, false, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 1930,
+                lineNumber: 1926,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/trips/page.tsx",
-        lineNumber: 1560,
+        lineNumber: 1556,
         columnNumber: 5
     }, this);
 }
@@ -1894,12 +1890,12 @@ function TripSummaryCard({ trip }) {
                                     size: 20
                                 }, void 0, false, {
                                     fileName: "[project]/app/trips/page.tsx",
-                                    lineNumber: 1997,
+                                    lineNumber: 1993,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 1989,
+                                lineNumber: 1985,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1917,7 +1913,7 @@ function TripSummaryCard({ trip }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 2001,
+                                        lineNumber: 1997,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1934,19 +1930,19 @@ function TripSummaryCard({ trip }) {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/trips/page.tsx",
-                                        lineNumber: 2013,
+                                        lineNumber: 2009,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 2000,
+                                lineNumber: 1996,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 1982,
+                        lineNumber: 1978,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1961,13 +1957,13 @@ function TripSummaryCard({ trip }) {
                         children: "Matched"
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 2026,
+                        lineNumber: 2022,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 1969,
+                lineNumber: 1965,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1982,14 +1978,14 @@ function TripSummaryCard({ trip }) {
                             size: 15
                         }, void 0, false, {
                             fileName: "[project]/app/trips/page.tsx",
-                            lineNumber: 2049,
+                            lineNumber: 2045,
                             columnNumber: 17
                         }, this),
                         label: "From",
                         value: trip.source
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 2048,
+                        lineNumber: 2044,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoBox, {
@@ -1997,14 +1993,14 @@ function TripSummaryCard({ trip }) {
                             size: 15
                         }, void 0, false, {
                             fileName: "[project]/app/trips/page.tsx",
-                            lineNumber: 2055,
+                            lineNumber: 2051,
                             columnNumber: 17
                         }, this),
                         label: "To",
                         value: trip.desti
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 2054,
+                        lineNumber: 2050,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoBox, {
@@ -2012,14 +2008,14 @@ function TripSummaryCard({ trip }) {
                             size: 15
                         }, void 0, false, {
                             fileName: "[project]/app/trips/page.tsx",
-                            lineNumber: 2061,
+                            lineNumber: 2057,
                             columnNumber: 17
                         }, this),
                         label: "Capacity",
                         value: formatWeight(trip.weight)
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 2060,
+                        lineNumber: 2056,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoBox, {
@@ -2027,14 +2023,14 @@ function TripSummaryCard({ trip }) {
                             size: 15
                         }, void 0, false, {
                             fileName: "[project]/app/trips/page.tsx",
-                            lineNumber: 2069,
+                            lineNumber: 2065,
                             columnNumber: 17
                         }, this),
                         label: "Departure",
                         value: formatDateTime(trip.depart_by)
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 2068,
+                        lineNumber: 2064,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(InfoBox, {
@@ -2042,20 +2038,20 @@ function TripSummaryCard({ trip }) {
                             size: 15
                         }, void 0, false, {
                             fileName: "[project]/app/trips/page.tsx",
-                            lineNumber: 2077,
+                            lineNumber: 2073,
                             columnNumber: 17
                         }, this),
                         label: "Available From",
                         value: formatDateTime(trip.available_from)
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 2076,
+                        lineNumber: 2072,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 2040,
+                lineNumber: 2036,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2075,7 +2071,7 @@ function TripSummaryCard({ trip }) {
                         size: 14
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 2099,
+                        lineNumber: 2095,
                         columnNumber: 9
                     }, this),
                     "Match ID:",
@@ -2084,13 +2080,13 @@ function TripSummaryCard({ trip }) {
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 2085,
+                lineNumber: 2081,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/trips/page.tsx",
-        lineNumber: 1958,
+        lineNumber: 1954,
         columnNumber: 5
     }, this);
 }
@@ -2150,7 +2146,7 @@ function HistoryTabContent() {
                         children: "⚙️ Trip History"
                     }, void 0, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 2180,
+                        lineNumber: 2176,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2174,20 +2170,20 @@ function HistoryTabContent() {
                                 className: loading ? 'animate-spin' : ''
                             }, void 0, false, {
                                 fileName: "[project]/app/trips/page.tsx",
-                                lineNumber: 2210,
+                                lineNumber: 2206,
                                 columnNumber: 11
                             }, this),
                             loading ? 'Updating...' : 'Refresh History'
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 2191,
+                        lineNumber: 2187,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 2171,
+                lineNumber: 2167,
                 columnNumber: 7
             }, this),
             error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2203,7 +2199,7 @@ function HistoryTabContent() {
                 children: error
             }, void 0, false, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 2226,
+                lineNumber: 2222,
                 columnNumber: 9
             }, this),
             !loading && historyTrips.length === 0 && !error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2218,7 +2214,7 @@ function HistoryTabContent() {
                 children: "No past trip records found."
             }, void 0, false, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 2245,
+                lineNumber: 2241,
                 columnNumber: 11
             }, this),
             loading && historyTrips.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2230,7 +2226,7 @@ function HistoryTabContent() {
                 children: "Loading trip history..."
             }, void 0, false, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 2263,
+                lineNumber: 2259,
                 columnNumber: 9
             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 style: {
@@ -2242,18 +2238,18 @@ function HistoryTabContent() {
                         trip: trip
                     }, trip.trip_id, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 2283,
+                        lineNumber: 2279,
                         columnNumber: 15
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 2273,
+                lineNumber: 2269,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/trips/page.tsx",
-        lineNumber: 2170,
+        lineNumber: 2166,
         columnNumber: 5
     }, this);
 }
@@ -2262,12 +2258,12 @@ function HistoryTabContent() {
         className: "p-6 bg-gray-50 border border-gray-100 rounded-xl space-y-3",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CreateTrip, {}, void 0, false, {
             fileName: "[project]/app/trips/page.tsx",
-            lineNumber: 2302,
+            lineNumber: 2298,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/trips/page.tsx",
-        lineNumber: 2301,
+        lineNumber: 2297,
         columnNumber: 5
     }, this);
 }
@@ -2276,12 +2272,12 @@ function CurrentTab() {
         className: "p-6 bg-gray-50 border border-gray-100 rounded-xl space-y-3",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CurrentTrips, {}, void 0, false, {
             fileName: "[project]/app/trips/page.tsx",
-            lineNumber: 2310,
+            lineNumber: 2306,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/trips/page.tsx",
-        lineNumber: 2309,
+        lineNumber: 2305,
         columnNumber: 5
     }, this);
 }
@@ -2290,12 +2286,12 @@ function HistoryTab() {
         className: "p-6 bg-gray-50 border border-gray-100 rounded-xl space-y-3",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(HistoryTabContent, {}, void 0, false, {
             fileName: "[project]/app/trips/page.tsx",
-            lineNumber: 2318,
+            lineNumber: 2314,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/trips/page.tsx",
-        lineNumber: 2317,
+        lineNumber: 2313,
         columnNumber: 5
     }, this);
 }
@@ -2306,19 +2302,19 @@ function TripPage() {
             case 'Create':
                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CreateTab, {}, void 0, false, {
                     fileName: "[project]/app/trips/page.tsx",
-                    lineNumber: 2334,
+                    lineNumber: 2330,
                     columnNumber: 16
                 }, this);
             case 'Current':
                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CurrentTab, {}, void 0, false, {
                     fileName: "[project]/app/trips/page.tsx",
-                    lineNumber: 2337,
+                    lineNumber: 2333,
                     columnNumber: 16
                 }, this);
             case 'History':
                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(HistoryTab, {}, void 0, false, {
                     fileName: "[project]/app/trips/page.tsx",
-                    lineNumber: 2340,
+                    lineNumber: 2336,
                     columnNumber: 16
                 }, this);
             default:
@@ -2333,7 +2329,7 @@ function TripPage() {
                 children: "-----------------------------------------------------------------------------------------------------------------------------------"
             }, void 0, false, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 2349,
+                lineNumber: 2345,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2351,12 +2347,12 @@ function TripPage() {
                         children: tab
                     }, tab, false, {
                         fileName: "[project]/app/trips/page.tsx",
-                        lineNumber: 2364,
+                        lineNumber: 2360,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 2353,
+                lineNumber: 2349,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2364,13 +2360,13 @@ function TripPage() {
                 children: renderTabContent()
             }, void 0, false, {
                 fileName: "[project]/app/trips/page.tsx",
-                lineNumber: 2384,
+                lineNumber: 2380,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/trips/page.tsx",
-        lineNumber: 2348,
+        lineNumber: 2344,
         columnNumber: 5
     }, this);
 }
