@@ -177,10 +177,6 @@ function CreateTrip() {
       return;
     }
 
-    if (!/^\d{10}$/.test(formData.vehicleNumber)) {
-      setSubmitError(t.vehicleError);
-      return;
-    }
 
     if (!formData.weight || Number(formData.weight) <= 0) {
       setSubmitError('Please enter a valid weight.');
