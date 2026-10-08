@@ -5,7 +5,7 @@ import { Package, MapPin, Calendar, RefreshCw, Weight } from 'lucide-react';
 
 type TabType = 'Create' | 'Current' | 'History';
 
-const url = "https://3000-kode-ws-c69bd7bb1.hebbale.academy"
+  const API_BASE_URL = "https://3000-kode-ws-c69bd7bb1.hebbale.academy"
 
 function CreateLoad(){
     const [language, setLanguage] = useState<"en"| "kn">("en");
@@ -208,7 +208,6 @@ function CurrentLoads() {
   const [loading, setLoading] = useState<boolean>(false);
 
   // Configuration base URL for your FastAPI server engine
-  const API_BASE_URL = "http://localhost:8000"; 
 
   const handleFetchLoads = async () => {
     setError("");
