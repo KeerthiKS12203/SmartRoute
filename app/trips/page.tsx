@@ -111,7 +111,7 @@ function CreateTrip() {
       departureBy: "Departure By",
       price: "Price",
       submit: "Submit",
-      vehicleError: "Enter exactly 10 digits",
+      vehicleError: "Enter appropriate vehicle number",
       vehiclePlaceholder: "Enter Vehicle Number",
       weightPlaceholder: "Enter weight",
       fromPlaceholder: "Enter starting location",
@@ -129,7 +129,7 @@ function CreateTrip() {
       departureBy: "ನಿರ್ಗಮನದ ಸಮಯ",
       price: "ಬೆಲೆ",
       submit: "ಸಲ್ಲಿಸಿ",
-      vehicleError: "ದಯವಿಟ್ಟು ನಿಖರವಾಗಿ 10 ಅಂಕಿಗಳನ್ನು ನಮೂದಿಸಿ.",
+      vehicleError: "ದಯವಿಟ್ಟು ನಿಖರವಾಗಿ ನಮೂದಿಸಿ.",
       vehiclePlaceholder: "ವಾಹನ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ",
       weightPlaceholder: "ತೂಕವನ್ನು ನಮೂದಿಸಿ",
       fromPlaceholder: "ಪ್ರಾರಂಭದ ಸ್ಥಳವನ್ನು ನಮೂದಿಸಿ",
@@ -145,7 +145,7 @@ function CreateTrip() {
   };
 
   const handleVehicleChange = (value: string) => {
-    handleChange('vehicleNumber', value.replace(/\D/g, '').slice(0, 10));
+    handleChange('vehicleNumber', value);
   };
 
   /*
@@ -275,19 +275,11 @@ function CreateTrip() {
             <input
               className="form-input"
               type="text"
-              inputMode="numeric"
-              maxLength={10}
-              pattern="[0-9]{10}"
               required
               value={formData.vehicleNumber}
               onChange={e => handleVehicleChange(e.target.value)}
               placeholder={t.vehiclePlaceholder}
             />
-            {formData.vehicleNumber.length > 0 && formData.vehicleNumber.length < 10 && (
-              <small style={{ display: "block", color: "#dc2626", marginTop: 5 }}>
-                {t.vehicleError}
-              </small>
-            )}
           </div>
 
           <div>
@@ -736,7 +728,7 @@ function CurrentTrips() {
     setError('');
     setSuccess('');
 
-    const phno = localStorage.getItem('temp_register_phone');
+    const phno = localStorage.getItem('user_phone');
 
     if (!phno) {
       setError('No phone number found in storage. Please log in.');
@@ -780,7 +772,7 @@ function CurrentTrips() {
     setLoadingLoads(true);
     setError('');
 
-    const phno = localStorage.getItem('temp_register_phone');
+    const phno = localStorage.getItem('user_phone');
 
     if (!phno) {
       setError('No phone number found in storage. Please log in.');
@@ -1344,7 +1336,7 @@ function HistoryTabContent() {
     setLoading(true);
     setError('');
 
-    const phno = localStorage.getItem('temp_register_phone');
+    const phno = localStorage.getItem('phone');
 
     if (!phno) {
       setError('No phone number found in storage. Please log in.');
@@ -1472,9 +1464,6 @@ function HistoryTabContent() {
 function CreateTab() {
   return (
     <div className="p-6 bg-gray-50 border border-gray-100 rounded-xl space-y-3">
-      <h2 className="text-xl font-semibold text-gray-800">
-        🚚 Add Transport Trip
-      </h2>
       <CreateTrip />
     </div>
   );

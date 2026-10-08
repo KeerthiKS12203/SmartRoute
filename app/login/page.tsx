@@ -19,9 +19,13 @@ export default function PhoneLogin() {
       const rawText = await res.text(); 
       
       if (rawText.includes("true")) {
+        localStorage.setItem("temp_register_phone", phone);
+        localStorage.setItem("user_phone", phone);
+
         setStep(2); // Unlock password field
       } else {
         localStorage.setItem("temp_register_phone", phone);
+        localStorage.setItem("user_phone", phone);
         router.push("/register");
       }
     } catch (err) {
@@ -48,7 +52,7 @@ export default function PhoneLogin() {
 
       const data = await res.json();
       if (data.role === "trader") router.push("/loads");
-      else if (data.role === "driver") router.push("/driver_home");
+      else if (data.role === "driver") router.push("/trips");
       else setError(`Unknown role context: ${data.role}`);
     } catch (err) {
       setError("Network timeout communicating with backend API.");

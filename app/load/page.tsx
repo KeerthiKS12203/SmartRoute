@@ -20,7 +20,7 @@ export default function Load(){
             to:"To",
             departureBy: "Departure By",
             submit:"Submit",
-            vehicleError:"Enter exactly 10 digits",
+            vehicleError:"Enter Appropriate Vehicle Number",
             weightPlaceholder:"Enter weight",
             fromPlaceholder:"Enter starting location",
             toPlaceholder:"Enter destination",

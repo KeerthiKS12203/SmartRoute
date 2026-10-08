@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 export default function Register() {
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
-  const [role, setRole] = useState("farmer");
+  const [role, setRole] = useState("trader");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
@@ -33,7 +33,10 @@ export default function Register() {
       }
 
       const data = await res.json();
-      localStorage.removeItem("temp_register_phone");
+        localStorage.setItem("user_phone", phone);
+        localStorage.setItem("user_role", data.role);
+
+        localStorage.removeItem("temp_register_phone");
 
       if (data.role === "trader") router.push("/loads");
       else router.push("/trips");
@@ -45,7 +48,7 @@ export default function Register() {
   return (
     <div style={{ padding: 40, fontFamily: "sans-serif", maxWidth: 350, margin: "auto" }}>
       <h2>Account Enrollment</h2>
-      <p style={{ color: "orange" }}>Your phone entry is completely clean. Register details below:</p>
+      <p style={{ }}>   Register details below:</p>
       <form onSubmit={handleRegister} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <div>
           <label>Target Phone:</label>
@@ -57,7 +60,7 @@ export default function Register() {
         </div>
         <div>
           <label style={{ display: "block", marginBottom: 4 }}>Select Operating Profile Role:</label>
-          <label style={{ marginRight: 15 }}><input type="radio" value="farmer" checked={role === "farmer"} onChange={() => setRole("farmer")} /> Farmer</label>
+          <label style={{ marginRight: 15 }}><input type="radio" value="trader" checked={role === "trader"} onChange={() => setRole("trader")} /> trader</label>
           <label><input type="radio" value="driver" checked={role === "driver"} onChange={() => setRole("driver")} /> Driver</label>
         </div>
         <div>
