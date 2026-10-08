@@ -56,7 +56,7 @@ cursor.execute("""
 
 print("load_trip_match table")
 cursor.execute("""
-    CREATE TABLE IF NOT EXISTS user (
+    CREATE TABLE IF NOT EXISTS match (
         match_id INTEGER PRIMARY KEY AUTOINCREMENT,
         trader_phno INTEGER PRIMARY KEY,
         driver_phno INTEGER PRIMARY KEY,

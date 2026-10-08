@@ -39,7 +39,6 @@ class CreateLoad(BaseModel):
     desti: str
     depart_by: datetime
     arrive_by: datetime
-    match_id: str
 
 class CreateTrip(BaseModel):
     driver_phno: int
@@ -49,7 +48,9 @@ class CreateTrip(BaseModel):
     desti: str
     available_from: datetime
     depart_by: datetime
-    match_id: str
+
+class MatchTrip(BaseModel):
+    trip_id: int
 
 
 @app.get("/users/check-phone/{phone_no}")
@@ -124,13 +125,13 @@ def create_trip(trip: CreateTrip):
 
 
 @app.get("/users/current_driver/{driver_phno}")
-def fetch_trips(phone_no: int):
+def fetch_trips(driver_phno: int):
     conn = get_db()
     rows = conn.execute("SELECT * from trip where driver_phno = ? and (match_id = '' or match_id is null)", (driver_phno,))
     conn.close()
 
     if not rows:
-        raise HTTPException(status_code=404, detail="No records found for this phone number")
+        raise HTTPException(status_code=404, detail="No records found for this trip")
 
     return [dict(row) for row in rows]
 
@@ -138,11 +139,11 @@ def fetch_trips(phone_no: int):
 @app.get("/users/current_load/{trader_phno}")
 def fetch_loads(trader_phno: int):
     conn = get_db()
-    rows = conn.execute("SELECT * from load where trader_phno = ? and (match_id = '' or match_id is null)", (driver_phno,))
+    rows = conn.execute("SELECT * from load where trader_phno = ? and (match_id = '' or match_id is null)", (trader_phno,))
     conn.close()
 
     if not rows:
-        raise HTTPException(status_code=404, detail="No records found for this phone number")
+        raise HTTPException(status_code=404, detail="No records found for this load")
 
     return [dict(row) for row in rows]
 
@@ -153,7 +154,8 @@ def match_load(trip_id: int):
                         from load l join trip t 
                         on l.source = t.source 
                         and l.desti = t.desti
-                        where datetime(l.depart_by) <= datetime(t.depart_by)
+                        where datetime(l.depart_by) >= datetime(t.depart_by)
+                        and datetime(t.available_from) <= datetime(l.depart_by)
                         and l.weight <= t.weight
                         and (match_id = '' or match_id is null)
                         """)
@@ -176,7 +178,7 @@ def fetch_loads(trader_phno: int):
     return [dict(row) for row in rows]
 
 @app.get("/users/history_trip/{driver_phno}")
-def fetch_loads(driver_phno: int):
+def fetch_trips(driver_phno: int):
     conn = get_db()
     rows = conn.execute("SELECT * from trip where driver_phno = ? and (match_id <> '' or match_id is not null)", (driver_phno,))
     conn.close()
@@ -186,3 +188,13 @@ def fetch_loads(driver_phno: int):
 
     return [dict(row) for row in rows]
 
+@app.post("/users/match/{trip_id}")
+def match_trip(mat: MatchTrip):
+    conn = get_db()
+    rows = conn.execute("SELECT trip_id, load_id, weight, price  from match where trip_id = ?", (mat.trip_id,)).fetchall()
+    conn.close()
+
+    if not rows:
+        raise HTTPException(status=404, detail = "NO match found")
+
+    return [dict(row) for row in rows]
