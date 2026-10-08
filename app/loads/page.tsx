@@ -33,7 +33,7 @@ function CreateLoad() {
 
   const text = {
     en: {
-      title: "Trader Form",
+      title: "Add New Load",
       load_item: "Load Item",
       weight: "Weight",
       weightNote: "Enter weight in kg",
@@ -51,7 +51,7 @@ function CreateLoad() {
       successMessage: "Successfully added the load to queue!"
     },
     kn: {
-      title: "ವ್ಯಾಪಾರಕರ ಫಾರ್ಮ್",
+      title: "ಹೊಸ ಸಾಗಣೆ",
       load_item: "ಸರಕಿನ ವಸ್ತು",
       weight: "ತೂಕ",
       weightNote: "ತೂಕವನ್ನು ಕಿಲೋಗ್ರಾಂಗಳಲ್ಲಿ (ಕೆಜಿ) ನಮೂದಿಸಿ.",

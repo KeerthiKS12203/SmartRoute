@@ -212,11 +212,26 @@ def fetch_trips(driver_phno: int):
 @app.post("/users/match")
 def match_trip(mat: MatchTrip):
     conn = get_db()
-    rows = conn.execute("""INSERT INTO match (trip_id, load_id, price) values (?,?,?)""")
-    conn.close()
+    try: 
+        for load in mat.loads: 
+            conn.execute( """ INSERT INTO match (trip_id, load_id, price) VALUES (?, ?, ?) """, (mat.trip_id, load.load_id, load.price))
+            conn.commit()
+    finally:
+        conn.close()
 
     if not rows:
         raise HTTPException(status=404, detail = "NO match found")
 
     return [dict(row) for row in rows]
 
+
+@app.post("/prices/{weight}")
+def get_price(weight: INTEGER):
+    conn = get_db()
+    rows = conn.execute("""SELECT price_from, price_to from "prices" where weight_from <= ? and weigth_to >= ? ORDER BY price_timestamp desc""", (weight, weight)).fetchone()
+    conn.close()
+
+    if not rows:
+        raise HTTPException(status=404, detail = "NO match found")
+
+    return JSONResponse( content = {"price_from": rows.price_from, "price_to": rows.price_to})
