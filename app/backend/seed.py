@@ -58,10 +58,10 @@ print("load_trip_match table")
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS match (
         match_id INTEGER PRIMARY KEY AUTOINCREMENT,
-        trader_phno INTEGER PRIMARY KEY,
-        driver_phno INTEGER PRIMARY KEY,
-        load_id INTEGER PRIMARY KEY,
-        trip_id INTEGER PRIMARY KEY,
+        trader_phno INTEGER NOT NULL,
+        driver_phno INTEGER NOT NULL,
+        load_id INTEGER NOT NULL,
+        trip_id INTEGER NOT NULL,
         weight INTEGER,
         match_timestamp TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%S', 'now', '-5 hours')),
         price INTEGER,

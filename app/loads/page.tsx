@@ -1,122 +1,316 @@
 'use client';
 
 import { useState, useEffect, type ChangeEvent } from 'react';
-import { Package, MapPin, Calendar, RefreshCw, RotateCw, Weight } from 'lucide-react';
+import { Package, MapPin, Calendar, RefreshCw, RotateCw, Weight, CheckCircle } from 'lucide-react';
 
 type TabType = 'Create' | 'Current' | 'History';
 
   const API_BASE_URL = "https://3000-kode-ws-c69bd7bb1.hebbale.academy"
 
-function CreateLoad(){
-    const [language, setLanguage] = useState<"en"| "kn">("en");
-    const text={
-        en:{
-            title:"Trader Form",
-            load_item: "Load Item",
-            weight: "Weight",
-            weightNote: "Enter weight in kg",
-            from:"From",
-            to:"To",
-            departureBy: "Departure By",
-            submit:"Submit",
-            vehicleError:"Enter exactly 10 digits",
-            weightPlaceholder:"Enter weight",
-            fromPlaceholder:"Enter starting location",
-            toPlaceholder:"Enter destination",
+interface FormState {
+  item: string;
+  weight: string;
+  source: string;
+  desti: string;
+  depart_by: string;
+}
+
+function CreateLoad() {
+  const [language, setLanguage] = useState<"en" | "kn">("en");
+  
+  // Input fields form states
+  const [formData, setFormData] = useState<FormState>({
+    item: '',
+    weight: '',
+    source: '',
+    desti: '',
+    depart_by: ''
+  });
+
+  // Action status indicators
+  const [loading, setLoading] = useState<boolean>(false);
+  const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+
+  const text = {
+    en: {
+      title: "Trader Form",
+      load_item: "Load Item",
+      weight: "Weight",
+      weightNote: "Enter weight in kg",
+      from: "From",
+      to: "To",
+      departureBy: "Departure By",
+      submit: "Submit",
+      submitting: "Submitting...",
+      weightPlaceholder: "Enter weight",
+      fromPlaceholder: "Enter starting location",
+      toPlaceholder: "Enter destination",
+      loadPlaceholder: "Enter load item type",
+      missingPhoneError: "Phone number not found. Please log in.",
+      validationError: "Please fill out all the input fields correctly.",
+      successMessage: "Successfully added the load to queue!"
+    },
+    kn: {
+      title: "ವ್ಯಾಪಾರಕರ ಫಾರ್ಮ್",
+      load_item: "ಸರಕಿನ ವಸ್ತು",
+      weight: "ತೂಕ",
+      weightNote: "ತೂಕವನ್ನು ಕಿಲೋಗ್ರಾಂಗಳಲ್ಲಿ (ಕೆಜಿ) ನಮೂದಿಸಿ.",
+      from: "ಇಂದ",
+      to: "ಗೆ",
+      departureBy: "ನಿರ್ಗಮನದ ಸಮಯ",
+      submit: "ಸಲ್ಲಿಸಿ",
+      submitting: "ಸಲ್ಲಿಸಲಾಗುತ್ತಿದೆ...",
+      weightPlaceholder: "ತೂಕವನ್ನು ನಮೂದಿಸಿ",
+      fromPlaceholder: "ಪ್ರಾರಂಭದ ಸ್ಥಳವನ್ನು ನಮೂದಿಸಿ",
+      toPlaceholder: "ಗಮ್ಯಸ್ಥಾನವನ್ನು ನಮೂದಿಸಿ",
+      loadPlaceholder: "ಸರಕಿನ ವಸ್ತುವನ್ನು ನಮೂದಿಸಿ",
+      missingPhoneError: "ಫೋನ್ ಸಂಖ್ಯೆ ಕಂಡುಬಂದಿಲ್ಲ. ದಯವಿಟ್ಟು ಲಾಗ್ ಇನ್ ಮಾಡಿ.",
+      validationError: "ದಯವಿಟ್ಟು ಎಲ್ಲಾ ಕ್ಷೇತ್ರಗಳನ್ನು ಸರಿಯಾಗಿ ಭರ್ತಿ ಮಾಡಿ.",
+      successMessage: "ಸರಕನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಕ್ಯೂಗೆ ಸೇರಿಸಲಾಗಿದೆ!"
+    }
+  };
+
+  const t = text[language];
+  const API_BASE_URL = "http://localhost:8000";
+
+  // Handles text transformations and data input binds
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // Submit Handler processing target values to FastAPI
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatusMessage(null);
+
+    // Pull phone parameters out from browser local storage safely
+    const storedPhone = localStorage.getItem("temp_register_phone");
+    if (!storedPhone) {
+      setStatusMessage({ type: 'error', text: t.missingPhoneError });
+      return;
+    }
+
+    // Basic Input Validations
+    if (!formData.item || !formData.weight || !formData.source || !formData.desti || !formData.depart_by) {
+      setStatusMessage({ type: 'error', text: t.validationError });
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      // Setup payload matching the backend BaseModel schema requirements
+      const payload = {
+        trader_phno: parseInt(storedPhone, 10),
+        item: formData.item,
+        weight: parseInt(formData.weight, 10) || 0,
+        source: formData.source,
+        desti: formData.desti,
+        // Map native local string parameters directly into ISO String timestamps
+        depart_by: new Date(formData.depart_by).toISOString(),
+        // arrive_by defaults to 24 hours post departure if not explicitly separated on UI
+        arrive_by: new Date(new Date(formData.depart_by).getTime() + 24 * 60 * 60 * 1000).toISOString()
+      };
+
+      const response = await fetch(`${API_BASE_URL}/create/load`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        kn:{
-            title: "ವ್ಯಾಪಾರಕರ ಫಾರ್ಮ್",
-            load_item: "ಸರಕಿನ ವಸ್ತು",
-            weight: "ತೂಕ",
-            weightNote: "ತೂಕವನ್ನು ಕಿಲೋಗ್ರಾಂಗಳಲ್ಲಿ (ಕೆಜಿ) ನಮೂದಿಸಿ.",
-            from: "ಇಂದ",
-            to: "ಗೆ",
-            availableFrom: "ಲಭ್ಯವಿರುವ ಸಮಯ",
-            departureBy: "ನಿರ್ಗಮನದ ಸಮಯ",
-            submit: "ಸಲ್ಲಿಸಿ",
-            vehicleError: "ದಯವಿಟ್ಟು ನಿಖರವಾಗಿ 10 ಅಂಕಿಗಳನ್ನು ನಮೂದಿಸಿ.",
-            weightPlaceholder: "ತೂಕವನ್ನು ನಮೂದಿಸಿ",
-            fromPlaceholder: "ಪ್ರಾರಂಭದ ಸ್ಥಳವನ್ನು ನಮೂದಿಸಿ",
-            toPlaceholder: "ಗಮ್ಯಸ್ಥಾನವನ್ನು ನಮೂದಿಸಿ",
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.detail || "Unable to add the load to queue");
+      }
+
+      // Clear layout fields upon completed successful executions
+      setStatusMessage({ type: 'success', text: t.successMessage });
+      setFormData({ item: '', weight: '', source: '', desti: '', depart_by: '' });
+
+    } catch (err: any) {
+      setStatusMessage({ type: 'error', text: err.message || "Network layout connectivity failure." });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div>
+      <style>{`
+        .trader-form-page {
+          margin: 32px auto;
+          padding: 32px;
+          background-color: #ffffff;
+          border-radius: 12px;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          border: 1px solid #e5e7eb;
+          text-align: left;
+          max-width: 600px;
         }
-    };
-    const t = text[language];
+        .lang-btn {
+          padding: 6px 16px;
+          margin-right: 8px;
+          font-size: 14px;
+          font-weight: 500;
+          border-radius: 6px;
+          cursor: pointer;
+          border: 1px solid #d1d5db;
+          background-color: #ffffff;
+          transition: all 0.2s;
+        }
+        .lang-btn.active {
+          background-color: #2563eb;
+          color: white;
+          border-color: #2563eb;
+        }
+        .form-label {
+          display: block;
+          font-size: 14px;
+          font-weight: 600;
+          color: #374151;
+          margin-bottom: 6px;
+        }
+        .form-input {
+          width: 100%;
+          box-sizing: border-box;
+          padding: 10px 14px;
+          font-size: 15px;
+          border-radius: 8px;
+          border: 1px solid #d1d5db;
+          outline: none;
+          transition: border-color 0.2s;
+        }
+        .form-input:focus {
+          border-color: #2563eb;
+          box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        .trader-field-pair {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 16px;
+        }
+        .trader-field-pair > div {
+          display: flex;
+          flex-direction: column;
+          min-width: 0;
+        }
+        .submit-btn {
+          width: 100%;
+          padding: 12px;
+          background-color: #2563eb;
+          color: white;
+          border: none;
+          font-size: 16px;
+          font-weight: 600;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background-color 0.2s;
+        }
+        .submit-btn:hover:not(:disabled) {
+          background-color: #1d4ed8;
+        }
+        .submit-btn:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+        .alert-box {
+          padding: 12px 16px;
+          border-radius: 8px;
+          font-size: 14px;
+          margin-bottom: 20px;
+          font-weight: 500;
+        }
+        .alert-success {
+          background-color: #dcfce7;
+          color: #166534;
+          border: 1px solid #bbf7d0;
+        }
+        .alert-error {
+          background-color: #fee2e2;
+          color: #991b1b;
+          border: 1px solid #fecaca;
+        }
+        /* Correct media block padding compilation */
+        @media (max-width: 640px) {
+          .trader-form-page {
+            margin: 16px;
+            padding: 20px;
+          }
+          .trader-field-pair {
+            grid-template-columns: 1fr;
+            gap: 14px;
+          }
+        }
+      `}</style>
 
-    return(
-        <div>
-            <style>{`
-                .trader-form-page{
-                    margin:32px auto;
-                    padding:24px;
-                }
-                .trader-field-pair{
-                    display:grid;
-                    grid-template-columns: repeat(2, minmax(0,1fr));
-                    gap:16px;
+      <div className="trader-form-page">
+        {/* LANGUAGE TOGGLE */}
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '16px' }}>
+          <button 
+            type="button"
+            className={`lang-btn ${language === 'en' ? 'active' : ''}`} 
+            onClick={() => setLanguage("en")}
+          >
+            English
+          </button>
+          <button 
+            type="button"
+            className={`lang-btn ${language === 'kn' ? 'active' : ''}`} 
+            onClick={() => setLanguage("kn")}
+          >
+            ಕನ್ನಡ
+          </button>
+        </div>
 
-                }
-                .trader-field-pair>div{
-                    display: flex;
-                    flex-direction: column;
-                    min-width: 0;
-                }
-                .trader-field-pair input{
-                    width: 100%;
-                    box-sizing: border-box;
-                }
-                @media (max-width:640 px){
-                    .trader-form-page{
-                        margin: 16px;
-                        padding: 16px;
-                    }
-                    .trader-field-pair{
-                    grid-template-columns: 1fr;
+        <h2 style={{ fontSize: '22px', fontWeight: 700, marginBottom: '24px', color: '#111827' }}>
+          {t.title}
+        </h2>
 
-                    }
-                }
-            `}</style>
+        {/* Dynamic Submission Alerts */}
+        {statusMessage && (
+          <div className={`alert-box ${statusMessage.type === 'success' ? 'alert-success' : 'alert-error'}`}>
+            {statusMessage.text}
+          </div>
+        )}
 
-            <div className="trader-form-page" >
-                {/*LANGUAGE TOGGLE*/}
-            <div>
-                <button onClick={() =>setLanguage("en")}>
-                    English
-                </button>
-                <button onClick = {() => setLanguage("kn")}>
-                    ಕನ್ನಡ
-                </button>
-            </div>
-            <br />
-            <h2>{t.title}</h2>
-            {/* LOAD ITEM */}
-            <label>{t.load_item}</label>
-            <br />
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          
+          {/* LOAD ITEM */}
+          <div>
+            <label className="form-label">{t.load_item}</label>
             <input
-             type="text"
-             placeholder={t.load_item}
+              type="text"
+              name="item"
+              value={formData.item}
+              onChange={handleInputChange}
+              className="form-input"
+              placeholder={t.loadPlaceholder}
             />
+          </div>
 
-            <br />
-            <br />
-
-            {/* WEIGHT */}
-            <label>{t.weight}</label>
-            <br />
+          {/* WEIGHT */}
+          <div>
+            <label className="form-label">{t.weight}</label>
             <input
-             type="text"
-             placeholder={t.weightPlaceholder}
+              type="number"
+              name="weight"
+              value={formData.weight}
+              onChange={handleInputChange}
+              className="form-input"
+              placeholder={t.weightPlaceholder}
+              min="1"
             />
-            <small
-                style={{
-                    display:"block",
-                    marginTop:"6px",
-                    color:"#64748b"
-                }}
-            >
-                {t.weightNote}
+            <small style={{ display: "block", marginTop: "6px", color: "#64748b", fontSize: '12px' }}>
+              {t.weightNote}
             </small>
-            <br />
-            <br />
+          </div>
             {/* FROM / TO */}
             <div className="trader-field-pair">
              <div>
@@ -152,6 +346,7 @@ function CreateLoad(){
 
 
       <button>{t.submit}</button>
+      </form>
       </div>
       </div>
     );
@@ -231,7 +426,6 @@ function CurrentLoads() {
     <div className="w-full py-4 text-left">
       {/* Action Header bar with Reload Status Trigger */}
       <div className="flex items-center justify-between mb-4" style={{ display: 'flex', justifyItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
-        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Active Shipments Pipeline</h3>
         <button 
           onClick={handleFetchLoads}
           disabled={loading}
@@ -344,7 +538,7 @@ function CreateTab() {
 function CurrentTab() {
   return (
     <div className="p-6 bg-gray-50 border border-gray-100 rounded-xl space-y-3">
-      <h2 className="text-xl font-semibold text-gray-800">📋 Technical Current</h2>
+      <h2 className="text-xl font-semibold text-gray-800">📋 Current Loads</h2>
       {CurrentLoads()}
     </div>
   );
