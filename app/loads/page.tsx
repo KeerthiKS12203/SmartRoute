@@ -1,14 +1,10 @@
-"use client"
-//import {useEffect} from "react";
-//import { useRouter } from "next/navigation";
+'use client';
 
-//export default function PhoneRegister() {
-    //return (
-        //<div>Load: new, current, history</div>
-    //);
-//}
 import { useState, type ChangeEvent } from 'react';
-export default function Load(){
+
+type TabType = 'Create' | 'Current' | 'History';
+
+function CreateLoad(){
     const [language, setLanguage] = useState<"en"| "kn">("en");
     const text={
         en:{
@@ -46,38 +42,38 @@ export default function Load(){
     return(
         <div>
             <style>{`
-                .driver-form-page{
+                .trader-form-page{
                     margin:32px auto;
                     padding:24px;
                 }
-                .driver-field-pair{
+                .trader-field-pair{
                     display:grid;
                     grid-template-columns: repeat(2, minmax(0,1fr));
                     gap:16px;
 
                 }
-                .driver-field-pair>div{
+                .trader-field-pair>div{
                     display: flex;
                     flex-direction: column;
                     min-width: 0;
                 }
-                .driver-field-pair input{
+                .trader-field-pair input{
                     width: 100%;
                     box-sizing: border-box;
                 }
                 @media (max-width:640 px){
-                    .driver-form-page{
+                    .trader-form-page{
                         margin: 16px;
                         padding: 16px;
                     }
-                    .driver-field-pair{
+                    .trader-field-pair{
                     grid-template-columns: 1fr;
 
                     }
                 }
             `}</style>
 
-            <div className="driver-form-page" >
+            <div className="trader-form-page" >
                 {/*LANGUAGE TOGGLE*/}
             <div>
                 <button onClick={() =>setLanguage("en")}>
@@ -119,7 +115,7 @@ export default function Load(){
             <br />
             <br />
             {/* FROM / TO */}
-            <div className="driver-field-pair">
+            <div className="trader-field-pair">
              <div>
                <label>{t.from}</label>
                <input
@@ -141,12 +137,7 @@ export default function Load(){
       <br />
 
       {/* AVAILABLE FROM / DEPARTURE BY */}
-      <div className="driver-field-pair">
-        <div>
-          <label>{t.availableFrom}</label>
-          <input type="datetime-local" />
-        </div>
-
+      <div className="trader-field-pair">
         <div>
           <label>{t.departureBy}</label>
           <input type="datetime-local" />
@@ -156,20 +147,82 @@ export default function Load(){
       <br />
       <br />
 
-      {/* PRICE */}
-      <label>{t.price}</label>
-      <br />
-
-      <input
-        type="text"
-        placeholder={t.pricePlaceholder}
-      />
-
-      <br />
-      <br />
 
       <button>{t.submit}</button>
       </div>
       </div>
     );
+}
+
+
+function CreateTab() {
+  return (
+    <div className="p-6 bg-gray-50 border border-gray-100 rounded-xl space-y-3">
+      <h2 className="text-xl font-semibold text-gray-800">📊 Add Load</h2>
+      <CreateLoad/>
+    </div>
+  );
+}
+
+function CurrentTab() {
+  return (
+    <div className="p-6 bg-gray-50 border border-gray-100 rounded-xl space-y-3">
+      <h2 className="text-xl font-semibold text-gray-800">📋 Technical Current</h2>
+      <p className="text-gray-600">This section handles data tables, specifications, or granular logs.</p>
+    </div>
+  );
+}
+
+function HistoryTab() {
+  return (
+    <div className="p-6 bg-gray-50 border border-gray-100 rounded-xl space-y-3">
+      <h2 className="text-xl font-semibold text-gray-800">⚙️ Load History</h2>
+      <p className="text-gray-600">Manage your preferences, configure layout thresholds, or toggle options here.</p>
+    </div>
+  );
+}
+
+export default function LoadPage() {
+  const [activeTab, setActiveTab] = useState<TabType>('Current');
+
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case 'Create':
+        return <CreateTab />;
+      case 'Current':
+        return <CurrentTab />;
+      case 'History':
+        return <HistoryTab />;
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="max-w-4xl mx-auto p-6">
+      <h1 className="text-2xl font-bold mb-6 text-gray-900">-----------------------------------------------------------------------------------------------------------------------------------</h1>
+
+      <div className="flex border-b border-gray-200 mb-6" role="tablist">
+        {(['Create', 'Current', 'History'] as TabType[]).map((tab) => (
+          <button
+            key={tab}
+            role="tab"
+            aria-selected={activeTab === tab}
+            className={`py-2 px-4 font-medium capitalize border-b-2 transition-all -mb-[2px] ${
+              activeTab === tab
+                ? 'border-blue-600 text-blue-600 font-semibold'
+                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+            }`}
+            onClick={() => setActiveTab(tab)}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
+
+      <div className="mt-4 animate-fade-in">
+        {renderTabContent()}
+      </div>
+    </div>
+  );
 }
